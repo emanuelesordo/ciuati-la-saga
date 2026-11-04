@@ -32,17 +32,24 @@ export default function AtlasMap({places}:{places:AtlasPlace[]}){
    <svg className="atlas-svg" role="img" aria-label="Mappa immaginaria dei territori della Saga, trascinabile e ingrandibile" viewBox={`${vx} ${vy} ${viewWidth} ${viewHeight}`} onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={onPointerUp} onPointerCancel={onPointerUp}>
     <defs><pattern id="atlas-grid" width="35" height="35" patternUnits="userSpaceOnUse"><path d="M35 0H0V35" fill="none" stroke="#e9cda1" strokeOpacity=".12"/></pattern></defs>
     <rect width="1000" height="700" fill="#152c37"/><rect width="1000" height="700" fill="url(#atlas-grid)"/>
-    <path d="M105 260 Q120 205 205 230 Q270 225 327 285 L355 385 Q315 470 217 480 L125 405Z" fill="#657455" stroke="#c9bb8c" strokeWidth="3"/>
-    <path d="M360 175 Q450 105 555 165 L622 250 L594 375 Q510 428 408 382 L353 283Z" fill="#687f62" stroke="#d4c59d" strokeWidth="3"/>
-    <path d="M575 405 Q655 350 745 400 L846 505 L812 635 L680 653 L573 575Z" fill="#8b7658" stroke="#d4c59d" strokeWidth="3"/>
-    <path d="M115 75 Q235 40 325 88 L366 173 L305 223 L160 205 L105 148Z" fill="#617e81" stroke="#d4c59d" strokeWidth="3"/>
-    <path d="M375 205 Q445 260 405 360 Q390 445 480 515" stroke="#a8d1d5" strokeWidth="9" fill="none" opacity=".55"/>
-    <path d="M606 455 Q675 515 722 615" stroke="#a8d1d5" strokeWidth="7" fill="none" opacity=".55"/>
-    <g fill="#e6d7b5" opacity=".7" fontFamily="Georgia,serif" fontStyle="italic" fontSize="20"><text x="140" y="285">Bonària</text><text x="422" y="225">Paugania</text><text x="718" y="440">Spianata</text><text x="160" y="125">Cambrinus</text></g>
-    {visible.map(p=>{const pt=landmarks[p.slug];const isActive=p.slug===selected;return <g key={p.id} role="button" tabIndex={0} aria-label={`Apri ${p.name}`} onClick={e=>{e.stopPropagation();focus(p.slug)}} onKeyDown={e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();focus(p.slug)}}} style={{cursor:'pointer'}}>
-      <circle cx={pt.x} cy={pt.y} r={isActive?15:11} fill={isActive?'#f5c478':'#f4e4c8'} stroke="#302d31" strokeWidth="3"/>
-      {p.slug==='white-pony'&&<text x={pt.x} y={pt.y+5} fontSize="14" textAnchor="middle" fill="#2c2530">★</text>}
-      <text x={pt.x+16} y={pt.y-12} fill="#fff5df" fontFamily="Georgia,serif" fontWeight={isActive?'bold':'normal'} fontSize="17" paintOrder="stroke" stroke="#1c2d33" strokeWidth="4">{p.name}</text>
+
+    {[
+      ['bonaria','M105 260 Q120 205 205 230 Q270 225 327 285 L355 385 Q315 470 217 480 L125 405Z','#657455',195,320],
+      ['paugania','M360 175 Q450 105 555 165 L622 250 L594 375 Q510 428 408 382 L353 283Z','#687f62',470,240],
+      ['spianata','M575 405 Q655 350 745 400 L846 505 L812 635 L680 653 L573 575Z','#8b7658',755,490],
+      ['cambrinus','M115 75 Q235 40 325 88 L366 173 L305 223 L160 205 L105 148Z','#617e81',230,120]
+    ].map(([slug,path,fill,x,y])=>{const place=visible.find(p=>p.slug===slug);return <g key={String(slug)} role="button" tabIndex={0} aria-label={'Apri '+(place?.name??slug)} onClick={()=>place&&focus(String(slug))} onKeyDown={e=>{if(place&&(e.key==='Enter'||e.key===' ')){e.preventDefault();focus(String(slug))}}} style={{cursor:'pointer'}}>
+      <path d={String(path)} fill={String(fill)} stroke={selected===slug?'#f5c478':'#d4c59d'} strokeWidth={selected===slug?6:3}/>
+      <text x={Number(x)} y={Number(y)} textAnchor="middle" fill="#fff1d3" fontFamily="Georgia,serif" fontStyle="italic" fontSize="23" letterSpacing="2" paintOrder="stroke" stroke="#27343a" strokeWidth="4">{place?.name}</text>
+    </g>})}
+    <path d="M606 427 Q651 396 705 427 L739 474 L701 510 L626 496 L596 456Z" fill="#a1a18b" stroke={selected==='svilarna'?'#f5c478':'#d8d0af'} strokeWidth={selected==='svilarna'?5:2} strokeDasharray="8 5" onClick={()=>focus('svilarna')} style={{cursor:'pointer'}}/>
+    <g fill="#e4dfce" stroke="#5a635d" strokeWidth="2" pointerEvents="none"><path d="M619 464l15-28 15 28z"/><path d="M643 478l19-39 19 39z"/><path d="M675 467l17-30 17 30z"/></g>
+    {visible.some(p=>p.slug==='svilarna')&&<text x="657" y="491" textAnchor="middle" fontSize="17" fontFamily="Georgia,serif" fill="#fff5df" paintOrder="stroke" stroke="#27343a" strokeWidth="4" onClick={()=>focus('svilarna')} style={{cursor:'pointer'}}>Svilarna</text>}
+    <path d="M375 205 Q445 260 405 360 Q390 445 480 515" stroke="#a8d1d5" strokeWidth="9" fill="none" opacity=".55" pointerEvents="none"/>
+    <path d="M606 515 Q675 535 722 615" stroke="#a8d1d5" strokeWidth="7" fill="none" opacity=".55" pointerEvents="none"/>
+    {visible.filter(p=>!['bonaria','paugania','spianata','cambrinus','svilarna'].includes(p.slug)).map(p=>{const pt=landmarks[p.slug];const active=p.slug===selected;const special=p.slug==='white-pony';return <g key={p.id} role="button" tabIndex={0} aria-label={'Apri '+p.name} onClick={e=>{e.stopPropagation();focus(p.slug)}} onKeyDown={e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();focus(p.slug)}}} style={{cursor:'pointer'}}>
+      {special?<rect x={pt.x-8} y={pt.y-8} width="16" height="16" transform={'rotate(45 '+pt.x+' '+pt.y+')'} fill="#f5c478" stroke="#302d31" strokeWidth="2"/>:<circle cx={pt.x} cy={pt.y} r={active?10:7} fill={active?'#f5c478':'#f4e4c8'} stroke="#302d31" strokeWidth="2"/>}
+      <text x={pt.x+14} y={pt.y-13} fill="#fff5df" fontFamily="Georgia,serif" fontWeight={active?'bold':'normal'} fontSize="17" paintOrder="stroke" stroke="#1c2d33" strokeWidth="4">{p.name}</text>
     </g>})}
    </svg>
    <div className="atlas-map-foot">Mappa immaginaria · Trascina per esplorare · Seleziona un luogo</div>
