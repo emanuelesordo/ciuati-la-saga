@@ -5,7 +5,8 @@
 > Regola: non modificare o cancellare il contenuto già registrato; aggiungere soltanto nuove voci nel registro finale. Eventuali rettifiche sono nuove voci motivate.
 
 ## Identità e carattere
-Difensore delle cause impossibili, bonario e ospitale. Quando fiuta macchinazioni occulte, può trasformarsi nel più ostinato avvocato dell'indifendibile.
+Dalle alture di Svilarna, dove si dice che perfino i lupi discutano prima di ululare, giunse Barretta. Ad Antonova nessuno ricorda quale fosse la sua prima controversia, ma tutti ricordano quanto durò. Le sue Disamine sanno trasformare una disputa sul possesso di un ponte in un trattato sulla dignità dei ponti, con gesti, sentenze e improvvisi lampi di ragione. Quando il Gatto e la Volpe proclamano una verità dall'alto, lui ne proclama tre dal basso.
+Sbaglia con magnificenza, talvolta indovina contro ogni previsione, e non abbandona mai una causa soltanto perché il mondo intero la ritiene perduta. Tra i pochi capaci di capirne il cuore ci sono il vecchio amico Giogale e Hermano, compagno di imprese e di ostinate fedeltà.
 
 ## Origine e luoghi
 Nato e cresciuto sull'altopiano di Svilarna, distinto dal resto della Spianata. Ha assorbito i codici più controversi della regione principalmente per racconti e dicerie, non per esperienza diretta. Vive ad Antonova e torna a visitare la famiglia.
