@@ -5,7 +5,8 @@
 > Regola: non modificare o cancellare il contenuto già registrato; aggiungere soltanto nuove voci nel registro finale. Eventuali rettifiche sono nuove voci motivate.
 
 ## Identità e carattere
-Mediatore delle corporazioni, cerca accordi tra schieramenti incompatibili senza perdere la lealtà per i compagni.
+A ogni nuova contesa di Antonova c'è qualcuno che invoca Hermano, e qualcun altro che lo accusa di essere già passato dalla parte opposta. È il destino di chi conosce l'arte delle intese: parlare ai mercanti, ai ribelli e perfino ai custodi delle chiavi senza smettere di ascoltare nessuno. Lo chiamano il Sindacalista, talvolta con gratitudine, più spesso con un sorriso sospettoso. Sa leggere gli ingranaggi delle macchine e quelli delle assemblee, ma nessun calcolo lo ha ancora salvato dall'accusa di avere quattro alleanze contemporaneamente.
+Con Barretta condivide una fratellanza fatta di imprese, fedeltà e dispute che nessuno dei due considera davvero concluse.
 
 ## Origine e luoghi
 Le imprese note si svolgono ad Antonova; la patria d'origine non è ancora definita.
