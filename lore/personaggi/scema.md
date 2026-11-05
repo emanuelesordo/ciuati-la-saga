@@ -5,7 +5,10 @@
 > Regola: non modificare o cancellare il contenuto già registrato; aggiungere soltanto nuove voci nel registro finale. Eventuali rettifiche sono nuove voci motivate.
 
 ## Identità e carattere
-L'Uomo Vipera: osservatore pungente che semina dubbi, fedele alle proprie tradizioni nordiche autoproclamate e spesso accompagnato dal cane Stryger.
+Nelle cronache di Antonova compare spesso una firma incerta: ScEma, che alcuni chiamano Viper e altri Stotca.
+Non ama i pulpiti né le piazze affollate; preferisce lasciare una domanda sul tavolo e osservare come gli altri vi inciampino. Le sue provocazioni hanno il garbo ingannevole delle trappole ben costruite: rivelano contraddizioni, punzecchiano i potenti e, senza dichiararlo apertamente, tradiscono le sue convinzioni. Lo segue un husky dallo sguardo più eloquente di molti consiglieri. Quando le faccende si complicano, ScEma consulta
+idealmente gli antichi dèi del Nord; più spesso gli basta una battuta pronunciata al momento giusto. Anche al White Pony sa riconoscere i riti
+degni di rispetto.
 
 ## Origine e luoghi
 Legato ad Antonova, nella Paugania. Crede in una discendenza dai miti norreni, senza legami di sangue accertati.
