@@ -49,15 +49,22 @@ export default function Accedi(){
  async function submit(e:React.FormEvent){
   e.preventDefault();
   if(!supabase||!selected)return setMessage('Servizio di autenticazione non configurato.');
-  if(password.length<8)return setMessage('La password deve avere almeno 8 caratteri.');
+  if(password.length<(firstAccess?10:8))return setMessage('La password deve avere almeno '+(firstAccess?10:8)+' caratteri.');
   if(firstAccess&&password!==confirmPassword)return setMessage('Le due password non coincidono.');
   setBusy(true);setMessage('');
   try{
    if(firstAccess){
     if(selected==='admin'){setMessage('L’account amministratore è già configurato.');return;}
-    const {data,error}=await supabase.auth.signUp({email,password,options:{data:{}}});
-    if(error){setMessage(error.message);return;}
-    if(!data.session){setMessage('Password inviata al servizio. Il primo accesso richiede la conferma dell’account da parte dell’amministratore.');return;}
+    const {data,error}=await supabase.functions.invoke('register-character',{body:{slug:selected,password}});
+    if(error){
+     const context=error && 'context' in error?error.context:undefined;
+     const payload=context instanceof Response?await context.json().catch(()=>null):null;
+     setMessage(payload?.error||'Impossibile attivare il personaggio. Riprova o contatta l’amministratore.');
+     return;
+    }
+    if(!data?.ok){setMessage('Attivazione non riuscita.');return;}
+    const login=await supabase.auth.signInWithPassword({email,password});
+    if(login.error){setMessage('Password salvata, ma accesso non riuscito. Riprova dalla schermata di login.');return;}
    }else{
     const {error}=await supabase.auth.signInWithPassword({email,password});
     if(error){setMessage('Password errata oppure personaggio non ancora attivato. Al primo accesso usa «Imposta password».');return;}
@@ -96,7 +103,7 @@ export default function Accedi(){
    <form onSubmit={submit}>
     <label htmlFor="saga-password">Password</label>
     <input ref={passwordRef} id="saga-password" type="password" autoComplete={firstAccess?'new-password':'current-password'} value={password} onChange={e=>setPassword(e.target.value)} required minLength={8}/>
-    {firstAccess&&<><label htmlFor="saga-password-confirm">Conferma password</label><input id="saga-password-confirm" type="password" autoComplete="new-password" value={confirmPassword} onChange={e=>setConfirmPassword(e.target.value)} required minLength={8}/></>}
+    {firstAccess&&<><label htmlFor="saga-password-confirm">Conferma password</label><input id="saga-password-confirm" type="password" autoComplete="new-password" value={confirmPassword} onChange={e=>setConfirmPassword(e.target.value)} required minLength={10}/></>}
     <button type="submit" disabled={busy}>{busy?'Verifica in corso…':firstAccess?'Salva password':'Accedi'}</button>
    </form>
    {selected!=='admin'&&<button className="saga-switch" type="button" onClick={()=>{setFirstAccess(v=>!v);setMessage('');setPassword('');setConfirmPassword('')}}>{firstAccess?'Hai già una password? Accedi':'Primo accesso? Imposta password'}</button>}
