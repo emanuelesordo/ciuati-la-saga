@@ -30,3 +30,21 @@ form{display:grid;gap:12px;max-width:420px;margin-top:24px}input{font:inherit;pa
 .saga-modal .saga-switch{font-size:14px}
 .saga-modal .saga-login-message{font:normal 14px/1.5 Arial,sans-serif}
 @media(max-width:520px){.saga-modal-overlay{padding:14px}.saga-modal{max-height:calc(100dvh - 28px)}}
+
+/* Contributi narrativi: pergamena scura, coerente con gli identikit */
+.narrative-panel{margin-top:34px;border-color:#6b563b;background:linear-gradient(145deg,#25202a,#191a24)}
+.narrative-panel h2{font:normal clamp(27px,4vw,39px) Georgia,serif;margin:12px 0}
+.narrative-panel p{font-size:16px;line-height:1.6}
+.narrative-form{max-width:none;display:flex;flex-direction:column;gap:12px}
+.narrative-form label{font-size:14px;color:#e4cba8;font-weight:700}
+.narrative-form input,.narrative-form select,.narrative-form textarea{width:100%;font:inherit;background:#12141e;color:#f6f2e9;border:1px solid #6a5a48;border-radius:10px;padding:13px}
+.narrative-form textarea{resize:vertical;min-height:120px}
+.narrative-form small{color:#bcb6ae;line-height:1.5}
+.narrative-form>button{align-self:flex-start}
+.narrative-mention-wrap{position:relative}
+.narrative-suggestions{position:absolute;z-index:8;top:100%;left:0;right:0;max-height:250px;overflow:auto;background:#22232d;border:1px solid #a68454;border-radius:10px;box-shadow:0 12px 25px #0009}
+.narrative-suggestions button{display:block;width:100%;text-align:left;background:transparent;color:#f7e8d2;border-radius:0;padding:11px 14px}
+.narrative-suggestions button:hover,.narrative-suggestions button:focus-visible{background:#51422e}
+.narrative-proposal{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:14px}
+.narrative-proposal label{display:grid;gap:8px}
+.narrative-notice{font-size:15px!important;color:#e8c895!important}
