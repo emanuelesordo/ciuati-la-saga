@@ -5,7 +5,7 @@
 > Regola: non modificare o cancellare il contenuto già registrato; aggiungere soltanto nuove voci nel registro finale. Eventuali rettifiche sono nuove voci motivate.
 
 ## Identità e carattere
-Viandante dal vessillo viola, attraversa la Saga con un'agenda indecifrabile; porta ironia e deviazioni nei momenti più solenni.
+Le strade che scendono da Svilarna conducono lontano, e quelle che attraversano Bonària sembrano non finire mai. Cecè appartiene un poco a entrambe, ma a Tortellum ha imparato l'arte di sentirsi a casa. Ad Antonova è conosciuto come l'Eternamente Viola: il colore che, secondo la leggenda, assume ogni suo impegno prima ancora di essere annunciato. Parte per incarichi misteriosi, attraversa terre, ritorna quando la disputa è già alla terza svolta e offre una battuta che pare provenire da un racconto completamente diverso. Talvolta nessuno la capisce; talvolta è proprio questo a renderla memorabile. I decreti della dirigenza lo raggiungono spesso, ma raramente riescono a sottrargli la voglia di scherzarci sopra.
 
 ## Origine e luoghi
 Le cronache lo collocano fra Svilarna, Bonària, Tortellum e Antonova; non stabiliscono con certezza una patria unica.
