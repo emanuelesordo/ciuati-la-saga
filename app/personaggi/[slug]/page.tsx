@@ -38,7 +38,7 @@ export default async function Identikit({params}:{params:Promise<{slug:string}>}
  const links=relations.map(r=>({...r,target:names.get(r.target_character_id||r.target_secondary_id||'')||null})).filter(r=>r.target);
  return <main className="shell identikit-shell"><Link href="/personaggi">← Tutti i personaggi</Link>
  <div className="eyebrow" style={{marginTop:40}}>ARCHIVIO UFFICIALE · DOSSIER DELLA SAGA</div>
- <div className="identikit-hero"><div className="identikit-portrait">{character.avatar_path?.startsWith('https://')?<img src={character.avatar_path} alt={'Ritratto ufficiale di '+character.display_name}/>:<div className="portrait-pending"><span aria-hidden="true">{character.display_name.charAt(0)}</span><small>Ritratto in preparazione</small></div>}</div>
+ <div className="identikit-hero"><div className="identikit-portrait">{(character.avatar_path?.startsWith('https://')||character.avatar_path?.startsWith('/characters/'))?<img src={character.avatar_path} alt={'Ritratto ufficiale di '+character.display_name}/>:<div className="portrait-pending"><span aria-hidden="true">{character.display_name.charAt(0)}</span><small>Ritratto in preparazione</small></div>}</div>
  <div className="identikit-heading"><span className="identikit-kicker">LA CERCHIA DEI CIUATI</span><h1>{character.display_name}</h1><p>{character.biography||'Le cronache non hanno ancora consegnato la sua storia agli archivi.'}</p><div className="identikit-tags"><span>Personaggio principale</span><span>Identikit pubblico</span></div></div></div>
  <IdentikitTabs profile={character.profile||{}} aliases={aliases.map(a=>a.alias)} relations={links} chronicles={chronicles}/>
  </main>;
