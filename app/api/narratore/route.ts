@@ -9,8 +9,8 @@ export async function POST(request:NextRequest){
   const url=process.env.NEXT_PUBLIC_SUPABASE_URL;
   const publishable=process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
   const secret=process.env.SUPABASE_SECRET_KEY;
-  const apiKey=process.env.OPENAI_API_KEY;
-  const model=process.env.NARRATIVE_MODEL || 'gpt-4.1-mini';
+  const apiKey=process.env.GEMINI_API_KEY;
+  const model='gemini-3.1-flash-lite';
   if(!url||!publishable||!secret||!apiKey)return errorResponse('Configurazione server incompleta.',503);
   const bearer=request.headers.get('authorization')||'';
   if(!bearer.startsWith('Bearer '))return errorResponse('Autenticazione richiesta.',401);
@@ -51,18 +51,21 @@ export async function POST(request:NextRequest){
       'Rispondi SOLO in JSON valido con chiavi title, summary, body, continuity_notes.',
       'continuity_notes deve essere un array di stringhe: potenziali incoerenze o novità da approvare.'
     ].join(' ');
-    const response=await fetch('https://api.openai.com/v1/chat/completions',{
+    const response=await fetch('https://generativelanguage.googleapis.com/v1beta/models/'+model+':generateContent',{
       method:'POST',
-      headers:{Authorization:'Bearer '+apiKey,'Content-Type':'application/json'},
-      body:JSON.stringify({model,temperature:0.85,response_format:{type:'json_object'},messages:[
-        {role:'system',content:system},
-        {role:'user',content:JSON.stringify({context,idea:idea||'Sviluppa liberamente un nuovo episodio.',instruction:'Non aggiornare mai direttamente il canone.'})}
-      ]}),
+      headers:{'x-goog-api-key':apiKey,'Content-Type':'application/json'},
+      body:JSON.stringify({
+        systemInstruction:{parts:[{text:system}]},
+        contents:[{role:'user',parts:[{text:JSON.stringify({context,idea:idea||'Sviluppa liberamente un nuovo episodio.',instruction:'Non aggiornare mai direttamente il canone.'})}]}],
+        generationConfig:{temperature:0.85,maxOutputTokens:8192,responseMimeType:'application/json'}
+      }),
       signal:AbortSignal.timeout(90000)
     });
-    if(!response.ok)return errorResponse('Servizio AI non disponibile ('+response.status+').',502);
-    const result=await response.json() as {choices?:Array<{message?:{content?:string}}>} ;
-    const raw=result.choices?.[0]?.message?.content;
+    if(!response.ok)return errorResponse('Servizio Gemini non disponibile ('+response.status+').',502);
+    const result=await response.json() as {candidates?:Array<{content?:{parts?:Array<{text?:string}>},finishReason?:string}>};
+    const candidate=result.candidates?.[0];
+    if(candidate?.finishReason && candidate.finishReason!=='STOP')return errorResponse('Generazione Gemini incompleta: '+candidate.finishReason,502);
+    const raw=candidate?.content?.parts?.map(part=>part.text||'').join('');
     if(!raw)return errorResponse('Risposta AI vuota.',502);
     const episode=JSON.parse(raw) as {title?:unknown;summary?:unknown;body?:unknown;continuity_notes?:unknown};
     if(typeof episode.title!=='string'||typeof episode.summary!=='string'||typeof episode.body!=='string'||episode.body.length<300){
