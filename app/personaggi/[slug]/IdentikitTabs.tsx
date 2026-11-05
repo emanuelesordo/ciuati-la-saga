@@ -5,13 +5,13 @@ type Chronicle={slug:string;title:string;summary:string;event_date:string;role:s
 function text(v:unknown):string{return typeof v==='string'?v.trim():'';}
 export default function IdentikitTabs({profile,relations,chronicles}:{profile:Profile;aliases:string[];relations:Relation[];chronicles:Chronicle[]}){
  const dossier=(profile.dossier&&typeof profile.dossier==='object'&&!Array.isArray(profile.dossier)?profile.dossier:{}) as Record<string,unknown>;
- const facts:[string,string][]=[
+ const facts: [string,string][] = ([
   ['Origine',text(dossier.origin)||text(profile.origin)],
   ['Ideali',text(dossier.ideals)],
   ['Punto di forza',text(dossier.strength)],
   ['Punto debole',text(dossier.weakness)],
   ['Mossa segreta',text(dossier.secret_move)]
- ].filter(([,v])=>Boolean(v));
+ ] as [string,string][]).filter(([,v])=>Boolean(v));
  return <section className="identikit-dossier" aria-label="Identikit narrativo">
   <div className="identikit-body">
    <div className="eyebrow">IDENTITÀ</div>
