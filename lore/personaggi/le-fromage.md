@@ -5,7 +5,9 @@
 > Regola: non modificare o cancellare il contenuto già registrato; aggiungere soltanto nuove voci nel registro finale. Eventuali rettifiche sono nuove voci motivate.
 
 ## Identità e carattere
-Il Cavallo Selvaggio: cavaliere errante, giudice severissimo dei boccali e dei costumi delle locande.
+Nessuno ha mai stabilito se Le Fromage sia stato allontanato dalle corti di Antonova o se abbia semplicemente deciso che nessuna corte meritasse la sua presenza. Lo chiamano Cavallo Selvaggio: percorre lunghe strade senza chiedere permesso e dispensa giudizi brevi come colpi di frusta. La cerchia dei Ciuati è il luogo in cui deposita il proprio malcontento, una frecciata alla volta. Eppure esiste un santuario capace di sospendere persino il suo disappunto: il White Pony. Là, sotto lo sguardo del mastro birraio Rob, la schiuma diventa materia di fede e ogni bevanda forestiera rischia una sentenza poco decorosa. Si narrano suoi pellegrinaggi immaginati verso Carbonade, nella remota Cambrinus.
+Quanto alle sue antiche alleanze, nessuno è mai riuscito a fargli confessare a quale stendardo
+appartenga davvero.
 
 ## Origine e luoghi
 Legato ad Antonova, al White Pony e ai pellegrinaggi verso Carbonade e Cambrinus; la patria natale non è determinata.
