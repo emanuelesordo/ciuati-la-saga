@@ -14,3 +14,19 @@ form{display:grid;gap:12px;max-width:420px;margin-top:24px}input{font:inherit;pa
 
 /* Accesso alla Cerchia */
 .saga-login{max-width:1100px}.saga-login h1{font-family:Georgia,serif;font-size:clamp(46px,7vw,78px);letter-spacing:-.045em}.saga-login-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:32px}.saga-login-card{min-width:0;padding:0 0 18px;background:#1c1d27;color:#f6f2e9;border:2px solid #504635;border-radius:15px;overflow:hidden;text-align:center;transition:transform .16s,border-color .16s,background .16s}.saga-login-card:hover,.saga-login-card:focus-visible{transform:translateY(-3px);border-color:#dfb87a}.saga-login-card.selected{border-color:#e5ae6b;background:#332a25;box-shadow:0 0 0 2px #8f673a}.saga-login-art{display:flex;width:100%;aspect-ratio:5/4;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 20%,#6d5645,#171820 80%);overflow:hidden;margin-bottom:14px}.saga-login-art img{width:100%;height:100%;object-fit:contain}.saga-login-card strong{display:block;font:normal clamp(19px,2.6vw,29px) Georgia,serif;padding:0 8px}.saga-login-card small{display:block;margin:7px 4px 0;color:#d8bc93;font-size:10px;letter-spacing:.09em}.saga-fallback{font:normal 86px Georgia,serif;color:#cba675}.saga-login-admin{border-color:#795f9e}.saga-ai-art{background:radial-gradient(circle,#53406d,#181925 80%)}.saga-ai-art svg{width:72%;height:85%;filter:drop-shadow(0 6px 8px #0008)}.saga-login-panel{margin-top:30px;max-width:580px}.saga-login-panel p{font-size:16px}.saga-login-panel form{margin-top:20px}.saga-back,.saga-switch{background:transparent;color:#e5ae6b;padding:8px 0;text-align:left}.saga-back{margin-bottom:18px}.saga-switch{margin-top:22px;text-decoration:underline}.saga-login-message{padding:12px 0;color:#f2c58c}@media(max-width:650px){.saga-login-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.saga-login-card strong{font-size:23px}.saga-login-card small{font-size:9px}.saga-login-art{aspect-ratio:1/1}}
+
+/* Pergamena modale per accesso personaggio */
+.saga-modal-overlay{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(9,10,17,.83);backdrop-filter:blur(7px);overflow-y:auto}
+.saga-modal{position:relative;width:min(100%,510px);max-height:calc(100dvh - 40px);overflow-y:auto;margin:auto;padding:clamp(24px,5vw,42px);border:3px solid #b88a4c;border-radius:18px;background:linear-gradient(145deg,#30271f 0%,#1c1b25 48%,#24202a 100%);box-shadow:0 0 0 5px #17131b,0 0 0 7px #806038,0 24px 90px #000b;text-align:center}
+.saga-modal::before,.saga-modal::after{content:"✦";position:absolute;top:9px;color:#d8a85e;font-size:18px}.saga-modal::before{left:14px}.saga-modal::after{right:14px}
+.saga-modal-emblem{font-size:35px;color:#e6b974;margin-bottom:9px;text-shadow:0 0 20px #e5ae6b66}
+.saga-modal h2{font:normal clamp(31px,6vw,45px) Georgia,serif;color:#f5dbab;text-shadow:2px 3px #100e12;margin:0}
+.saga-modal p{margin:13px auto;color:#e1cdb0;font:normal 16px/1.6 Georgia,serif}
+.saga-modal form{margin:22px auto 0;text-align:left;gap:12px}
+.saga-modal label{color:#e7c18a;font:normal 17px Georgia,serif}
+.saga-modal input{width:100%;border:2px solid #8d6a43;background:#100f16;color:#fff;border-radius:9px;outline-offset:3px}
+.saga-modal form button[type=submit]{margin-top:10px;background:linear-gradient(#f4d49b,#c8934d);border:2px solid #f4d49b;font:700 18px Georgia,serif;box-shadow:0 4px 0 #664426}
+.saga-modal .saga-back{display:block;margin:0 0 10px;font-size:13px;color:#dcb982}
+.saga-modal .saga-switch{font-size:14px}
+.saga-modal .saga-login-message{font:normal 14px/1.5 Arial,sans-serif}
+@media(max-width:520px){.saga-modal-overlay{padding:14px}.saga-modal{max-height:calc(100dvh - 28px)}}
