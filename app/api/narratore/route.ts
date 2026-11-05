@@ -8,10 +8,9 @@ const errorResponse=(message:string,status:number)=>NextResponse.json({error:mes
 export async function POST(request:NextRequest){
   const url=process.env.NEXT_PUBLIC_SUPABASE_URL;
   const publishable=process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
-  const secret=process.env.SUPABASE_SECRET_KEY;
   const apiKey=process.env.GEMINI_API_KEY;
   const model='gemini-3.1-flash-lite';
-  if(!url||!publishable||!secret||!apiKey)return errorResponse('Configurazione server incompleta.',503);
+  if(!url||!publishable||!apiKey)return errorResponse('Configurazione server incompleta.',503);
   const bearer=request.headers.get('authorization')||'';
   if(!bearer.startsWith('Bearer '))return errorResponse('Autenticazione richiesta.',401);
   const token=bearer.slice(7);
@@ -23,7 +22,7 @@ export async function POST(request:NextRequest){
   try{payload=await request.json() as {idea?:unknown};}catch{return errorResponse('JSON non valido.',400);}
   const idea=typeof payload.idea==='string'?payload.idea.trim():'';
   if(idea.length>2000)return errorResponse('Spunto troppo lungo (massimo 2000 caratteri).',400);
-  const db=createClient(url,secret,{auth:{persistSession:false,autoRefreshToken:false}});
+  const db=createClient(url,publishable,{global:{headers:{Authorization:'Bearer '+token}},auth:{persistSession:false,autoRefreshToken:false}});
   try{
     const [characters,places,lore,facts,events,relations,previous]=await Promise.all([
       db.from('characters').select('id,display_name,biography,profile').limit(30),
