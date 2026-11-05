@@ -1,0 +1,10 @@
+alter table public.narrative_inputs add column if not exists kind text not null default 'story' check (kind in ('ideology','perception','relationship','skill','weakness','story','character_proposal'));
+alter table public.narrative_inputs add column if not exists target_character_id uuid references public.characters(id) on delete set null;
+alter table public.narrative_inputs add column if not exists mentions jsonb not null default '[]'::jsonb;
+alter table public.narrative_inputs add column if not exists proposal jsonb not null default '{}'::jsonb;
+alter table public.narrative_inputs add constraint narrative_inputs_mentions_array check (jsonb_typeof(mentions)='array');
+alter table public.narrative_inputs add constraint narrative_inputs_proposal_object check (jsonb_typeof(proposal)='object');
+grant insert,select on public.narrative_inputs to authenticated;
+create policy narrative_inputs_author_insert on public.narrative_inputs for insert to authenticated with check (author_id=(select auth.uid()) and status='pending' and (character_id is null or character_id in (select id from public.characters where owner_id=(select auth.uid()))) and (kind <> 'ideology' or target_character_id in (select id from public.characters where owner_id=(select auth.uid()))));
+create policy narrative_inputs_author_select on public.narrative_inputs for select to authenticated using (author_id=(select auth.uid()) or (auth.jwt()->'app_metadata'->>'role')='admin');
+create policy narrative_inputs_admin_update on public.narrative_inputs for update to authenticated using ((auth.jwt()->'app_metadata'->>'role')='admin') with check ((auth.jwt()->'app_metadata'->>'role')='admin');
