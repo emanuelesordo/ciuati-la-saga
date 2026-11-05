@@ -1,0 +1,18 @@
+name: Verifica lore append-only
+on:
+  pull_request:
+    paths:
+      - 'lore/personaggi/**'
+      - 'scripts/verify-lore-append.mjs'
+      - '.github/workflows/lore-append.yml'
+permissions:
+  contents: read
+jobs:
+  append-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73dc5a40fe4bfc6b3f # v4.2.2
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - run: node scripts/verify-lore-append.mjs "${{ github.event.pull_request.base.sha }}" "${{ github.event.pull_request.head.sha }}"
