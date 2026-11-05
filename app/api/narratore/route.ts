@@ -26,22 +26,23 @@ export async function POST(request:NextRequest){
   if(idea.length>2000)return errorResponse('Spunto troppo lungo (massimo 2000 caratteri).',400);
   const db=createClient(url,publishable,{global:{headers:{Authorization:'Bearer '+token}},auth:{persistSession:false,autoRefreshToken:false}});
   try{
-    const [characters,places,lore,facts,events,relations,previous]=await Promise.all([
+    const [characters,places,lore,facts,events,relations,previous,contributions]=await Promise.all([
       db.from('characters').select('id,display_name,biography,profile').limit(30),
       db.from('saga_places').select('id,name,description').limit(50),
       db.from('saga_lore').select('slug,title,description').limit(50),
       db.from('saga_memory_facts').select('subject,statement,classification,visibility').limit(120),
       db.from('saga_events').select('slug,title,summary,event_date').order('event_date',{ascending:true}).limit(80),
       db.from('saga_character_relations').select('source_character_id,target_character_id,target_secondary_id,relationship,classification').limit(100),
-      db.from('episodes').select('title,summary').eq('is_published',true).order('created_at',{ascending:false}).limit(20)
+      db.from('episodes').select('title,summary').eq('is_published',true).order('created_at',{ascending:false}).limit(20),
+      db.from('narrative_inputs').select('kind,content,target_character_id,character_id,mentions,proposal,created_at').in('status',['pending','accepted']).order('created_at',{ascending:false}).limit(100)
     ]);
-    const datasets=[characters,places,lore,facts,events,relations,previous];
+    const datasets=[characters,places,lore,facts,events,relations,previous,contributions];
     if(datasets.some(d=>d.error))return errorResponse('Memoria narrativa non disponibile.',503);
     const canonicalIdentikits=await Promise.all(['barretta','scema','hermano','giogale','cece','le-fromage'].map(async slug=>({slug,markdown:await readFile(join(process.cwd(),'lore','personaggi',slug+'.md'),'utf8')})));
     const context={
       canonicalIdentikits,characters:characters.data,places:places.data,lore:lore.data,
       facts:facts.data,events:events.data,relations:relations.data,
-      publishedEpisodes:previous.data
+      publishedEpisodes:previous.data,contributions:contributions.data
     };
     const system=[
       'Sei il narratore di Ciuati - La Saga, un fantasy corale satirico e grottesco.',
@@ -49,6 +50,9 @@ export async function POST(request:NextRequest){
       'Gli identikit canonici in context.canonicalIdentikits sono fonte stabile e hanno priorità sui vecchi profili Supabase; eventi e relazioni documentano la storicità separatamente.',
       'Rivela dettagli identitari gradualmente nella trama: non esporre in un solo episodio tutti i trascorsi, le ideologie, i segreti, i punti deboli e le abilità.',
       'La lore documentata e canonica ha priorità sulle invenzioni; le interpretazioni non sono fatti certi.',
+      'I contributi dei personaggi sono testimonianze soggettive e potenzialmente contraddittorie, non canone automatico.',
+      'I contributi ideologici del proprietario descrivono la sua visione; i giudizi altrui descrivono soltanto percezioni e rapporti.',
+      'Le proposte di nuovi personaggi sono bozze: non presentarle come figure già canoniche.',
       'Non divulgare informazioni personali o segreti contenuti nei dati. Non usare note private.',
       'Se manca un dettaglio, inventa con coerenza senza trasformarlo in fatto canonico.',
       'Scrivi in italiano, 900-1400 parole, tono epico-demenziale con dialoghi e trama autonoma.',
