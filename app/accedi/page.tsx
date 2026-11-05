@@ -51,7 +51,7 @@ export default function Accedi(){
   e.preventDefault();
   if(!supabase||!selected)return setMessage('Servizio di autenticazione non configurato.');
   if(password.length<(firstAccess?6:8))return setMessage('La password deve avere almeno '+(firstAccess?6:8)+' caratteri.');
-  if(firstAccess&&!/^\\d{4}$/.test(unlockCode))return setMessage('Inserisci il codice di sblocco di 4 cifre.');
+  if(firstAccess&&!/^\d{4}$/.test(unlockCode))return setMessage('Inserisci il codice di sblocco di 4 cifre.');
   if(firstAccess&&password!==confirmPassword)return setMessage('Le due password non coincidono.');
   setBusy(true);setMessage('');
   try{
@@ -103,7 +103,7 @@ export default function Accedi(){
    <div className="saga-modal-emblem" aria-hidden="true">✦</div><h2 id="saga-modal-title">{chosen}</h2>
    <p>{firstAccess?'Imposta la password personale per il primo accesso.':'Inserisci la tua password personale.'}</p>
    <form onSubmit={submit}>
-    {firstAccess&&<><label htmlFor="saga-unlock">Codice di sblocco</label><input id="saga-unlock" type="password" inputMode="numeric" autoComplete="off" pattern="[0-9]{4}" maxLength={4} value={unlockCode} onChange={e=>setUnlockCode(e.target.value.replace(/\\D/g,'').slice(0,4))} required /></>}
+    {firstAccess&&<><label htmlFor="saga-unlock">Codice di sblocco</label><input id="saga-unlock" type="password" inputMode="numeric" autoComplete="off" pattern="[0-9]{4}" maxLength={4} value={unlockCode} onChange={e=>setUnlockCode(e.target.value.replace(/\D/g,'').slice(0,4))} required /></>}
     <label htmlFor="saga-password">Password</label>
     <input ref={passwordRef} id="saga-password" type="password" autoComplete={firstAccess?'new-password':'current-password'} value={password} onChange={e=>setPassword(e.target.value)} required minLength={8}/>
     {firstAccess&&<><label htmlFor="saga-password-confirm">Conferma password</label><input id="saga-password-confirm" type="password" autoComplete="new-password" value={confirmPassword} onChange={e=>setConfirmPassword(e.target.value)} required minLength={6}/></>}
