@@ -5,7 +5,7 @@
 > Regola: non modificare o cancellare il contenuto già registrato; aggiungere soltanto nuove voci nel registro finale. Eventuali rettifiche sono nuove voci motivate.
 
 ## Identità e carattere
-Conoscitore dei retroscena di Antonova, osserva la cerchia con ironia quieta, prudenza e una memoria difficile da ingannare.
+Un tempo Giogale sedeva dove si prendevano le decisioni, accanto a coloro che oggi governano con decreti e mezze verità. Poi lasciò la sala delle chiavi, portando con sé la memoria dei corridoi e una certa diffidenza per le cerimonie del potere. Ad Antonova lo cercano quando serve una mano sicura o una parola sensata. Lui risponde spesso con poche sillabe e un'ironia tanto quieta da arrivare a destinazione soltanto dopo qualche istante. Non ama fare il profeta, ma conosce abbastanza retroscena da riconoscere una tempesta prima che qualcuno abbia visto le nuvole. La sua antica amicizia con Barretta resiste persino alle Disamine più tempestose.
 
 ## Origine e luoghi
 Le origini natali restano incerte; la sua vicenda è strettamente legata ad Antonova.
