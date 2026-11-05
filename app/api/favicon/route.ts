@@ -1,0 +1,10 @@
+const favicon = 'iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAASFBMVEX81235yFz4vEzptk7uqT7lnTbRkzbOhCnGeCG0fiuycCGsYBSVUxOcKg56LQqmDgZ+DAWoBQN/BAJcFQpdBgRYBQRfAQJBAgKXfeStAAACM0lEQVR42k2Tja7sIAiE1Vp/KbpW8f3f9A7unuSSbNIsX5gBwex1Yk5ZL1NFEM8lc54/1zYAZkdauOSCdM6plNqly+z4KYCPPnrJyJYU+KVElOoYrfWuFbb01igT5XB7F8bKPhHX9LTWfhK9lcA1cH+vzGNnFxOKxKfJggQUhJCPoX/608Z+rfN3KMSxDVnLzD44IX9f/Gmfj+zLOOfuqEYaXJo5hn7f7noUGJKNNd77VLhW2ARAlVO8naUG4PPpxNZYH1Ll+gCQnhgFvDPQ0BhDOBvnQ6xUISFPpaIFrMn7RwwhEBElphip6OiGKIj3B8wN4I5wwWI6CiUlHEr8aWy2aBXmnwOkqIA1JrQ/4gwDJmgpUL4SAD5/Jvj6H1AFCBhz7XHye+9sFagHgAWvTSBOH2Pz+2qFhNX4AuFrAfHqsLPFsK9bKwAQbSL+JOBSdjAKaBe1vgC4lhi8TrLorIWNsRam8V71DIoLnvqGRB6nBbYI7SGmQgujFnV5X9DgcVq4ToGQUs0MYAonbIM2Svrae18wcByUiu3GRklNCS6czlEn4PyFfCyUWeYyS1pPBSLh0RG8t6bVAPZYuu6kYOci9v0dOoPgA9IBHSA/cE1m6VZzTnnqiMmhOPwhX6WNs/Z74gA4ZTlPgEXC0tcSCNfSv0DHZ3sx1QUHKF5qyWiwY2PnBjBxWV0XESPNMWVkM83R9TQXAL3dDmjI/F43EYsMnOU5bgXW1G/cN+5oyS9OUuMfpQ8yTMggF7oAAAAASUVORK5CYII=';
+
+export const dynamic = 'force-static';
+
+export function GET() {
+  const bytes = Uint8Array.from(Buffer.from(favicon, 'base64'));
+  return new Response(bytes, {
+    headers: { 'Content-Type': 'image/png', 'Cache-Control': 'public, max-age=3600' },
+  });
+}
