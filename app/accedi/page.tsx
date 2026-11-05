@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { supabase } from '../../lib/supabase';
 
@@ -21,6 +21,20 @@ export default function Accedi(){
  const [firstAccess,setFirstAccess]=useState(false);
  const [message,setMessage]=useState('');
  const [busy,setBusy]=useState(false);
+ const modalRef=useRef<HTMLDivElement>(null);
+ const passwordRef=useRef<HTMLInputElement>(null);
+ useEffect(()=>{
+  if(!selected)return;
+  const previous=document.activeElement instanceof HTMLElement?document.activeElement:null;
+  const onKey=(e:KeyboardEvent)=>{
+   if(e.key==='Escape'&&!busy){e.preventDefault();choose('');}
+   if(e.key==='Tab'&&modalRef.current){const nodes=Array.from(modalRef.current.querySelectorAll<HTMLElement>('button:not(:disabled),input:not(:disabled)'));const first=nodes[0],last=nodes[nodes.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last?.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first?.focus();}}
+  };
+  document.addEventListener('keydown',onKey);
+  const oldOverflow=document.body.style.overflow;document.body.style.overflow='hidden';
+  passwordRef.current?.focus();
+  return()=>{document.removeEventListener('keydown',onKey);document.body.style.overflow=oldOverflow;previous?.focus();};
+ },[selected,busy]);
  useEffect(()=>{
   if(!supabase)return;
   let active=true;
@@ -75,18 +89,18 @@ export default function Accedi(){
     <strong>Admin</strong><small>IL CRONISTA ARCANO</small>
    </button>
   </div>
-  {selected&&<section className="panel saga-login-panel">
+  {selected&&<div className="saga-modal-overlay" onMouseDown={e=>{if(e.target===e.currentTarget&&!busy)choose('');}}><section ref={modalRef} role="dialog" aria-modal="true" aria-labelledby="saga-modal-title" className="panel saga-login-panel saga-modal">
    <button type="button" className="saga-back" onClick={()=>choose('')}>← Cambia personaggio</button>
-   <h2>{chosen}</h2>
+   <div className="saga-modal-emblem" aria-hidden="true">✦</div><h2 id="saga-modal-title">{chosen}</h2>
    <p>{firstAccess?'Imposta la password personale per il primo accesso.':'Inserisci la tua password personale.'}</p>
    <form onSubmit={submit}>
     <label htmlFor="saga-password">Password</label>
-    <input id="saga-password" type="password" autoComplete={firstAccess?'new-password':'current-password'} value={password} onChange={e=>setPassword(e.target.value)} required minLength={8}/>
+    <input ref={passwordRef} id="saga-password" type="password" autoComplete={firstAccess?'new-password':'current-password'} value={password} onChange={e=>setPassword(e.target.value)} required minLength={8}/>
     {firstAccess&&<><label htmlFor="saga-password-confirm">Conferma password</label><input id="saga-password-confirm" type="password" autoComplete="new-password" value={confirmPassword} onChange={e=>setConfirmPassword(e.target.value)} required minLength={8}/></>}
     <button type="submit" disabled={busy}>{busy?'Verifica in corso…':firstAccess?'Salva password':'Accedi'}</button>
    </form>
    {selected!=='admin'&&<button className="saga-switch" type="button" onClick={()=>{setFirstAccess(v=>!v);setMessage('');setPassword('');setConfirmPassword('')}}>{firstAccess?'Hai già una password? Accedi':'Primo accesso? Imposta password'}</button>}
    {message&&<p role="status" className="saga-login-message">{message}</p>}
-  </section>}
+  </section></div>}
  </main>;
 }
