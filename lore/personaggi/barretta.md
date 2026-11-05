@@ -1,47 +1,23 @@
 # Barretta
+- **Nome intero:** Barretta
+- **Nome breve:** Barretta
+- **Soprannomi:** Da definire
+- **Età:** 41 anni
+- **Origine:** Altopiano di Svilarna, territorio distinto dalla Spianata (trasposizione di Catanzaro)
+- **Residenza:** Antonova
 
-> ARCHIVIO CANONICO · Ciuati — La Saga
-> ID: barretta
-> Regola: non modificare o cancellare il contenuto già registrato; aggiungere soltanto nuove voci nel registro finale. Eventuali rettifiche sono nuove voci motivate.
+## Profilo caratteriale
+Combattivo nelle discussioni, spontaneo e ostinato. Alterna disamine estenuanti a risposte fulminee e colorite. Quando un suo beniamino viene criticato, scorge trame e complotti anche dove gli altri vedono soltanto una disputa. Dietro le barricate retoriche resta un uomo di buon cuore.
 
-## Identità e carattere
-Dalle alture di Svilarna, dove si dice che perfino i lupi discutano prima di ululare, giunse Barretta. Ad Antonova nessuno ricorda quale fosse la sua prima controversia, ma tutti ricordano quanto durò. Le sue Disamine sanno trasformare una disputa sul possesso di un ponte in un trattato sulla dignità dei ponti, con gesti, sentenze e improvvisi lampi di ragione. Quando il Gatto e la Volpe proclamano una verità dall'alto, lui ne proclama tre dal basso.
-Sbaglia con magnificenza, talvolta indovina contro ogni previsione, e non abbandona mai una causa soltanto perché il mondo intero la ritiene perduta. Tra i pochi capaci di capirne il cuore ci sono il vecchio amico Giogale e Hermano, compagno di imprese e di ostinate fedeltà.
+## Ideologia
+Di sinistra, con simpatie verso regimi autoritari che ritiene ingiustamente attaccati. La sua lettura del mondo è spesso filtrata dalla diffidenza verso poteri occulti e macchinazioni; queste convinzioni appartengono al personaggio fittizio, non sono verità del narratore.
 
-## Origine e luoghi
-Nato e cresciuto sull'altopiano di Svilarna, distinto dal resto della Spianata. Ha assorbito i codici più controversi della regione principalmente per racconti e dicerie, non per esperienza diretta. Vive ad Antonova e torna a visitare la famiglia.
+## Skills
+- **Disamina Infinita:** conduce una controversia attraverso ragionamenti apparentemente inesauribili.
+- **X-Files:** evoca dagli archivi segreti una documentazione che tutti credevano perduta, talora dall'attendibilità controversa.
 
-## Ideali e motivazioni
-Famiglia, lealtà alla cerchia, ospitalità e diffidenza verso i poteri che ritiene nascosti.
+## Weakness
+- **Negazione dell'evidenza:** quando una tesi gli sta a cuore, può respingere prove contrarie e perseverare anche davanti all'ovvio.
 
-## Punti di forza
-Generoso e accogliente; difende con tenacia compagni e cause che ritiene ingiustamente accusati.
-
-## Punti deboli e contraddizioni
-Il sospetto selettivo può portarlo a giustificare soggetti malevoli e a non riconoscere la propria contraddizione.
-
-## Mossa segreta
-La Disamina Infinita — trasforma ogni accusa in una teoria di macchinazioni, fino a far perdere il filo del contendere.
-
-## Legami noti
-- Il rapporto con Hermano è fatto di lealtà e dispute interminabili.
-- Giogale è un amico antico, capace di riconoscere il punto finale di una Disamina.
-- Le richieste di Gran Cru a Le Fromage sono un tormentone ricorrente.
-- Viper lo provoca con domande, soprattutto quando compare la Gran Cru.
-
-## Cerchia e villains
-- Appartiene ai sei Ciuati. Tutti gli altri membri sono compagni di cerchia, anche se il legame specifico non è stato ancora documentato.
-- I villains devono essere identificati esplicitamente tramite il canone della Saga; non inferire ostilità da una semplice lite.
-- Le relazioni non citate qui sono **non ancora documentate**, non inesistenti.
-
-## Registro append-only
-<!-- Le nuove voci si inseriscono ESCLUSIVAMENTE dopo questa riga, in ordine cronologico.
-Formato:
-### YYYY-MM-DD · <ID episodio o fonte> · <tipo: fatto | testimonianza | voce | sviluppo | rettifica>
-- Fonte: episodio canonico / dichiarazione del personaggio / testimonianza di <nome>.
-- Osservazione: breve contenuto, in terza persona.
-- Affidabilità: confermato | riferito | controverso.
-- Impatto narrativo: cosa potrebbe cambiare (senza spacciare le opinioni per fatti).
-- Relazioni interessate: nomi, se applicabile.
-- Rettifica di: riferimento a una voce precedente, se applicabile.
--->
+## Descrizione panoramica
+Originario dell'altopiano di Svilarna, Barretta ha appreso soprattutto dai racconti i codici controversi della Spianata. Vive ad Antonova, senza dimenticare le terre d'origine. Veterano della congregazione degli Auronerum, resiste ai tentativi dei potenti di relegarlo fra gli inutili anziani. La sua tenacia nasconde un animo accogliente, ma basta sfiorare i suoi beniamini perché una semplice obiezione si trasformi in un processo interminabile.

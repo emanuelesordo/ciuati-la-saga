@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import IdentikitTabs from './IdentikitTabs';
-type Profile=Record<string,unknown>;
-type Character={id:string;slug:string;display_name:string;biography:string;avatar_path:string|null;profile:Profile|null};
+import {characterTeasers} from '../teasers';
+type Character={id:string;slug:string;display_name:string;avatar_path:string|null};
 type Relation={id:number;relationship:string;target_character_id:string|null;target_secondary_id:string|null};
 type Related={id:string;slug:string;display_name:string};
 type Secondary={id:string;display_name:string;narrative_role:string};
@@ -20,7 +20,7 @@ export default async function Identikit({params}:{params:Promise<{slug:string}>}
  const {slug}=await params;
  if(!allowed.test(slug))notFound();
  let characters:Character[];
- try{characters=await api<Character[]>('characters?select=id,slug,display_name,biography,avatar_path,profile&slug=eq.'+slug+'&is_published=eq.true&limit=1');}catch{ return <main className="shell"><Link href="/personaggi">← Archivio personaggi</Link><section className="panel"><h2>Archivio non disponibile</h2><p>Impossibile recuperare l'identikit. Riprova più tardi.</p></section></main>;}
+ try{characters=await api<Character[]>('characters?select=id,slug,display_name,avatar_path&slug=eq.'+slug+'&is_published=eq.true&limit=1');}catch{ return <main className="shell"><Link href="/personaggi">← Archivio personaggi</Link><section className="panel"><h2>Archivio non disponibile</h2><p>Impossibile recuperare l'identikit. Riprova più tardi.</p></section></main>;}
  if(!characters.length)notFound();
  const character=characters[0];
  const [relations,eventLinks,related,secondary]=await Promise.all([
@@ -38,7 +38,7 @@ export default async function Identikit({params}:{params:Promise<{slug:string}>}
  return <main className="shell identikit-shell"><Link href="/personaggi">← Tutti i personaggi</Link>
  <div className="eyebrow" style={{marginTop:40}}>ARCHIVIO UFFICIALE · DOSSIER DELLA SAGA</div>
  <div className="identikit-hero"><div className="identikit-portrait">{(character.avatar_path?.startsWith('https://')||character.avatar_path?.startsWith('/characters/'))?<img src={character.avatar_path} alt={'Ritratto ufficiale di '+character.display_name}/>:<div className="portrait-pending"><span aria-hidden="true">{character.display_name.charAt(0)}</span><small>Ritratto in preparazione</small></div>}</div>
- <div className="identikit-heading"><span className="identikit-kicker">LA CERCHIA DEI CIUATI</span><h1>{character.display_name}</h1><p>{(typeof (character.profile as Record<string,unknown>|null)?.dossier==='object'&&typeof ((character.profile as Record<string,unknown>).dossier as Record<string,unknown>)?.identity==='string')?(((character.profile as Record<string,unknown>).dossier as Record<string,unknown>).identity as string):character.biography||'Le cronache non hanno ancora consegnato la sua storia agli archivi.'}</p></div></div>
- <IdentikitTabs profile={character.profile||{}} companions={companions} villains={villains} chronicles={chronicles}/>
+ <div className="identikit-heading"><span className="identikit-kicker">LA CERCHIA DEI CIUATI</span><h1>{character.display_name}</h1><p>{characterTeasers[slug]||'Il resto della sua storia attende di essere raccontato.'}</p></div></div>
+ <IdentikitTabs companions={companions} villains={villains} chronicles={chronicles}/>
  </main>;
 }

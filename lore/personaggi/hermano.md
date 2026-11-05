@@ -1,45 +1,24 @@
 # Hermano
+- **Nome intero:** Hermano
+- **Nome breve:** Hermano
+- **Soprannomi:** Il Sindacalista, Herma, Amico delle guardie, Peruviano
+- **Età:** 28 anni
+- **Origine:** Antonova
+- **Residenza:** Antonova
 
-> ARCHIVIO CANONICO · Ciuati — La Saga
-> ID: hermano
-> Regola: non modificare o cancellare il contenuto già registrato; aggiungere soltanto nuove voci nel registro finale. Eventuali rettifiche sono nuove voci motivate.
+## Profilo caratteriale
+Analitico, sarcastico e critico, attento alla coerenza fra parole e azioni. Cerca intese quando percepisce che la strada si sta smarrendo, ma contesta apertamente le posizioni che non condivide, senza peli sulla lingua. Il suo desiderio di moderazione non equivale al silenzio.
 
-## Identità e carattere
-A ogni nuova contesa di Antonova c'è qualcuno che invoca Hermano, e qualcun altro che lo accusa di essere già passato dalla parte opposta. È il destino di chi conosce l'arte delle intese: parlare ai mercanti, ai ribelli e perfino ai custodi delle chiavi senza smettere di ascoltare nessuno. Lo chiamano il Sindacalista, talvolta con gratitudine, più spesso con un sorriso sospettoso. Sa leggere gli ingranaggi delle macchine e quelli delle assemblee, ma nessun calcolo lo ha ancora salvato dall'accusa di avere quattro alleanze contemporaneamente.
-Con Barretta condivide una fratellanza fatta di imprese, fedeltà e dispute che nessuno dei due considera davvero concluse.
+## Ideologia
+Moderato e realista; predilige la costruzione di ponti e gli accordi ragionati rispetto ai muri e alle contrapposizioni sterili.
 
-## Origine e luoghi
-Le imprese note si svolgono ad Antonova; la patria d'origine non è ancora definita.
+## Skills
+- **Difesa degli accordi:** ricorda e sostiene con fermezza gli impegni stabiliti.
+- **Mediazione combattiva:** cerca soluzioni condivise senza arretrare di fronte a una disputa.
 
-## Ideali e motivazioni
-Solidarietà, dialogo e difesa della cerchia.
+## Weakness
+- **Sospetto di doppiezza:** il dialogo con parti diverse può renderlo inviso a tutte.
+- **Critica insistente:** nel tentativo di raddrizzare una contesa, rischia di amplificarla.
 
-## Punti di forza
-Comprende le ragioni di fazioni differenti e trova punti d'incontro inattesi.
-
-## Punti deboli e contraddizioni
-Trattare con tutti rischia di renderlo sospetto a ciascuna parte.
-
-## Mossa segreta
-Il Patto delle Tre Mani — stringe un'intesa impossibile prima che gli avversari capiscano di aver negoziato.
-
-## Legami noti
-- Con Barretta condivide una fratellanza fatta anche di contese.
-- Le notizie di Ceceno generano nuovi interrogativi nelle sue assemblee.
-
-## Cerchia e villains
-- Appartiene ai sei Ciuati. Tutti gli altri membri sono compagni di cerchia, anche se il legame specifico non è stato ancora documentato.
-- I villains devono essere identificati esplicitamente tramite il canone della Saga; non inferire ostilità da una semplice lite.
-- Le relazioni non citate qui sono **non ancora documentate**, non inesistenti.
-
-## Registro append-only
-<!-- Le nuove voci si inseriscono ESCLUSIVAMENTE dopo questa riga, in ordine cronologico.
-Formato:
-### YYYY-MM-DD · <ID episodio o fonte> · <tipo: fatto | testimonianza | voce | sviluppo | rettifica>
-- Fonte: episodio canonico / dichiarazione del personaggio / testimonianza di <nome>.
-- Osservazione: breve contenuto, in terza persona.
-- Affidabilità: confermato | riferito | controverso.
-- Impatto narrativo: cosa potrebbe cambiare (senza spacciare le opinioni per fatti).
-- Relazioni interessate: nomi, se applicabile.
-- Rettifica di: riferimento a una voce precedente, se applicabile.
--->
+## Descrizione panoramica
+Hermano si getta in prima linea a difesa dei valori e dei patti stipulati, senza temere le reazioni. Nella congregazione degli Auronerum prova a tenere aperto un canale fra compagni e comandanti, convinto che la mediazione sia possibile anche quando tutti hanno già estratto le spade. Il suo legame con Barretta è antico e saldo, pur nelle interminabili controversie.

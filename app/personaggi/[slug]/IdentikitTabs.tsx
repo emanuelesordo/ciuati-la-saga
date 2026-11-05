@@ -1,24 +1,14 @@
 'use client';
 import {useState} from 'react';
 import Link from 'next/link';
-type Profile=Record<string,unknown>;
 type Companion={id:string;slug:string;name:string;relationship:string|null};
 type Villain={id:string;name:string;relationship:string|null};
 type Chronicle={slug:string;title:string;summary:string;event_date:string;role:string};
-function value(v:unknown):string{return typeof v==='string'?v.trim():'';}
-export default function IdentikitTabs({profile,companions,villains,chronicles}:{profile:Profile;companions:Companion[];villains:Villain[];chronicles:Chronicle[]}){
+export default function IdentikitTabs({companions,villains,chronicles}:{companions:Companion[];villains:Villain[];chronicles:Chronicle[]}){
  const [relationTab,setRelationTab]=useState<'cerchia'|'villains'>('cerchia');
- const dossier=(profile.dossier&&typeof profile.dossier==='object'&&!Array.isArray(profile.dossier)?profile.dossier:{}) as Record<string,unknown>;
- const facts: [string,string][]=[
- ['Origine',value(dossier.origin)||value(profile.origin)],
- ['Ideali',value(dossier.ideals)],
- ['Punto di forza',value(dossier.strength)],
- ['Punto debole',value(dossier.weakness)],
- ['Mossa segreta',value(dossier.secret_move)]
- ].filter(([,v])=>Boolean(v)) as [string,string][];
  return <section className="identikit-dossier" aria-label="Identikit narrativo"><div className="identikit-body">
  <div className="eyebrow">IL PERSONAGGIO</div>
- <div className="compact-profile">{facts.map(([label,description])=><div key={label} className="compact-line"><strong>{label}</strong><span>{description}</span></div>)}</div>
+ <p className="identikit-empty">Il suo passato, le sue capacità e le sue debolezze emergeranno nel corso della Saga.</p>
  <h2 style={{marginTop:34}}>Relazioni</h2>
  <div role="tablist" aria-label="Tipologia di relazioni" style={{display:'flex',gap:8,marginBottom:18,flexWrap:'wrap'}}>
  <button type="button" role="tab" id="tab-cerchia" aria-selected={relationTab==='cerchia'} aria-controls="panel-cerchia" onClick={()=>setRelationTab('cerchia')} style={{opacity:relationTab==='cerchia'?1:.65,fontWeight:relationTab==='cerchia'?700:400}}>La cerchia ({companions.length})</button>

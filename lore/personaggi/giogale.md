@@ -1,43 +1,23 @@
 # Giogale
+- **Nome intero:** Giogale
+- **Nome breve:** Giogale
+- **Soprannomi:** Da definire
+- **Età:** 40 anni
+- **Origine:** Visotreum (trasposizione di Treviso, Veneto)
+- **Residenza:** Antonova
 
-> ARCHIVIO CANONICO · Ciuati — La Saga
-> ID: giogale
-> Regola: non modificare o cancellare il contenuto già registrato; aggiungere soltanto nuove voci nel registro finale. Eventuali rettifiche sono nuove voci motivate.
+## Profilo caratteriale
+Pragmatico, osservatore e ironico. Conosce i retroscena organizzativi e sa ricostruire un quadro complesso in poche considerazioni, senza sottrarsi alle discussioni, soprattutto sulle questioni di campo.
 
-## Identità e carattere
-Un tempo Giogale sedeva dove si prendevano le decisioni, accanto a coloro che oggi governano con decreti e mezze verità. Poi lasciò la sala delle chiavi, portando con sé la memoria dei corridoi e una certa diffidenza per le cerimonie del potere. Ad Antonova lo cercano quando serve una mano sicura o una parola sensata. Lui risponde spesso con poche sillabe e un'ironia tanto quieta da arrivare a destinazione soltanto dopo qualche istante. Non ama fare il profeta, ma conosce abbastanza retroscena da riconoscere una tempesta prima che qualcuno abbia visto le nuvole. La sua antica amicizia con Barretta resiste persino alle Disamine più tempestose.
+## Ideologia
+Moderato. **Da approfondire:** orientamento e ideali specifici non ancora consolidati.
 
-## Origine e luoghi
-Le origini natali restano incerte; la sua vicenda è strettamente legata ad Antonova.
+## Skills
+- **Memoria storica:** collega decisioni e protagonisti di epoche differenti.
+- **Infiltrazione insospettabile:** si muove tra ambienti e poteri diversi senza attirare l'attenzione.
 
-## Ideali e motivazioni
-Coerenza, amicizia antica e buon senso contro i proclami.
+## Weakness
+- **Scetticismo:** rischia di giudicare una proposta prima che abbia avuto modo di dimostrare il proprio valore. **Interpretazione da confermare.**
 
-## Punti di forza
-Nota i dettagli trascurati e interviene con poche parole quando contano.
-
-## Punti deboli e contraddizioni
-Lo scetticismo può soffocare le idee prima che abbiano una possibilità.
-
-## Mossa segreta
-La Chiave dei Retroscena — rivela un dettaglio dimenticato e ribalta il giudizio dell'assemblea.
-
-## Legami noti
-- Legame di amicizia tenace con Barretta, di cui conosce pregi e disamine.
-
-## Cerchia e villains
-- Appartiene ai sei Ciuati. Tutti gli altri membri sono compagni di cerchia, anche se il legame specifico non è stato ancora documentato.
-- I villains devono essere identificati esplicitamente tramite il canone della Saga; non inferire ostilità da una semplice lite.
-- Le relazioni non citate qui sono **non ancora documentate**, non inesistenti.
-
-## Registro append-only
-<!-- Le nuove voci si inseriscono ESCLUSIVAMENTE dopo questa riga, in ordine cronologico.
-Formato:
-### YYYY-MM-DD · <ID episodio o fonte> · <tipo: fatto | testimonianza | voce | sviluppo | rettifica>
-- Fonte: episodio canonico / dichiarazione del personaggio / testimonianza di <nome>.
-- Osservazione: breve contenuto, in terza persona.
-- Affidabilità: confermato | riferito | controverso.
-- Impatto narrativo: cosa potrebbe cambiare (senza spacciare le opinioni per fatti).
-- Relazioni interessate: nomi, se applicabile.
-- Rettifica di: riferimento a una voce precedente, se applicabile.
--->
+## Descrizione panoramica
+Giogale conosce le molte facce del potere e ne ricava una visione lucida e sintetica. Un tempo sedeva fra gli influenti Auronerum, ma la scarsa considerazione per le sue idee lo ha spinto ad abbandonare quelle stanze. Ha trovato nella cerchia e nell'amicizia di lunga data con Barretta un'appartenenza più autentica. Conserva la misura anche davanti al peggior avversario, evitando che l'astio diventi scontro.

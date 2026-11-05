@@ -1,44 +1,25 @@
-# Cecè (Ceceno)
+# Cecè
+- **Nome intero:** Cecè
+- **Nome breve:** Cecè
+- **Soprannomi:** Ceceno, Il Violaceo
+- **Età:** 30 anni
+- **Origine:** Tortellum, con discendenza da Svilarna cosentina
+- **Residenza:** Antonova
 
-> ARCHIVIO CANONICO · Ciuati — La Saga
-> ID: cece
-> Regola: non modificare o cancellare il contenuto già registrato; aggiungere soltanto nuove voci nel registro finale. Eventuali rettifiche sono nuove voci motivate.
+## Profilo caratteriale
+Imprevedibile e autoironico, alterna battute brevi e surreali a discussioni articolate. Sa alleggerire una situazione tesa, anche quando il suo intervento arriva in un momento del tutto inatteso.
 
-## Identità e carattere
-Le strade che scendono da Svilarna conducono lontano, e quelle che attraversano Bonària sembrano non finire mai. Cecè appartiene un poco a entrambe, ma a Tortellum ha imparato l'arte di sentirsi a casa. Ad Antonova è conosciuto come l'Eternamente Viola: il colore che, secondo la leggenda, assume ogni suo impegno prima ancora di essere annunciato. Parte per incarichi misteriosi, attraversa terre, ritorna quando la disputa è già alla terza svolta e offre una battuta che pare provenire da un racconto completamente diverso. Talvolta nessuno la capisce; talvolta è proprio questo a renderla memorabile. I decreti della dirigenza lo raggiungono spesso, ma raramente riescono a sottrargli la voglia di scherzarci sopra.
+## Ideologia
+Convinto sostenitore della sinistra; crede negli spostamenti e negli incontri fra popoli come occasione di crescita comune e rifiuta le disuguaglianze fondate sull'origine razziale. La sua teoria sui movimenti delle popolazioni è un'opinione del personaggio, non un assunto scientifico del narratore.
 
-## Origine e luoghi
-Le cronache lo collocano fra Svilarna, Bonària, Tortellum e Antonova; non stabiliscono con certezza una patria unica.
+## Skills
+- **Giovialità:** sa stemperare una disputa con una battuta.
+- **Ospitalità:** accoglie viaggiatori e commensali nella propria gabbia-taverna.
+- **Destabilizzazione:** spiazza i compagni con interventi e tempi inattesi.
 
-## Ideali e motivazioni
-Indipendenza, libertà di movimento e diffidenza verso le regole troppo rigide.
+## Weakness
+- **Intermittenza:** impegni, assenze e viaggi lo rendono poco prevedibile.
+- **Filo perduto:** talvolta non segue il contesto delle discussioni e perde persino passaggi semplici.
 
-## Punti di forza
-Adattabilità e capacità di alleggerire anche un consiglio in tensione.
-
-## Punti deboli e contraddizioni
-Imprevedibilità, apparizioni intermittenti e difficoltà a rispettare tempi e promesse.
-
-## Mossa segreta
-Il Ritorno Impossibile — sparisce al momento decisivo e ricompare quando il destino sembra già scritto.
-
-## Legami noti
-- Hermano accoglie le sue notizie di viaggio con domande e interrogativi.
-- Il colore viola è un segno narrativo distintivo.
-
-## Cerchia e villains
-- Appartiene ai sei Ciuati. Tutti gli altri membri sono compagni di cerchia, anche se il legame specifico non è stato ancora documentato.
-- I villains devono essere identificati esplicitamente tramite il canone della Saga; non inferire ostilità da una semplice lite.
-- Le relazioni non citate qui sono **non ancora documentate**, non inesistenti.
-
-## Registro append-only
-<!-- Le nuove voci si inseriscono ESCLUSIVAMENTE dopo questa riga, in ordine cronologico.
-Formato:
-### YYYY-MM-DD · <ID episodio o fonte> · <tipo: fatto | testimonianza | voce | sviluppo | rettifica>
-- Fonte: episodio canonico / dichiarazione del personaggio / testimonianza di <nome>.
-- Osservazione: breve contenuto, in terza persona.
-- Affidabilità: confermato | riferito | controverso.
-- Impatto narrativo: cosa potrebbe cambiare (senza spacciare le opinioni per fatti).
-- Relazioni interessate: nomi, se applicabile.
-- Rettifica di: riferimento a una voce precedente, se applicabile.
--->
+## Descrizione panoramica
+Servo dei possessori dell'oro nero, Cecè si trova in perenne addestramento, lasciando sconcertata la cerchia degli Auronerum, dove i comandanti gli concedono ben poco credito. Quando sfugge al training diventa un viaggiatore errante, ritorna nella sua Tortellum o esplora terre lontane alla ricerca di prodotti culinari da offrire agli ospiti della sua gabbia-taverna.

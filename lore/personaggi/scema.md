@@ -1,48 +1,25 @@
-# Viper
+# Viper Scema
+- **Nome intero:** Viper Scema
+- **Nome breve:** Viper
+- **Soprannomi:** ScEma, Stotca, Uomo Vipera
+- **Età:** 30 anni
+- **Origine:** Antonova
+- **Residenza:** Antonova
 
-> ARCHIVIO CANONICO · Ciuati — La Saga
-> ID: scema
-> Regola: non modificare o cancellare il contenuto già registrato; aggiungere soltanto nuove voci nel registro finale. Eventuali rettifiche sono nuove voci motivate.
+## Profilo caratteriale
+Mite e riservato, ma pronto ad accendere la miccia con una provocazione calcolata. Preferisce evidenziare controversie, inciampi e contraddizioni altrui con una frecciata o un gioco di parole piuttosto che cercare uno scontro frontale. Le sue iniziative finiscono spesso per coinvolgere l'intera cerchia.
 
-## Identità e carattere
-Nelle cronache di Antonova compare spesso una firma incerta: ScEma, che alcuni chiamano Viper e altri Stotca.
-Non ama i pulpiti né le piazze affollate; preferisce lasciare una domanda sul tavolo e osservare come gli altri vi inciampino. Le sue provocazioni hanno il garbo ingannevole delle trappole ben costruite: rivelano contraddizioni, punzecchiano i potenti e, senza dichiararlo apertamente, tradiscono le sue convinzioni. Lo segue un husky dallo sguardo più eloquente di molti consiglieri. Quando le faccende si complicano, ScEma consulta
-idealmente gli antichi dèi del Nord; più spesso gli basta una battuta pronunciata al momento giusto. Anche al White Pony sa riconoscere i riti
-degni di rispetto.
+## Ideologia
+Conservatore liberale e nazionalista identitario, legato alla tradizione e alle libertà individuali purché non ledano il prossimo. Vegetariano e attento all'ambiente. La sua aspirazione norrena è una scelta culturale, non una discendenza di sangue comprovata.
 
-## Origine e luoghi
-Legato ad Antonova, nella Paugania. Crede in una discendenza dai miti norreni, senza legami di sangue accertati.
+## Skills
+- **Morso del Dubbio:** mette a nudo le contraddizioni con una domanda in apparenza innocente.
+- **Miccia calibrata:** individua il punto esatto in cui una provocazione prenderà fuoco.
+- **Richiamo della cerchia:** coinvolge gli altri in iniziative impreviste.
 
-## Ideali e motivazioni
-Libertà di dubitare, autonomia di giudizio e ironia verso l'autorità pomposa.
+## Weakness
+- **Provocazioni insistenti:** può esasperare gli interlocutori con frecciatine e giochi di parole.
+- **Norrenità presunta:** ambisce alla sapienza del Nord, ma ne conosce ancora soltanto una parte.
 
-## Punti di forza
-Individua le contraddizioni e smonta i proclami con una domanda.
-
-## Punti deboli e contraddizioni
-Le provocazioni possono allontanare gli amici; le usanze nordiche che cita sono spesso ignorate.
-
-## Mossa segreta
-Il Morso del Dubbio — una domanda innocente sgretola la certezza dell'intero consiglio.
-
-## Legami noti
-- Conta la vita in inverni e osserva rituali nordici poco compresi dagli altri Ciuati.
-- Stryger è il suo fedele compagno canino dall'aspetto lupino.
-- Provoca Barretta con domande e sfide goliardiche.
-
-## Cerchia e villains
-- Appartiene ai sei Ciuati. Tutti gli altri membri sono compagni di cerchia, anche se il legame specifico non è stato ancora documentato.
-- I villains devono essere identificati esplicitamente tramite il canone della Saga; non inferire ostilità da una semplice lite.
-- Le relazioni non citate qui sono **non ancora documentate**, non inesistenti.
-
-## Registro append-only
-<!-- Le nuove voci si inseriscono ESCLUSIVAMENTE dopo questa riga, in ordine cronologico.
-Formato:
-### YYYY-MM-DD · <ID episodio o fonte> · <tipo: fatto | testimonianza | voce | sviluppo | rettifica>
-- Fonte: episodio canonico / dichiarazione del personaggio / testimonianza di <nome>.
-- Osservazione: breve contenuto, in terza persona.
-- Affidabilità: confermato | riferito | controverso.
-- Impatto narrativo: cosa potrebbe cambiare (senza spacciare le opinioni per fatti).
-- Relazioni interessate: nomi, se applicabile.
-- Rettifica di: riferimento a una voce precedente, se applicabile.
--->
+## Descrizione panoramica
+Viper misura il tempo in inverni e ricerca nei rituali norreni la conoscenza di Odino e la via verso il Valhalla. Accompagnato dal fedele Stryger, semina ad Antonova frecciatine e iniziative dall'esito imprevedibile. Si è auto-esiliato dagli Auronerum, persuaso che i suoi contributi non fossero riconosciuti; nella cerchia dei Ciuati ha trovato un altro terreno per le sue imprese. Una buona birra placa, almeno per poco, il suo veleno.

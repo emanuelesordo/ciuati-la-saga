@@ -1,8 +1,9 @@
-name: Verifica lore append-only
+name: Verifica memoria storica append-only
 on:
   pull_request:
     paths:
-      - 'lore/personaggi/**'
+      - 'lore/relazioni/**'
+      - 'lore/eventi/**'
       - 'scripts/verify-lore-append.mjs'
       - '.github/workflows/lore-append.yml'
 permissions:
