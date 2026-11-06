@@ -22,4 +22,4 @@ Convinto sostenitore della sinistra; crede negli spostamenti e negli incontri fr
 - **Filo perduto:** talvolta non segue il contesto delle discussioni e perde persino passaggi semplici.
 
 ## Descrizione panoramica
-Servo dei possessori dell'oro nero, Cecè si trova in perenne addestramento, lasciando sconcertata la cerchia degli Auronerum, dove i comandanti gli concedono ben poco credito. Quando sfugge al training diventa un viaggiatore errante, ritorna nella sua Tortellum o esplora terre lontane alla ricerca di prodotti culinari da offrire agli ospiti della sua gabbia-taverna.
+Servo dei possessori dell'oro nero, Cecè si trova in perenne addestramento, lasciando sconcertata la cerchia degli Auronerum, dove i comandanti gli concedono ben poco credito. Quando sfugge al training diventa un viaggiatore errante, ritorna nella sua Tortellum o esplora terre lontane alla ricerca di prodotti culinari da offrire agli ospiti della sua gabbia-taverna. A settembre raggiunge Brugge con Viper ed Hermano: il suo tempismo imprevedibile interrompe perfino le più solenni dispute.
