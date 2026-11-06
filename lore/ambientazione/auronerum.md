@@ -1,29 +1,25 @@
-# Gli Auronerum — istituzione centrale
-**Stato: CANONE DI AMBIENTAZIONE, definito dall'autore il 06/11/2026.**
-**Visibilità: memoria interna del narratore; rivelazione graduale.**
+# Gli Auronerum — nucleo della saga
+Stato: canone di ambientazione. Tutti i sei Ciuati hanno prestato servizio nelle forze operative dell'ordine. La cerchia matura nel tempo e l'ultimo membro assume il ruolo di protagonista soltanto nel viaggio di settembre a Brugge.
 
-Gli **Auronerum** sono un ordine fantasy composto da un vertice dirigente e da forze schierate sul campo. Tutti e sei i Ciuati appartenevano alle forze operative dell'ordine: non sono estranei che si incontrano casualmente. Questa appartenenza, le rivalità e le divergenze sulla distribuzione degli incarichi spiegano la loro progressiva unione.
+Gli Auronerum sono un ordine fantasy dotato di forze sul campo e vertici politici. L'appartenenza, i favori, le rivalità e le promesse tradite ne alimentano la storia. Non sono una squadra sportiva: «campo», «prima linea» e «schieramenti» corrispondono a missioni, prove e spedizioni.
 
-Nella versione narrata non devono essere sport, calcio, partite o campionati: «campo», «prima linea», «schieramento» e «prestazioni» significano operazioni, pericoli, spedizioni e prove dell'ordine. La gerarchia determina chi può esporsi, chi resta ai margini, chi riceve prestigio, chi ha potere di decisione. Il merito proclamato e il favore personale non coincidono sempre.
+## Il potere dietro le maschere
+Nei primi episodi, i dirigenti antagonisti sono conosciuti soltanto come **il Gatto e la Volpe**; uno è il direttore, l'altro un veterano bionico che desidera combattere nonostante gli acciacchi. Non assegnare arbitrariamente Gatto e Volpe ai due individui.
+**Il Dottore** passa dalle forze operative ai vertici e ottiene compiti di prestigio, a scapito di Viper secondo i Ciuati. Un possibile ruolo di contributi economici nell'avanzamento è solo una voce non provata.
+**Pollicino** organizza tattiche e incoraggiamenti, si crede un filosofo motivazionale, ma risponde a tutto con un pollice alzato ed è influenzato dalla corte senza rendersene conto.
+**La Pecora** è il villain principale della fase Auronerum e provoca sistematicamente i compagni, specialmente Le Fromage, la cui rivolta non è ancora avvenuta.
+**Tolkien** è il più anziano combattente, narratore di imprese forse ingigantite e consigliere ufficioso dei vertici, sebbene il fisico gli impedisca la forza di un tempo. Barretta ne contesta il rendimento.
 
-## Gerarchia e tensioni
-Le identità indicate qui sono interne. Per i primi episodi, il lettore conosce i dirigenti come **il Gatto e la Volpe**, Griso come **il Dottore**, il Mister come **Pollicino**, Lovino come **la Pecora**. Non rivelare le equivalenze in pubblico prima dell'approvazione narrativa. Tolkien è chiamato anche **Gira** nella chat; è la stessa persona, non un nuovo personaggio. La corrispondenza individuale tra Gatto/Volpe e Dudi/Pacca non è ancora definita.
+## I sei Ciuati nel tempo
+- Viper reagisce a incarichi che ritiene ingiustamente concessi al Dottore e si ritrae dal campo, non dalla storia della cerchia.
+- Giogale, afflitto da acciacchi, aveva preferito una posizione marginale nella dirigenza. Le divergenze e le promesse ambigue di Pollicino lo spingono al ritorno sul campo, senza convinzione.
+- Barretta, Hermano e Cecè possiedono differenti modi di dissentire, discutere e mantenere uniti gli amici.
+- Le Fromage è già un veterano e amico di Rob: **prima di Brugge è comprimario**, non componente stabile del gruppo dei protagonisti. **A Brugge, in settembre, entra nel nucleo principale.**
 
-- **Dudi** dirige gli Auronerum, coadiuvato da **Pacca**. Insieme sono chiamati «il Gatto e la Volpe». Il loro governo, agli occhi dei Ciuati, alterna convenevoli pubblici, commenti alle spalle e manovre per emarginare chi non gradiscono. Nella fiction sono antagonisti di corte; non sono asserzioni su persone reali.
-- **Pacca**, membro della dirigenza e veterano «bionico», tenta di riguadagnare una posizione attiva malgrado gli acciacchi. Questo conflitto fra comando e aspirazione al campo guida parte delle sue scelte.
-- **Griso** nasce come membro delle forze operative ed entra solo in seguito tra i vertici. **Voce interna, non fatto comprovato:** l'ascesa sarebbe favorita da contributi alle casse e da accordi che gli garantiscono la prima linea nonostante prove poco convincenti. Viper percepisce l'ingiustizia e decide di farsi da parte.
-- **Il Mister** impartisce ordini, tattiche e incoraggiamenti; ritiene di guidare, ma cede gradualmente il controllo a Dudi, Pacca e Griso senza accorgersene. Si atteggia a filosofo motivazionale, mentre i suoi aforismi banali divertono i Ciuati. Alla maggior parte delle sollecitazioni risponde con un semplice pollice alzato, prendendo gli eventi come vengono. Le promesse contraddette dalla pratica incrinano la sua autorità.
-- **Lovino** è l'antagonista principale della fase Auronerum: vicino ai vertici, pratica il servilismo in entrambe le direzioni (li blandisce e ne è blandito), ferisce i compagni con parole aggressive e provoca particolarmente Le Fromage, la cui ribellione non è ancora avvenuta.
-- **Tolkien**, il più anziano tra i combattenti, vanta imprese lontane raccontate con ampiezza forse eccessiva. L'età ne riduce progressivamente il vigore; si avvicina ai vertici come opinionista fidato senza una nomina ufficiale. Barretta contesta la sua permanenza nelle forze operative, attribuendo alle prove poco incisive di Tolkien e Griso parte del declino dell'ordine; è il giudizio del personaggio, non un verdetto storico.
+## Progressione e rivelazioni
+Seguire la cronologia della fonte storica della chat dalla primavera 2026. Prima mostrare i meccanismi dell'ordine e il legame fra i protagonisti; poi i sospetti, la frattura di luglio, il viaggio di settembre e i conflitti autunnali.
+I nomi non mascherati degli antagonisti **non devono apparire** nelle prime narrazioni: possono emergere soltanto attraverso contributi successivi, in forma graduale, e con approvazione editoriale. Niente svelamenti accidentali.
+Le valutazioni su favoritismi e responsabilità sono spesso prospettive dei protagonisti, non asserzioni provate.
 
-## Sei Ciuati: appartenenza prima della frattura
-- Viper: veterano delle forze schierate, si allontana volontariamente dalla prima linea quando percepisce un trattamento di favore verso Griso. L'allontanamento non cancella la sua storia negli Auronerum.
-- Giogale: con qualche acciacco resta inizialmente in una posizione dirigenziale marginale. Divergenze con i vertici e promesse del Mister lo inducono a tornare sul campo, senza essere intimamente convinto della scelta.
-- Barretta e Le Fromage: veterani dell'ordine, avvertono pressioni legate a età e rendimento, reagendo in modi differenti.
-- Hermano e Cecè: parte delle forze operative, con differenti capacità di contestare, stemperare o complicare il conflitto.
-
-## Disciplina della fonte
-Questi ruoli e rapporti sono indicazioni canoniche del creatore per i **personaggi fittizi**. Dove si scrive «si vocifera», «a giudizio dei Ciuati», «attribuisce», il narratore deve preservare la prospettiva e non trasformarla in un fatto onnisciente. Esplorare eventuali motivazioni e contraddizioni senza rendere tutti i villain identici.
-
-## Esclusioni assolute nel racconto
-Mai raccontare l'ordine come società calcistica, non citare sport agonistici o partite. Non inserire fantacalcio né versioni allegoriche dello stesso (aste, rose, fantasport, gare di pronostici, fantatornei). Non inserire in-universe la creazione della storia stessa, profili di personaggi, tavole, schermate o tracce della lavorazione editoriale.
+## Divieti
+Niente calcio, partite, competizioni calcistiche, fantacalcio o loro equivalenti allegorici. Non far parlare i personaggi della creazione della Saga, dei suoi autori, di schermate o di materiali della chat. Non esporre tutti i dossier nei primi episodi. Tolkien deve essere chiamato soltanto Tolkien.
