@@ -18,7 +18,7 @@ export default function CharacterWheel({characters}:{characters:CarouselCharacte
    {characters.map((c,i)=>{const d=delta(i);const visible=Math.abs(d)<=2;return <div key={c.id} className={'wheel-item'+(d===0?' wheel-active':'')} aria-hidden={!visible} style={{'--wheel-offset':d,'--wheel-depth':Math.abs(d),zIndex:10-Math.abs(d),opacity:visible?1:0,pointerEvents:visible?'auto':'none'} as React.CSSProperties}>
     <button type="button" className="wheel-card" tabIndex={d===0?0:-1} aria-label={'Seleziona '+c.name} onClick={()=>{if(moving)return;if(d!==0)advance(d)}} >
      <span className="wheel-portrait">{c.image?<img src={c.image} alt="" draggable={false}/>:<span className="wheel-initial">{c.name.charAt(0)}</span>}</span>
-     <span className="wheel-label">{c.label||'PERSONAGGIO'}</span>
+     {c.description&&<span className="wheel-description">{c.description}</span>}
      <strong>{c.name}</strong>
     </button>
    </div>})}
