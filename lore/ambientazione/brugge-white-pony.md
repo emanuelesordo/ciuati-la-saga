@@ -4,8 +4,8 @@
 ## Prima di Brugge
 Le Fromage è già presente nel mondo e conosce Rob e gli Auronerum, ma **fino a settembre è personaggio secondario** rispetto al nucleo della cerchia. Non aprire la Saga con il viaggio in Belgio: raccontare prima gli eventi di primavera ed estate secondo la scaletta cronologica. A Brugge il suo ruolo passa da secondario a **sesto protagonista principale**.
 
-## Brugge (Belgio) — settembre
-- Le Fromage e Rob si recano in Belgio **per esporre le birre del White Pony**.
+## Brugge (Belgio) — settembre: promozione nel cast principale
+- Le Fromage e Rob si recano in Belgio **per esporre le birre del White Pony**. Prima di questo viaggio Le Fromage è già presente negli Auronerum e amico di Rob ma, nella narrazione, ha il ruolo di **personaggio secondario**. Solo da Brugge diventa il sesto protagonista principale.
 - Le Fromage è già amico fidato di Rob e lo accompagna negli spostamenti, poiché Rob, desideroso di bere, non può mettersi alla guida quando beve.
 - **Viper, Cecè e Hermano** raggiungono Le Fromage e Rob a Brugge. Non collocare automaticamente Barretta e Giogale in Belgio.
 - Durante la permanenza, **Rob** difende il comunismo sovietico e nordcoreano; **Hermano** non può evitare di contraddirlo e la disputa si accende. Non far dire al Patataro le battute che spettano a Rob.
