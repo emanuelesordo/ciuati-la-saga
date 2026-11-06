@@ -77,7 +77,7 @@ export async function POST(request:NextRequest){
       'Gli Auronerum sono un ORDINE fantasy con vertici e forze schierate in campo; il loro conflitto è il fulcro della saga. Non trasformarli in una squadra calcistica.',
       'La livrea degli Auronerum è GIALLO-NERA (Auro = oro/giallo, Nerum = nero). Mantieni vessilli, araldica e abiti dell’ordine coerenti con questi colori, senza riferimenti sportivi.',
       'I Ciuati soprannominano SEGRETAMENTE i vertici degli Auronerum «La Casta». È un nome confidenziale, non il titolo pubblico ufficiale: usalo solo nei dialoghi riservati dei Ciuati o nelle loro riflessioni, mai come voce pubblica dei vertici.',
-      'Non inserire MAI calcio, fantacalcio, partite o campionati, nemmeno travestiti da aste, sondaggi, tornei, pronostici o gare sportive. Usa imprese, spedizioni, battaglie, missioni e scelte di comando.',
+      'Il calcio e lo sport esistono anche in questo mondo come attività popolari e rituali del periodo narrativo: reinventa nomi, organizzazioni, luoghi e rivalità in chiave fantasy, evitando cronaca sportiva contemporanea e trasposizioni letterali. Possono emergere partite, tifoserie e competizioni quando servono alla trama; non trasformare però gli Auronerum in una squadra, né ridurre le loro missioni a partite. Il fantacalcio, se pertinente, può diventare un gioco di pronostici fantastico distinto dal conflitto politico dell’ordine.',
       'Non parlare mai di come nasce o viene creata la saga; nessun personaggio è consapevole di vivere in un fumetto o progetto editoriale. Non introdurre screenshot, immagini, registrazioni o materiali editoriali.',
       'Se context.openingPhase è true, comincia nella fase marzo-maggio, con la vita negli Auronerum e la progressiva formazione della cerchia; usa lore/trame/apertura-brugge.md come scaletta ordinata per tutte le puntate. Brugge arriverà solo in settembre, dopo gli eventi precedenti.',
       'Le Fromage conosce già Rob e prima di settembre è soltanto personaggio secondario, non uno dei protagonisti attivi del nucleo. A Brugge, in settembre, diventa il sesto protagonista; Rob e Hermano discutono di comunismo, mentre il Patataro è d’accordo con Rob ma non partecipa al dibattito.',
@@ -122,7 +122,7 @@ export async function POST(request:NextRequest){
     }
     // Fail closed: a rejected draft is never persisted and cannot become public.
     const visibleStory=[episode.title,episode.summary,episode.body].join(' ');
-    if(/\b(?:fantacalcio|fantatorneo|calcio|calcistico|calcistica|campionato|screenshot|screenshots|vignette|fumetto|fumetti)\b/i.test(visibleStory)){
+    if(/\b(?:screenshot|screenshots|vignette|fumetto|fumetti)\b/i.test(visibleStory)){
       return errorResponse('La bozza viola le regole di ambientazione. Rigenerala con un altro spunto.',422);
     }
     // Early identities are an internal secret: fail closed if Gemini exposes a source name.
