@@ -2,7 +2,7 @@
 Stato: piano editoriale. Gli episodi non sono automaticamente pubblicati.
 
 ## Regola temporale
-Seguire l'ordine della chat, dalla primavera del 2026 verso l'autunno. Trasformare le vicende in fantasy senza citare conversazioni, supporti digitali, sport o giochi fantasy-sportivi. Non inventare una coincidenza di presenza per tutti i sei all'inizio.
+Seguire l'ordine della chat, dalla primavera del 2026 verso l'autunno. Trasformare le vicende in fantasy senza citare conversazioni o supporti digitali. Lo sport può essere trasposto nel mondo fantasy in modo coerente con l'epoca, senza cronaca di squadre reali e senza trasformare gli Auronerum in una squadra. Non inventare una coincidenza di presenza per tutti i sei all'inizio.
 
 ### Arco I — Primavera: le forze degli Auronerum
 Aprire nell'ordine **giallonero** degli Auronerum, tra missioni, gerarchie e prime tensioni. I Ciuati possono soprannominare di nascosto i vertici **«La Casta»**, mai come denominazione pubblica ufficiale. Il nucleo più visibile è Viper, Barretta, Hermano e Cecè. Giogale emerge gradualmente e possiede già un rapporto con le strutture di comando. La comicità nasce dai loro modi incompatibili di discutere e collaborare.
@@ -30,5 +30,5 @@ Dopo Brugge i sei si ritrovano al White Pony e riconoscono l'ingresso di Le From
 - Non stabilire autonomamente quale dei due dirigenti corrisponda individualmente al Gatto o alla Volpe.
 - Gli antagonisti vanno rappresentati attraverso azioni e allusioni, senza schede biografiche introduttive.
 - I sospetti su favori e contributi sono dicerie narrative, non fatti accertati.
-- Nessun riferimento a calcio, fantacalcio o loro allegorie; niente metanarrazione, screenshot o nascita del progetto.
+- Il calcio può comparire come pratica e rivalità del mondo narrativo, anche attraverso giochi di pronostici, ma non deve sostituire le missioni degli Auronerum. Niente metanarrazione, screenshot o nascita del progetto.
 - Comis, Baber, Bobo, Panaite: solo proposte, non introdurli d'ufficio.
