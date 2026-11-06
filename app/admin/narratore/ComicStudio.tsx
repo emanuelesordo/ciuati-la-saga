@@ -125,6 +125,9 @@ export default function ComicStudio({run,autoStart}:{run:Run;autoStart:boolean})
   setBusy('Controllo dello ZIP…');setNotice('');
   let completed=0;
   try{
+   const digest=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(run.body));
+   const hash=Array.from(new Uint8Array(digest)).map(x=>x.toString(16).padStart(2,'0')).join('');
+   if(panels.some(p=>p.source_hash!==hash))throw new Error('Storyboard non allineato al testo: rigeneralo prima di importare immagini.');
    const files=await unzipComic(file);
    const byNumber=new Map(panels.map(p=>[p.panel_number,p]));
    for(const item of files){
