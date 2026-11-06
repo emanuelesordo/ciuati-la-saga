@@ -27,6 +27,7 @@ export async function POST(request:NextRequest){
    'Nelle prime scene Le Fromage e un personaggio secondario; non trasformarlo in protagonista centrale.',
    'I personaggi mascherati (il Gatto e la Volpe, il Dottore, Pollicino, la Pecora) devono conservare i nomi mascherati. Tolkien resta Tolkien.',
    'Gli Auronerum portano colori giallo e nero in abiti, drappi e stemmi. «La Casta» è il soprannome segreto usato dai Ciuati per i vertici e non va messo in bocca ai dirigenti come titolo ufficiale.',
+   'I LUOGHI sono trasposizioni fantasy di luoghi reali. Il Cavallo Bianco e il White Pony sono la stessa locanda ad Antonova, non due luoghi distinti. Svilarna è l’altopiano della Sila in chiave fantasy: pini larici silani, foreste, laghi, alture e nebbia appenninica, non paesaggi alpini. Mantieni i luoghi riconoscibili da una vignetta all’altra.',
    'I personaggi esterni citati sono elementi da registrare ma NON devono essere descritti con sembianze inventate.',
    'Preferisci vignette con 1-2 protagonisti visibili e alterna primi piani e panoramiche. Niente calcio, metanarrazione, fumetto nel fumetto.',
    'In cast_names usa i nomi esatti, preferibilmente quelli delle reference disponibili, e non aggiungere comparse non presenti nel testo.'
