@@ -77,9 +77,9 @@ export async function POST(request:NextRequest){
       'Gli Auronerum sono un ORDINE fantasy con vertici e forze schierate in campo; il loro conflitto è il fulcro della saga. Non trasformarli in una squadra calcistica.',
       'Non inserire MAI calcio, fantacalcio, partite o campionati, nemmeno travestiti da aste, sondaggi, tornei, pronostici o gare sportive. Usa imprese, spedizioni, battaglie, missioni e scelte di comando.',
       'Non parlare mai di come nasce o viene creata la saga; nessun personaggio è consapevole di vivere in un fumetto o progetto editoriale. Non introdurre screenshot, immagini, registrazioni o materiali editoriali.',
-      'Se context.openingPhase è true, usa Brugge a settembre come apertura suggerita: Le Fromage e Rob espongono le birre del White Pony; Viper, Cecè ed Hermano li raggiungono; Barretta commissiona da lontano un finto esame di calabrese; Giogale e Barretta incontrano tutti al White Pony in un episodio successivo. Non mettere tutti e sei in Belgio.',
-      'Le Fromage conosce già Rob. Rob e Hermano discutono sulle idee comuniste sovietiche e nordcoreane; il Patataro albanese è d’accordo con Rob ma resta al lavoro e non prende parte alla discussione.',
-      'Lovino è il villain principale degli Auronerum; Dudi e Pacca sono il Gatto e la Volpe, Griso è il favorito, il Mister non nota di perdere potere e risponde spesso con un pollice alzato. Tolkien è il veterano vicino ai vertici. Introducili con progressione, non tutti insieme.',
+      'Se context.openingPhase è true, comincia nella fase marzo-maggio, con la vita negli Auronerum e la progressiva formazione della cerchia; usa lore/trame/apertura-brugge.md come scaletta ordinata per tutte le puntate. Brugge arriverà solo in settembre, dopo gli eventi precedenti.',
+      'Le Fromage conosce già Rob e prima di settembre è soltanto personaggio secondario, non uno dei protagonisti attivi del nucleo. A Brugge, in settembre, diventa il sesto protagonista; Rob e Hermano discutono di comunismo, mentre il Patataro è d’accordo con Rob ma non partecipa al dibattito.',
+      'In pubblico usa soltanto le maschere: il Gatto e la Volpe (coppia di vertice), il Dottore, Pollicino e la Pecora. Le corrispondenze con Dudi, Pacca, Griso, Mister e Lovino sono segrete nella memoria interna: mai rivelarle esplicitamente prima dell’approvazione. Non assegnare individualmente il Gatto o la Volpe a uno specifico dirigente. Tolkien e Gira sono la stessa figura.',
       'L’ipotesi di favori a Griso in cambio di contributi è soltanto una diceria dei personaggi, non un fatto provato. Anche gli altri giudizi di corte sono prospettive narrative, non accuse fattuali a individui reali.',
       'Comis, Baber, Bobo e Panaite non sono personaggi approvati: non introdurli negli episodi iniziali senza una decisione editoriale.',
       'Non rendere villain automatici le figure nominate da una chat: i giudizi sono prospettive soggettive. Non equiparare una vignetta sperimentale a un fatto approvato.',
@@ -103,7 +103,7 @@ export async function POST(request:NextRequest){
       headers:{'x-goog-api-key':apiKey,'Content-Type':'application/json'},
       body:JSON.stringify({
         systemInstruction:{parts:[{text:system}]},
-        contents:[{role:'user',parts:[{text:JSON.stringify({context,idea:idea||(context.openingPhase?'Apri la narrazione a Brugge con Le Fromage, Rob, Viper, Cecè ed Hermano: un evento centrale, senza anticipare il ritorno di tutti al White Pony nello stesso episodio.':'Sviluppa liberamente il prossimo episodio in continuità con quelli approvati.'),instruction:'Non aggiornare mai direttamente il canone; considera piano di apertura e ruoli dei villain con la corretta gradualità.'})}]}],
+        contents:[{role:'user',parts:[{text:JSON.stringify({context,idea:idea||(context.openingPhase?'Apri la narrazione a marzo con la cerchia negli Auronerum: mostra relazioni e primi indizi del potere. Le Fromage è secondario. Non anticipare il viaggio a Brugge.':'Sviluppa liberamente il prossimo episodio in continuità con quelli approvati.'),instruction:'Non aggiornare mai direttamente il canone; considera piano di apertura e ruoli dei villain con la corretta gradualità.'})}]}],
         generationConfig:{temperature:0.85,maxOutputTokens:8192,responseMimeType:'application/json'}
       }),
       signal:AbortSignal.timeout(90000)
@@ -122,6 +122,10 @@ export async function POST(request:NextRequest){
     const visibleStory=[episode.title,episode.summary,episode.body].join(' ');
     if(/\b(?:fantacalcio|fantatorneo|calcio|calcistico|calcistica|campionato|screenshot|screenshots|vignette|fumetto|fumetti)\b/i.test(visibleStory)){
       return errorResponse('La bozza viola le regole di ambientazione. Rigenerala con un altro spunto.',422);
+    }
+    // Early identities are an internal secret: fail closed if Gemini exposes a source name.
+    if(context.openingPhase && /\b(?:Dudi|Pacca|Griso|Lovino)\b/i.test(visibleStory)){
+      return errorResponse('La bozza anticipa identità riservate. Rigenerala senza svelamenti.',422);
     }
     const notes=Array.isArray(episode.continuity_notes)?episode.continuity_notes.filter((n):n is string=>typeof n==='string').slice(0,30):[];
     const {data,error}=await db.from('narrative_runs').insert({
