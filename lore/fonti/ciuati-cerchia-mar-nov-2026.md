@@ -1,63 +1,44 @@
-# Memoria della cerchia dei Ciuati — marzo/novembre 2026
-> MEMORIA STORICA DERIVATA / NON CANONE AUTOMATICO. Fonte: conversazione collettiva dal 28/03/2026 al 06/11/2026 (17.466 messaggi testuali, allegati multimediali non integralmente esaminati). Questo file NON è una trascrizione e non contiene identità civili.
-> Priorità: schede identikit canoniche e fatti/episodi approvati > questa memoria interpretativa. Evitare di divulgare all'utente finale il dossier in un unico episodio. Evitare dettagli privati e accuse su persone reali. Contenuti controversi, giudizi politici e frecciate sono testimonianze soggettive.
+# Memoria relazionale della cerchia — fonte storica, non testo narrativo
+**Fonte:** conversazione collettiva 28/03–06/11/2026. **Stato:** osservazioni testuali e interpretazioni subordinate al canone dell'autore (06/11/2026).
+**Copertura:** 17.466 messaggi secondo l'inventario originario; 37 messaggi vocali OPUS e 1 MP3 (durata aggregata circa 27 minuti e mezzo) **non trascritti né interpretati**. Nessuna inferenza sull'audio è considerata confermata.
+**Riservatezza:** non trasferire identità anagrafiche, recapiti, contenuti intimi o giudizi su persone reali nelle pubblicazioni.
 
-## Origini e cronologia
-- 28/03/2026: nascita della chat chiamata «Ciuatu». Prima convivialità: calcio, cani, inviti, cibo, birra e sarcasmo. È il punto d'inizio del gruppo chat, non la prova che tutti e sei fossero già presenti o attivi.
-- 06/05: nome del gruppo modificato in «Ciuatu 👍🏻».
-- Prime apparizioni testuali visibili: Giogale 30/05, Le Fromage 12/09. Non dedurre la data esatta di ingresso.
-- Giugno–luglio: frizioni nel gruppo sportivo preesistente e discussione su regole, soldi, merito, convocazioni, rotazioni e figure di comando.
-- 01–02/07: il Consiglio della Meritocrazia. Viene contestata la distanza tra criteri dichiarati e comportamenti, con posizioni diverse sulla giustizia dei turni. Il desiderio di restare uniti è più importante delle singole accuse.
-- 04–08/07: Giogale dichiara di lasciare la dirigenza ma di tornare sul campo. Non confondere l'uscita dalla corte con l'abbandono della squadra o dei Ciuati. Viper è a sua volta incerto sul rapporto con la squadra e i suoi meccanismi: non attribuirgli un esilio irreversibile.
-- Luglio–settembre: proposta, sondaggi e ricordi successivi di un viaggio in Belgio/Brugge, soprattutto legato alle birre. Non risulta provata la partecipazione di tutti alla medesima trasferta.
-- 16–17/09: tumulto dei sondaggi del Fantacalcio, limiti ai partecipanti e regole contrastanti. Paradosso comico: tutti invocano il rispetto delle regole, ma non concordano su quali valgano o chi debba decidere.
-- 28–30/09: tabellini, cambi, statistiche e analisi delle partite alimentano l'archivio contestato.
-- 07/10: una polemica politica e storica tra Barretta e Hermano viene punteggiata dalle provocazioni degli altri. I giudizi sulla posizione ideologica del prossimo non sono fatti certi.
-- 15/10: il dilemma conviviale tra cinema e White Pony mostra un'assemblea capace di discutere perfino del tempo libero.
-- 19–20/10: dopo una partita emergono differenti racconti su minutaggi, scontri verbali e compagni trattati in modo ingiusto. Le versioni degli interessati non sono tutte disponibili: non definire colpevoli, aggressioni o complotti come fatti.
-- 20–23/10: riti del White Pony, promesse di birre e trattative umoristiche: convivialità come collante e antidoto alle dispute.
-- 04–05/11: emergono la «Saga», esperimenti a fumetti, schede e idee per un'EDDA dei Ciuati. Le immagini e descrizioni AI condivise sono bozze, non prevalgono sugli identikit canonici. Comis è evocato come villain e, da un altro punto di vista, eroe: ruolo ancora aperto.
+## Cosa la fonte aggiunge al canone degli Auronerum
+Gli Auronerum costituiscono l'istituzione comune: tutti i sei protagonisti ne conoscono la vita operativa e le tensioni fra comando e prima linea. La conversazione dimostra soprattutto **come** i Ciuati si parlano: si provocano, contestano, solidarizzano, cambiano argomento, si danno ragione su un punto e litigano su quello successivo. Le divergenze non annullano l'appartenenza reciproca.
 
-## Sei voci, distinte e contraddittorie
-- **Barretta**: motore di disamine, dialettalismi, domande e contestazioni, spesso sulle gerarchie e sulle incoerenze. Dietro la polemica emerge attenzione a compagni percepiti come penalizzati (19–20/10). Non renderlo solo complottista o insensibile. Ama la cerchia pur facendola esasperare.
-- **Viper / ScEma**: provocazioni brevi, giochi di parole, sondaggi, screenshot e iniziative che incendiano discussioni. Può ritirarsi dalle dinamiche faticose: accende la miccia ma non controlla ogni incendio. La norrenità dei file canonici è cultura aspirata, non discendenza dimostrata qui.
-- **Hermano**: attento a patti, procedure e coerenza dei criteri; critica apertamente, non è un mediatore remissivo. A volte le regole che difende diventano esse stesse fonte di attrito (Fanta di settembre). Collabora alle iniziative ma contesta i cambi di metodo.
-- **Giogale**: ex conoscitore del potere organizzativo, memoria storica del campo, pragmatismo, ironia. Lascia un ruolo dirigenziale a luglio e resta legato ai compagni; può conoscere retroscena senza possedere la verità assoluta. Non è canonizzabile come traditore per una battuta su «boss del male».
-- **Cecè / Ceceno**: battute molto brevi, risate, svolte inattese e intermittenza nelle discussioni; il tempismo alleggerisce e destabilizza. Non equiparare distrazione a stupidità, né attribuirgli ogni giudizio degli altri come suo convincimento.
-- **Le Fromage**: interventi selettivi, sarcasmo secco, White Pony e competenza birraria, sensibilità al riconoscimento sul campo. La sua partecipazione diventa frequente da settembre: schivo non significa muto o incapace di creare alleanze. Nessuna ideologia specifica è canonica.
+**L'interpretazione storica delle chat non prevale sulle precisazioni del creatore.** Le schede `lore/ambientazione/auronerum.md`, `lore/ambientazione/brugge-white-pony.md` e `lore/personaggi/secondari-auronerum.md` sono la fonte primaria per ruoli, alleanze, cronologia interna e antagonisti. Qui si conservano voci, ritmi e tracce delle frizioni.
 
-## Tessuto relazionale da preservare
-- Barretta–Giogale: solidarietà e memoria dei retroscena, con frizioni possibili ma legame stabile.
-- Barretta–Hermano: dissenso vivace e discussioni senza riduzione a inimicizia strutturale.
-- Viper–Barretta: miccia provocatoria e disamina; evitare la stessa gag in ogni scena.
-- Viper–Hermano: invenzione/azione contro regola/metodo, ma collaborazione reale.
-- Viper–Fromage: provocazioni, White Pony, birra e supporto ironico.
-- Cecè–cerchia: ingressi laterali e tempi spiazzanti; non semplice mascotte.
-- Giogale–potere: ex insider ambivalente, non informatore infallibile.
-- Fromage–campo: desiderio di essere valorizzato, più che vendetta.
-Ogni relazione ha almeno due vettori: affetto/stima e conflitto/presa in giro. Nessun episodio isolato li annulla automaticamente.
+## Stili di interazione — evidenze convergenti dal testo
+- **Barretta**: conduce disamine estenuanti, con domande, dialettalismi e repliche improvvise. Quando un compagno è giudicato vittima di un torto, emerge la sua lealtà: può difenderlo anche con la stessa furia con cui lo prende in giro.
+- **Viper**: motore di provocazioni brevi, domande a doppio fondo e invenzioni collettive. Accende discussioni e talvolta se ne sottrae; non è onnisciente e il caos non è sempre sotto il suo controllo.
+- **Hermano**: obietta sui patti e sulle decisioni; media soltanto se ritiene la mediazione utile, altrimenti ribatte senza timidezza. Le sue dispute con Barretta e con Rob sono occasioni per mostrare ragionamento, sarcasmo e differenze reali.
+- **Giogale**: memoria delle decisioni, praticità, conoscenza dei vertici e distanza ironica. La sua posizione è contraddittoria e feconda: non si riconosce più nella corte ma non è convinto di tornare fra le forze operative.
+- **Cecè**: risposte fulminee, sorrisi e apparente distrazione, con la capacità di cambiare l'atmosfera al momento giusto. Non è un sempliciotto né deve fare il giullare in ogni scena.
+- **Le Fromage**: dialoghi corti e incisivi, legame col White Pony e selettività negli interventi. La riservatezza non impedisce relazioni forti, né giustifica una sua anticipata rivolta contro Lovino.
 
-## Figure esterne: ruolo solo ipotetico, NON villain approvati
-- **Dudi**: associato alla burocrazia sportiva, ai registri e alle scelte controverse; sono presenti anche valutazioni meno ostili. Possibile antagonista procedurale, non cattivo assoluto.
-- **Pacca / Pacagnea**: organizzatore e figura intermedia, a volte bersaglio delle lamentele, a volte riconosciuto per il lavoro svolto e la capacità di ammettere errori. Possibile comandante contraddittorio.
-- **Griso / Grisolia**: protagonista di rivalità sul campo, regole Fanta e gerarchie, ma non responsabile dimostrato di ogni intrigo. Rivale situazionale.
-- **Il Mister**: decisioni tecniche, turni e criteri di merito; possibile «Oracolo dei Minuti»; racconti perlopiù di parte, quindi motivazioni indefinite.
-- **Lovino, Baber, Bobo, Seba, Panaite**: figure di campo con ruoli variegati; Baber e Seba entrano in racconti divergenti di ottobre. Non stabilire responsabilità reali o biografie immaginarie prima dell'approvazione.
-- **Rob del White Pony**: figura rituale e ospite, non villain certo.
-- **Comis**: candidato a antagonista enigmatico il 05/11, anche chiamato «eroe»; motivazioni e poteri sconosciuti, da svelare solo dopo un'eventuale definizione canonica.
-- **Patataro di Brugge, Kim Jung Rob**: scherzi/proposte del 04/11, NON esseri già esistenti nella continuity.
+## Dinamiche collettive
+- **Barretta ↔ Giogale**: fiducia, legame di lunga durata, informazioni e commenti sui vertici; non sono automaticamente della stessa opinione.
+- **Barretta ↔ Hermano**: polemica e stima possono coesistere. Non convertire una discussione in una rottura definitiva.
+- **Viper ↔ Barretta**: una frecciata può provocare un'intera disamina, senza diventare sempre la stessa gag.
+- **Viper ↔ Hermano**: iniziativa e provocazione contro domanda di metodo; entrambi restano capaci di collaborare.
+- **Viper ↔ Le Fromage**: complicità negli scherzi e nei momenti conviviali, mentre Fromage reagisce con pochi colpi precisi.
+- **Cecè ↔ cerchia**: ritmo asincrono; può cambiare la direzione di un dialogo con un'affermazione inattesa.
+- **Giogale ↔ comando**: ex membro della corte marginale, portatore di informazioni ma non arbitro assoluto.
+- **Le Fromage ↔ Lovino**: provocazioni accumulate, tensione latente. **Rivolta ancora da raccontare, non pregressa.**
 
-## Luoghi e oggetti ricorrenti
-Campo/panchina = status, appartenenza, minutaggi e frustrazione. White Pony = rifugio sociale dove i contrasti si stemperano senza sparire. Belgio/Brugge = viaggio e immaginario brassicolo, senza attribuzione automatica a tutti. Sondaggi e Fantacalcio = parodia del potere; tabellini/screenshot = prove disputate. Cani, salame, cinema e videogiochi = pause quotidiane che rendono credibile l'epopea.
+## Linea temporale a disposizione dell'editor, non da riversare nel racconto
+- Primavera 2026: il gruppo conversazionale esiste già; non significa che i sei fossero tutti presenti al primo incontro narrativo.
+- Luglio: divergono le scelte di Giogale e Viper rispetto al comando e alla prima linea. Non confondere l'uscita da un incarico con l'abbandono degli Auronerum o della cerchia.
+- **Settembre: ingresso narrativo di Le Fromage nella cerchia a Brugge, quando Viper, Cecè ed Hermano raggiungono lui e Rob per l'esposizione delle birre del White Pony.** La fonte testuale menzionava già il Formaggio prima: menzione non equivale a ingresso in scena o adesione.
+- Dopo Brugge: tutti e sei si ritrovano al White Pony. È il primo appuntamento d'insieme suggerito per i capitoli iniziali, non la prova della presenza di tutti in Belgio.
+- Ottobre e novembre: le controversie e i contrasti più recenti saranno sfruttati in seguito. Non anticipare i loro sviluppi nelle prime puntate.
 
-## Regole inderogabili di continuità
-1. Non trasferire retroattivamente al marzo informazioni note solo dall'estate/autunno.
-2. Distinguere uscita da una dirigenza, dissenso dalla squadra, abbandono della cerchia e ritorno in campo.
-3. Segnare sempre se una versione deriva dalla persona, da altri membri, da un evento approvato o da una gag.
-4. Nessun post di chat prova accuse, competenze, posizioni politiche o comportamenti di persone reali: tutto va trasformato in fiction autonoma senza diffamazione.
-5. Le vignette e schede AI circolate il 04/11 sono prototipi e non aggiornano automaticamente l'aspetto o il passato dei personaggi.
-6. Non rendere un outsider villain definitivo senza approvazione; usare motivazioni autonome e possibilità di ribaltamento.
-7. Rivelare gradualmente identità, contraddizioni e abilità; una scena tratta al massimo 1–2 fili narrativi centrali.
-8. Non riprodurre messaggi privati, numeri, indirizzi o materiale sensibile, nemmeno nelle note di pubblicazione.
-9. Le contraddizioni espresse dai personaggi sono materiale di prospettiva; le contraddizioni del narratore con il canone vanno segnalate nelle continuity_notes per l'admin.
-10. Questo dossier è congelato al 06/11/2026. Gli sviluppi successivi richiedono nuove fonti o episodi approvati.
+## Usi consentiti e vincoli
+1. I discorsi politici dei personaggi, le reciproche accuse e le voci di corte restano **prospettive**, non fatti stabiliti dal narratore onnisciente.
+2. Nella fiction gli Auronerum sono un ordine fantasy con spedizioni, schieramenti, prove e gerarchie, **non una squadra sportiva**.
+3. Non trasferire alla fiction giochi esterni alla storia, sistemi di punteggio, materiale editoriale, piattaforme o registrazioni della conversazione.
+4. Non raccontare la nascita del progetto editoriale dentro la storia.
+5. Non concentrare sei biografie, tutte le gerarchie e tutti i villain nel primo episodio: lasciare scoprire indizi, contraddizioni e rapporti gradualmente.
+6. **Lovino** ha ora ruolo di villain principale confermato; **Comis** resta soltanto una proposta di ex compagno, insieme a Baber, Bobo, Panaite e altri minori.
+7. Le informazioni esplicite dell'autore del 06/11/2026 prevalgono sui giudizi formulati nel vecchio dossier testuale.
+8. Rimane **aperta la verifica degli audio**: nessun dettaglio attribuito ai vocali può essere canonizzato finché non ne sarà esaminato il contenuto.
