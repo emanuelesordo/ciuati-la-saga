@@ -21,4 +21,4 @@ Moderato e realista; predilige la costruzione di ponti e gli accordi ragionati r
 - **Critica insistente:** nel tentativo di raddrizzare una contesa, rischia di amplificarla.
 
 ## Descrizione panoramica
-Hermano si getta in prima linea a difesa dei valori e dei patti stipulati, senza temere le reazioni. Nella congregazione degli Auronerum prova a tenere aperto un canale fra compagni e comandanti, convinto che la mediazione sia possibile anche quando tutti hanno già estratto le spade. Il suo legame con Barretta è antico e saldo, pur nelle interminabili controversie.
+Hermano si getta in prima linea a difesa dei valori e dei patti stipulati, senza temere le reazioni. Nella congregazione degli Auronerum prova a tenere aperto un canale fra compagni e comandanti, convinto che la mediazione sia possibile anche quando tutti hanno già estratto le spade. Il suo legame con Barretta è antico e saldo, pur nelle interminabili controversie. A Brugge non lascia passare le difese del comunismo sovietico e nordcoreano pronunciate da Rob: il confronto diventa un altro banco di prova per il suo carattere combattivo.
