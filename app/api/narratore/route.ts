@@ -73,7 +73,7 @@ export async function POST(request:NextRequest){
       'Distingui sempre ideologia dichiarata, percepita e mostrata dalle azioni; le osservazioni ripetute e coerenti possono prevalere su auto-descrizioni inattendibili. Una sola accusa ostile non deve ridefinire il personaggio.',
       'Usa provenance e interpretative_priority per valutare la credibilità dei contributi, non confondere voci, invenzioni e fatti canonici.',
       'Le proposte di nuovi personaggi sono bozze: non presentarle come figure già canoniche.',
-      'Non divulgare informazioni personali o segreti contenuti nei dati. Non usare note private.',
+      'Non divulgare informazioni personali o segreti contenuti nei dati: usa le memorie storiche solo come riferimento interpretativo, non citarle e non pubblicare note private.',
       'Se manca un dettaglio, inventa con coerenza senza trasformarlo in fatto canonico.',
       'Scrivi in italiano, 900-1400 parole, tono epico-demenziale con dialoghi e trama autonoma.',
       'Rispondi SOLO in JSON valido con chiavi title, summary, body, continuity_notes.',
