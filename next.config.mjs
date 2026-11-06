@@ -6,6 +6,8 @@ const nextConfig = {
     '/api/narratore': [
       './lore/personaggi/**/*.md',
       './lore/fonti/**/*.md',
+      './lore/ambientazione/**/*.md',
+      './lore/trame/**/*.md',
     ],
   },
 };
