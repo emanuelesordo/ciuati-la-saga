@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import IdentikitTabs from './IdentikitTabs';
 import NarrativeInput from '../../components/NarrativeInput';
+import ProfileSections from '../../components/ProfileSections';
 import {characterTeasers} from '../teasers';
 type Character={id:string;slug:string;display_name:string;avatar_path:string|null};
 type Relation={id:number;relationship:string;target_character_id:string|null;target_secondary_id:string|null};
@@ -40,7 +41,6 @@ export default async function Identikit({params}:{params:Promise<{slug:string}>}
  <div className="eyebrow" style={{marginTop:40}}>ARCHIVIO UFFICIALE · DOSSIER DELLA SAGA</div>
  <div className="identikit-hero"><div className="identikit-portrait">{(character.avatar_path?.startsWith('https://')||character.avatar_path?.startsWith('/characters/'))?<img src={character.avatar_path} alt={'Ritratto ufficiale di '+character.display_name}/>:<div className="portrait-pending"><span aria-hidden="true">{character.display_name.charAt(0)}</span><small>Ritratto in preparazione</small></div>}</div>
  <div className="identikit-heading"><span className="identikit-kicker">LA CERCHIA DEI CIUATI</span><h1>{character.display_name}</h1><p>{characterTeasers[slug]||'Il resto della sua storia attende di essere raccontato.'}</p></div></div>
- <IdentikitTabs companions={companions} villains={villains} chronicles={chronicles}/>
- <NarrativeInput targetId={character.id} targetName={character.display_name}/>
+ <ProfileSections sheet={<IdentikitTabs companions={companions} villains={villains} chronicles={chronicles}/>} contributions={<NarrativeInput targetId={character.id} targetName={character.display_name}/>}/>
  </main>;
 }
