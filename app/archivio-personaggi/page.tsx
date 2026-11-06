@@ -19,11 +19,7 @@ export default async function ArchivioPersonaggi({searchParams}:{searchParams:Pr
  const antagonisti=categoria==='antagonisti';
  const characters=(await load()).filter(c=>isAntagonist(c.narrative_role)===antagonisti);
  return <main className="shell identikit-shell">
-  <Link href="/">← Torna alla Saga</Link>
-  <div className="eyebrow" style={{marginTop:36}}>ARCHIVIO DEI PERSONAGGI</div>
-  <h1>{antagonisti?'Antagonisti':'Altri personaggi'}</h1>
-  <p>{antagonisti?'Rivali, nemici e avversari della Saga.':'Alleati, figure misteriose e altri abitanti del mondo dei Ciuati.'}</p>
-  <ArchiveTabs active={antagonisti?'antagonisti':'altri'}/>
+  <header className="archive-header"><div className="archive-heading"><h1>{antagonisti?'Antagonisti':'Altri personaggi'}</h1><p>{antagonisti?'Rivali e avversari della Saga':'Alleati e figure misteriose'}</p></div><ArchiveTabs active={antagonisti?'antagonisti':'altri'}/></header>
   {characters.length?<div className="identikit-grid">{characters.map(c=><Link key={c.id} className="identikit-card" href={'/archivio-personaggi/'+encodeURIComponent(c.slug)}>
    <div className="identikit-card-art"><span aria-hidden="true">{c.display_name.charAt(0)}</span></div>
    <div className="identikit-card-content"><small>PERSONAGGIO DELLA SAGA</small><h2>{c.display_name}</h2><p>{c.description||'Il suo ruolo deve ancora emergere.'}</p><strong>Apri la scheda →</strong></div>
