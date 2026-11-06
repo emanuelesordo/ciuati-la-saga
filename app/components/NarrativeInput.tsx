@@ -6,6 +6,7 @@ import {supabase} from '../../lib/supabase';
 type Mention={type:'character'|'place'|'new_character';id?:string;name:string};
 type Entry={id:string;name:string;type:'character'|'place'};
 type Kind='ideology'|'perception'|'relationship'|'skill'|'weakness'|'story'|'character_proposal';
+const scopedKinds:Kind[]=['ideology','perception','relationship','skill','weakness'];
 const kinds:{value:Kind;label:string}[]=[
  {value:'ideology',label:'Ideologia: dichiarazioni e punti di vista'},{value:'perception',label:'Percezione di un personaggio'},
  {value:'relationship',label:'Relazione'},{value:'skill',label:'Abilità / mossa segreta'},
@@ -13,7 +14,8 @@ const kinds:{value:Kind;label:string}[]=[
  {value:'character_proposal',label:'Proponi un nuovo personaggio'}
 ];
 export default function NarrativeInput({targetId,targetName,targetSecondaryId}:{targetId?:string;targetName?:string;targetSecondaryId?:string}){
- const [kind,setKind]=useState<Kind>(targetId?'perception':'story');
+ const scoped=Boolean(targetId||targetSecondaryId);
+ const [kind,setKind]=useState<Kind>(scoped?'perception':'story');
  const [text,setText]=useState(''),[name,setName]=useState(''),[origin,setOrigin]=useState(''),[traits,setTraits]=useState(''),[role,setRole]=useState('');
  const [entries,setEntries]=useState<Entry[]>([]),[mentions,setMentions]=useState<Mention[]>([]);
  const [authenticated,setAuthenticated]=useState(false),[ownId,setOwnId]=useState<string|null>(null);
@@ -40,7 +42,7 @@ export default function NarrativeInput({targetId,targetName,targetSecondaryId}:{
  },[]);
  function update(value:string,cursor:number){
   setText(value);
-  const match=value.slice(0,cursor).match(/(?:^|\s)@([\p{L}\p{N}_-]*)$/u);
+  const match=scoped?null:value.slice(0,cursor).match(/(?:^|\s)@([\p{L}\p{N}_-]*)$/u);
   setQuery(match?match[1]:null);
  }
  function insertMention(entry:Entry|{name:string;type:'new_character'}){
@@ -56,7 +58,8 @@ export default function NarrativeInput({targetId,targetName,targetSecondaryId}:{
  async function submit(e:React.FormEvent){
   e.preventDefault();setNotice('');
   if(!supabase)return;
-  if(kind==='ideology'&&!targetId){setNotice('Apri la scheda del personaggio per lasciare un contributo sulla sua ideologia.');return;}
+  if(scoped&&!scopedKinds.includes(kind)){setNotice('Nelle schede sono consentiti soltanto contributi riferiti al personaggio selezionato.');return;}
+  if(kind==='ideology'&&!scoped){setNotice('Apri la scheda del personaggio per lasciare un contributo sulla sua ideologia.');return;}
   if(kind==='character_proposal'&&!name.trim()){setNotice('Inserisci il nome del nuovo personaggio.');return;}
   const content=kind==='character_proposal'?[name,origin,traits,role,text].filter(Boolean).join(' — '):text.trim();
   if(content.length<10||content.length>6000){setNotice('Il contributo deve contenere tra 10 e 6000 caratteri.');return;}
@@ -66,7 +69,7 @@ export default function NarrativeInput({targetId,targetName,targetSecondaryId}:{
    if(authError||!user||(!ownId&&user.app_metadata?.role!=='admin'))throw new Error('Solo i sei Ciuati autenticati possono contribuire.');
    const {data:created,error}=await supabase.from('narrative_inputs').insert({
     author_id:user.id,character_id:ownId,target_character_id:targetId||null,
-    kind,content,status:'pending',mentions:[...mentions.filter(m=>text.includes('@'+m.name)),...(targetSecondaryId?[{type:'secondary_character',id:targetSecondaryId,name:targetName||''}]:[])],
+    kind,content,status:'pending',mentions:[...(scoped?[]:mentions.filter(m=>text.includes('@'+m.name))),...(targetSecondaryId?[{type:'secondary_character',id:targetSecondaryId,name:targetName||''}]:[])],
     proposal:kind==='character_proposal'?{name:name.trim(),origin:origin.trim(),traits:traits.trim(),role:role.trim()}:{}
    }).select('id').single();
    if(error)throw new Error('Salvataggio non riuscito: '+error.message);
@@ -77,16 +80,16 @@ export default function NarrativeInput({targetId,targetName,targetSecondaryId}:{
     const ai=await fetch('/api/personaggi-secondari/genera',{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+(session?.access_token||'')},body:JSON.stringify({proposalId:created.id})}).catch(()=>null);
     const result=ai?await ai.json().catch(()=>null):null;
     setNotice(ai?.ok&&result?.ok?'Scheda elaborata dall’IA e salvata come bozza privata. L’admin potrà revisionarla e pubblicarla.':'Proposta e bozza salvate. Generazione IA non riuscita: '+(result?.error||'servizio non raggiungibile')+' L’admin potrà riprovare.');
-   }else setNotice('Contributo registrato. Il narratore potrà utilizzarlo come testimonianza, senza trasformarlo automaticamente in canone.');
+   }else setNotice(scoped?'Contributo salvato nella memoria di '+(targetName||'questo personaggio')+'. L’IA lo elaborerà mantenendo il riferimento a questa scheda.':'Contributo generale registrato. Il narratore potrà utilizzarlo come spunto per la Saga.');
   }catch(error){setNotice(error instanceof Error?error.message:'Errore inatteso.');}
   finally{setBusy(false);}
  }
  if(!authenticated)return <section className="panel narrative-panel"><h2>Alimenta la Saga</h2><p>Per aggiungere idee, percezioni e nuove figure devi accedere con uno dei sei Ciuati.</p><Link href="/accedi">Accedi alla cerchia →</Link></section>;
  const suggestions=query===null?[]:entries.filter(e=>e.name.toLocaleLowerCase('it').includes(query.toLocaleLowerCase('it'))).slice(0,8);
- return <section className="panel narrative-panel"><div className="eyebrow">LE VOCI DELLA CERCHIA</div><h2>Alimenta il narratore</h2><p>{targetName?'Contributo dedicato a '+targetName+'. ':'Condividi un dettaglio, una voce o un possibile sviluppo della trama. '}Ogni testimonianza conserva il proprio autore. Le opinioni altrui sull’ideologia vengono considerate con un peso diverso dalle dichiarazioni del personaggio stesso.</p>
+ return <section className="panel narrative-panel"><div className="eyebrow">LE VOCI DELLA CERCHIA</div><h2>{scoped?'Contribuisci alla scheda':'Alimenta il narratore'}</h2><p>{scoped?'Questa testimonianza riguarda esclusivamente '+(targetName||'il personaggio selezionato')+'. Puoi descriverne rapporti e opinioni sugli altri, ma il contributo sarà attribuito soltanto a questa scheda.':'Condividi liberamente idee per gli episodi, luoghi, personaggi e sviluppi della trama.'} Ogni testimonianza conserva il proprio autore.</p>{scoped&&<p><Link href="/contributi">Vuoi proporre un’idea generale per la Saga? Vai ai Contributi →</Link></p>}
  <form onSubmit={submit} className="narrative-form">
  <label htmlFor="contribution-kind">Ambito</label>
- <select id="contribution-kind" value={kind} onChange={e=>setKind(e.target.value as Kind)}>{kinds.filter(k=>k.value!=='ideology'||!!targetId).map(k=><option key={k.value} value={k.value}>{k.label}</option>)}</select>
+ <select id="contribution-kind" value={kind} onChange={e=>setKind(e.target.value as Kind)}>{kinds.filter(k=>scoped?scopedKinds.includes(k.value):k.value!=='ideology').map(k=><option key={k.value} value={k.value}>{k.label}</option>)}</select>
  {kind==='character_proposal'&&<div className="narrative-proposal">
  <label>Nome del personaggio<input value={name} maxLength={120} onChange={e=>setName(e.target.value)} required/></label>
  <label>Origine<input value={origin} maxLength={250} onChange={e=>setOrigin(e.target.value)}/></label>
@@ -94,9 +97,9 @@ export default function NarrativeInput({targetId,targetName,targetSecondaryId}:{
  <label>Ruolo nella Saga<input value={role} maxLength={250} onChange={e=>setRole(e.target.value)}/></label>
  </div>}
  <label htmlFor="contribution-text">{kind==='character_proposal'?'Storia, relazioni e altri dettagli':'Racconta il tuo contributo'}</label>
- <div className="narrative-mention-wrap"><textarea ref={area} id="contribution-text" rows={5} maxLength={6000} value={text} onChange={e=>update(e.target.value,e.target.selectionStart)} onClick={e=>update(text,e.currentTarget.selectionStart)} placeholder="Scrivi @ per citare personaggi e luoghi…" />
- {query!==null&&<div className="narrative-suggestions" role="listbox" aria-label="Suggerimenti per le menzioni">{suggestions.map(s=><button type="button" role="option" aria-selected={false} key={s.type+s.id} onClick={()=>insertMention(s)}>{s.type==='place'?'Luogo':'Personaggio'} · {s.name}</button>)}{query.trim()&&<button type="button" role="option" aria-selected={false} onClick={()=>insertMention({type:'new_character',name:query.trim()})}>Proponi nuovo personaggio: {query}</button>}</div>}</div>
- <small>Usa @ per collegare riferimenti esistenti o proporne di nuovi. I nuovi personaggi restano proposte finché non vengono approvati.</small>
+ <div className="narrative-mention-wrap"><textarea ref={area} id="contribution-text" rows={5} maxLength={6000} value={text} onChange={e=>update(e.target.value,e.target.selectionStart)} onClick={e=>update(text,e.currentTarget.selectionStart)} placeholder={scoped?'Descrivi un aspetto di '+(targetName||'questo personaggio')+'…':'Scrivi @ per citare personaggi e luoghi…'} />
+ {!scoped&&query!==null&&<div className="narrative-suggestions" role="listbox" aria-label="Suggerimenti per le menzioni">{suggestions.map(s=><button type="button" role="option" aria-selected={false} key={s.type+s.id} onClick={()=>insertMention(s)}>{s.type==='place'?'Luogo':'Personaggio'} · {s.name}</button>)}{query.trim()&&<button type="button" role="option" aria-selected={false} onClick={()=>insertMention({type:'new_character',name:query.trim()})}>Proponi nuovo personaggio: {query}</button>}</div>}</div>
+ <small>{scoped?'Il contributo viene associato soltanto al personaggio aperto; per idee trasversali usa la sezione Contributi.':'Usa @ per collegare riferimenti esistenti o proporne di nuovi. I nuovi personaggi restano proposte finché non vengono approvati.'}</small>
  <button type="submit" disabled={busy}>{busy?'Invio…':'Invia al narratore'}</button>
  {notice&&<p role="status" className="narrative-notice">{notice}</p>}
  </form></section>;
