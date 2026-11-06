@@ -187,6 +187,7 @@ export default function ComicStudio({run,autoStart}:{run:Run;autoStart:boolean})
   <div className="comic-actions">
    <button disabled={!!busy||loading} onClick={()=>void storyboard(false)}>{panels.length?'Controlla storyboard':'Genera storyboard Gemini'}</button>
    <button disabled={!!busy||!panels.length} onClick={()=>void copyInstructions()}>Copia tutto per ChatGPT</button>
+   <a href="https://chatgpt.com/" target="_blank" rel="noreferrer" style={{display:'inline-flex',alignItems:'center',justifyContent:'center',padding:'11px 14px',border:'1px solid #a98251',borderRadius:8,color:'#f3d5a5',textDecoration:'none'}}>Apri ChatGPT</a>
    <button disabled={!!busy||!panels.length} onClick={()=>{if(window.confirm('Rigenerare lo storyboard? Le immagini già importate non saranno più collegate alle nuove vignette.'))void storyboard(true);}}>Rigenera storyboard</button>
   </div>
   <div className="comic-import">
