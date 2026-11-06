@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import ArchiveTabs from '../components/ArchiveTabs';
 
 type Character={id:string;slug:string;display_name:string;description:string;narrative_role:string};
 async function load():Promise<Character[]>{
@@ -10,18 +11,23 @@ async function load():Promise<Character[]>{
   return await result.json() as Character[];
  }catch{return []}
 }
-export default async function ArchivioPersonaggi(){
- const characters=await load();
+function isAntagonist(role:string):boolean {
+ return /antagon|villain|nemic|rivale|avversar|ostil/i.test(role||'');
+}
+export default async function ArchivioPersonaggi({searchParams}:{searchParams:Promise<{categoria?:string}>}){
+ const {categoria}=await searchParams;
+ const antagonisti=categoria==='antagonisti';
+ const characters=(await load()).filter(c=>isAntagonist(c.narrative_role)===antagonisti);
  return <main className="shell identikit-shell">
   <Link href="/">← Torna alla Saga</Link>
-  <div className="eyebrow" style={{marginTop:36}}>PERSONAGGI DEL MONDO</div>
-  <h1>Archivio Personaggi</h1>
-  <p>Alleati, rivali e figure misteriose. Un archivio indipendente dalla Cerchia dei sei Ciuati, consultabile liberamente.</p>
-  <nav className="panel"><Link href="/personaggi">Vai all'Archivio Ciuati →</Link></nav>
+  <div className="eyebrow" style={{marginTop:36}}>ARCHIVIO DEI PERSONAGGI</div>
+  <h1>{antagonisti?'Antagonisti':'Altri personaggi'}</h1>
+  <p>{antagonisti?'Rivali, nemici e avversari della Saga.':'Alleati, figure misteriose e altri abitanti del mondo dei Ciuati.'}</p>
+  <ArchiveTabs active={antagonisti?'antagonisti':'altri'}/>
   {characters.length?<div className="identikit-grid">{characters.map(c=><Link key={c.id} className="identikit-card" href={'/archivio-personaggi/'+encodeURIComponent(c.slug)}>
    <div className="identikit-card-art"><span aria-hidden="true">{c.display_name.charAt(0)}</span></div>
    <div className="identikit-card-content"><small>PERSONAGGIO DELLA SAGA</small><h2>{c.display_name}</h2><p>{c.description||'Il suo ruolo deve ancora emergere.'}</p><strong>Apri la scheda →</strong></div>
-  </Link>)}</div>:<section className="panel"><h2>Nessuna scheda pubblicata</h2><p>Le nuove figure vengono archiviate come bozze, poi rese pubbliche dopo la revisione.</p></section>}
+  </Link>)}</div>:<section className="panel"><h2>Nessuna scheda in questa categoria</h2><p>Le nuove figure vengono archiviate come bozze, poi rese pubbliche dopo la revisione.</p></section>}
   <section className="panel"><h2>Contribuisci alla Saga</h2><p>Solo i sei Ciuati autenticati possono proporre nuovi personaggi o aggiungere testimonianze. La consultazione resta aperta a tutti.</p><Link href="/accedi">Accedi con il tuo Ciuato →</Link></section>
  </main>;
 }
