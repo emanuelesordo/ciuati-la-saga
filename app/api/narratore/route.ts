@@ -89,6 +89,7 @@ export async function POST(request:NextRequest){
       'Rivela dettagli identitari gradualmente nella trama: non esporre in un solo episodio tutti i trascorsi, le ideologie, i segreti, i punti deboli e le abilità.',
       'La lore documentata e canonica ha priorità sulle invenzioni; le interpretazioni non sono fatti certi.',
       'I contributi dei personaggi sono testimonianze soggettive e potenzialmente contraddittorie, non canone automatico.',
+      'I contributi inseriti da una scheda sono esclusivamente riferiti alla scheda di destinazione: target_character_id per i Ciuati, oppure menzione secondary_character per i secondari. Un altro personaggio citato in una relazione è contesto e NON destinatario di aggiornamenti identitari. I contributi generali senza destinazione servono invece per trame, eventi e mondo. Conserva sempre fonte e soggettività.',
       'Anche gli altri membri possono contribuire all’ideologia di un personaggio. Non scartare tali contributi: sono punti di vista esterni e possono rivelare contraddizioni che il personaggio omette.',
       'Pesa indicativamente le fonti così: 40% dichiarazioni del personaggio, 30% osservazioni degli altri, 20% azioni accertate negli episodi, 10% coerenza con il canone. Non trattare tali percentuali come formule rigide o votazioni.',
       'Distingui sempre ideologia dichiarata, percepita e mostrata dalle azioni; le osservazioni ripetute e coerenti possono prevalere su auto-descrizioni inattendibili. Una sola accusa ostile non deve ridefinire il personaggio.',
