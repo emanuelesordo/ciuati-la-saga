@@ -26,12 +26,12 @@ export default function NarrativeInput({targetId,targetName,targetSecondaryId}:{
   async function load(){
    const client=supabase!;
    const [{data:{user}},characters,places]=await Promise.all([
-    client.auth.getUser(),client.from('characters').select('id,display_name,owner_id').eq('is_published',true),
+    client.auth.getUser(),client.from('characters').select('id,slug,display_name,owner_id').eq('is_published',true),
     client.from('saga_places').select('id,name').eq('is_published',true)
    ]);
    if(!alive)return;
-   setAuthenticated(!!user && (user.app_metadata?.role==='admin'||(characters.data||[]).some(c=>c.owner_id===user.id)));
-   setOwnId((characters.data||[]).find(c=>c.owner_id===user?.id)?.id||null);
+   setAuthenticated(!!user && (user.app_metadata?.role==='admin'||(characters.data||[]).some(c=>c.owner_id===user.id||c.slug===user.app_metadata?.character_slug)));
+   setOwnId((characters.data||[]).find(c=>c.owner_id===user?.id||c.slug===user?.app_metadata?.character_slug)?.id||null);
    setEntries([...(characters.data||[]).map(c=>({id:c.id,name:c.display_name,type:'character' as const})),...(places.data||[]).map(p=>({id:p.id,name:p.name,type:'place' as const}))]);
   }
   void load();
