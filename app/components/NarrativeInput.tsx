@@ -12,7 +12,7 @@ const kinds:{value:Kind;label:string}[]=[
  {value:'weakness',label:'Debolezza'},{value:'story',label:'Spunto per la trama'},
  {value:'character_proposal',label:'Proponi un nuovo personaggio'}
 ];
-export default function NarrativeInput({targetId,targetName}:{targetId?:string;targetName?:string}){
+export default function NarrativeInput({targetId,targetName,targetSecondaryId}:{targetId?:string;targetName?:string;targetSecondaryId?:string}){
  const [kind,setKind]=useState<Kind>(targetId?'perception':'story');
  const [text,setText]=useState(''),[name,setName]=useState(''),[origin,setOrigin]=useState(''),[traits,setTraits]=useState(''),[role,setRole]=useState('');
  const [entries,setEntries]=useState<Entry[]>([]),[mentions,setMentions]=useState<Mention[]>([]);
@@ -30,7 +30,7 @@ export default function NarrativeInput({targetId,targetName}:{targetId?:string;t
     client.from('saga_places').select('id,name').eq('is_published',true)
    ]);
    if(!alive)return;
-   setAuthenticated(!!user);
+   setAuthenticated(!!user && (user.app_metadata?.role==='admin'||(characters.data||[]).some(c=>c.owner_id===user.id)));
    setOwnId((characters.data||[]).find(c=>c.owner_id===user?.id)?.id||null);
    setEntries([...(characters.data||[]).map(c=>({id:c.id,name:c.display_name,type:'character' as const})),...(places.data||[]).map(p=>({id:p.id,name:p.name,type:'place' as const}))]);
   }
@@ -63,10 +63,10 @@ export default function NarrativeInput({targetId,targetName}:{targetId?:string;t
   setBusy(true);
   try{
    const {data:{user},error:authError}=await supabase.auth.getUser();
-   if(authError||!user)throw new Error('Sessione scaduta: accedi di nuovo.');
+   if(authError||!user||(!ownId&&user.app_metadata?.role!=='admin'))throw new Error('Solo i sei Ciuati autenticati possono contribuire.');
    const {error}=await supabase.from('narrative_inputs').insert({
     author_id:user.id,character_id:ownId,target_character_id:targetId||null,
-    kind,content,status:'pending',mentions:mentions.filter(m=>text.includes('@'+m.name)),
+    kind,content,status:'pending',mentions:[...mentions.filter(m=>text.includes('@'+m.name)),...(targetSecondaryId?[{type:'secondary_character',id:targetSecondaryId,name:targetName||''}]:[])],
     proposal:kind==='character_proposal'?{name:name.trim(),origin:origin.trim(),traits:traits.trim(),role:role.trim()}:{}
    });
    if(error)throw new Error('Salvataggio non riuscito: '+error.message);
@@ -75,7 +75,7 @@ export default function NarrativeInput({targetId,targetName}:{targetId?:string;t
   }catch(error){setNotice(error instanceof Error?error.message:'Errore inatteso.');}
   finally{setBusy(false);}
  }
- if(!authenticated)return <section className="panel narrative-panel"><h2>Alimenta la Saga</h2><p>Per aggiungere idee, percezioni e nuove figure devi accedere con il tuo personaggio.</p><Link href="/accedi">Accedi alla cerchia →</Link></section>;
+ if(!authenticated)return <section className="panel narrative-panel"><h2>Alimenta la Saga</h2><p>Per aggiungere idee, percezioni e nuove figure devi accedere con uno dei sei Ciuati.</p><Link href="/accedi">Accedi alla cerchia →</Link></section>;
  const suggestions=query===null?[]:entries.filter(e=>e.name.toLocaleLowerCase('it').includes(query.toLocaleLowerCase('it'))).slice(0,8);
  return <section className="panel narrative-panel"><div className="eyebrow">LE VOCI DELLA CERCHIA</div><h2>Alimenta il narratore</h2><p>{targetName?'Contributo dedicato a '+targetName+'. ':'Condividi un dettaglio, una voce o un possibile sviluppo della trama. '}Ogni testimonianza conserva il proprio autore. Le opinioni altrui sull’ideologia vengono considerate con un peso diverso dalle dichiarazioni del personaggio stesso.</p>
  <form onSubmit={submit} className="narrative-form">
