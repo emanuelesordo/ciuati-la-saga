@@ -29,9 +29,12 @@ Gli Auronerum costituiscono l'istituzione comune: tutti i sei protagonisti ne co
 ## Linea temporale a disposizione dell'editor, non da riversare nel racconto
 - Primavera 2026: il gruppo conversazionale esiste già; non significa che i sei fossero tutti presenti al primo incontro narrativo.
 - Luglio: divergono le scelte di Giogale e Viper rispetto al comando e alla prima linea. Non confondere l'uscita da un incarico con l'abbandono degli Auronerum o della cerchia.
-- **Settembre: ingresso narrativo di Le Fromage nella cerchia a Brugge, quando Viper, Cecè ed Hermano raggiungono lui e Rob per l'esposizione delle birre del White Pony.** La fonte testuale menzionava già il Formaggio prima: menzione non equivale a ingresso in scena o adesione.
+- **Settembre: ingresso di Le Fromage nel gruppo dei sei protagonisti a Brugge, quando Viper, Cecè ed Hermano raggiungono lui e Rob per l'esposizione delle birre del White Pony.** Le Fromage era già presente come figura secondaria prima del viaggio, senza ancora appartenere al nucleo dei protagonisti.
 - Dopo Brugge: tutti e sei si ritrovano al White Pony. È il primo appuntamento d'insieme suggerito per i capitoli iniziali, non la prova della presenza di tutti in Belgio.
 - Ottobre e novembre: le controversie e i contrasti più recenti saranno sfruttati in seguito. Non anticipare i loro sviluppi nelle prime puntate.
+
+## Alias interni e nomi mascherati
+Gatto e Volpe = Dudi e Pacca come coppia (senza assegnazione individuale). Il Dottore = Griso; Pollicino = Mister; la Pecora = Lovino. Gira = Tolkien. Questi dati servono alla continuità interna e non giustificano rivelazioni anticipate.
 
 ## Usi consentiti e vincoli
 1. I discorsi politici dei personaggi, le reciproche accuse e le voci di corte restano **prospettive**, non fatti stabiliti dal narratore onnisciente.
@@ -39,6 +42,6 @@ Gli Auronerum costituiscono l'istituzione comune: tutti i sei protagonisti ne co
 3. Non trasferire alla fiction giochi esterni alla storia, sistemi di punteggio, materiale editoriale, piattaforme o registrazioni della conversazione.
 4. Non raccontare la nascita del progetto editoriale dentro la storia.
 5. Non concentrare sei biografie, tutte le gerarchie e tutti i villain nel primo episodio: lasciare scoprire indizi, contraddizioni e rapporti gradualmente.
-6. **Lovino** ha ora ruolo di villain principale confermato; **Comis** resta soltanto una proposta di ex compagno, insieme a Baber, Bobo, Panaite e altri minori.
+6. **La Pecora** (identità interna Lovino) ha ruolo di antagonista principale, con nome pubblico mascherato; **Comis** resta soltanto una proposta di ex compagno, insieme a Baber, Bobo, Panaite e altri minori.
 7. Le informazioni esplicite dell'autore del 06/11/2026 prevalgono sui giudizi formulati nel vecchio dossier testuale.
 8. Rimane **aperta la verifica degli audio**: nessun dettaglio attribuito ai vocali può essere canonizzato finché non ne sarà esaminato il contenuto.
