@@ -54,7 +54,13 @@ export default function ComicStudio({run,autoStart}:{run:Run;autoStart:boolean})
   if(!session)throw new Error('Accedi come Admin.');
   const result=await fetch(path,{method:'POST',headers:{Authorization:'Bearer '+session.access_token,'Content-Type':'application/json'},body:JSON.stringify(values)});
   const payload=await result.json();
-  if(!result.ok)throw new Error(payload.error||'Operazione non riuscita.');
+  if(!result.ok){
+   const error=new Error(payload.error||'Operazione non riuscita.') as Error&{httpStatus?:number;reason?:string;retryAfterSeconds?:number|null};
+   error.httpStatus=result.status;
+   error.reason=typeof payload.reason==='string'?payload.reason:undefined;
+   error.retryAfterSeconds=typeof payload.retryAfterSeconds==='number'?payload.retryAfterSeconds:null;
+   throw error;
+  }
   return payload;
  },[]);
  const draw=useCallback(async(items:Panel[],force=false)=>{
@@ -70,7 +76,16 @@ export default function ComicStudio({run,autoStart}:{run:Run;autoStart:boolean})
    if(missing.length){blocked++;continue;}
    setNotice('Gemini sta illustrando la vignetta '+p.panel_number+' di '+items.length+'…');
    try{await api('/api/narratore/comic',{run_id:run.id,panel_number:p.panel_number,force});created++;}
-   catch(err){errors.push('Vignetta '+p.panel_number+': '+(err instanceof Error?err.message:'errore')); }
+   catch(err){
+    const issue=err as Error&{httpStatus?:number;reason?:string;retryAfterSeconds?:number|null};
+    errors.push('Vignetta '+p.panel_number+': '+(err instanceof Error?err.message:'errore'));
+    if(issue.httpStatus===429||issue.reason==='rate_limit'||issue.reason==='quota_or_billing'){
+     await refresh();
+     setNotice('Generazione interrotta alla vignetta '+p.panel_number+': quota o limite Gemini Image. Le altre vignette non sono state ritentate. '+errors.join(' | '));
+     setBusy('');
+     return;
+    }
+   }
    await refresh();
   }
   setBusy('');
@@ -126,6 +141,7 @@ export default function ComicStudio({run,autoStart}:{run:Run;autoStart:boolean})
  return <section className="panel comic-studio" aria-label="Studio fumetto">
   <div className="comic-studio-head"><div><div className="eyebrow">LABORATORIO COMICS</div><h2>Fumetto: {run.title}</h2></div><span className="comic-counter">{readyCount}/{panels.length} vignette</span></div>
   <p>Illustrazioni Gemini con i volti canonici. I personaggi senza scheda e foto restano esclusi dalle immagini. Nessuna pubblicazione automatica.</p>
+  <p style={{fontSize:13,color:'#dcb687'}}>Auronerum: vessilli gialloneri. «La Casta» è il soprannome segreto della dirigenza. Per errori 429 controlla <a href="https://aistudio.google.com/usage?timeRange=last-7-days&tab=rate-limit" target="_blank" rel="noreferrer">quote Gemini in AI Studio</a> e verifica se il modello immagini è abilitato alla fatturazione.</p>
   <div className="comic-actions">
    <button disabled={!!busy||loading} onClick={()=>void storyboard(false,true)}>{panels.length?'Completa il fumetto':'Elabora fumetto Gemini'}</button>
    {panels.length>0&&<button disabled={!!busy} onClick={()=>void draw(panels)}>Genera vignette mancanti</button>}
