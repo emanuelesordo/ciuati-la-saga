@@ -1,34 +1,29 @@
-# Personaggi secondari e antagonisti — continuità interna
-**Stato: ruoli narrativi definiti dal creatore, 06/11/2026.**
-Le qualificazioni morali sono caratteristiche della fiction e/o giudizi dei protagonisti. Non copiare accuse su individui reali. Non svelare tutti questi dossier nei primi episodi.
+# Personaggi secondari e antagonisti degli Auronerum
+Stato: canone narrativo interno. Non anticipare identità nascoste. Rivelare i dettagli gradualmente.
 
-## Identità e rivelazioni
-Le intestazioni contengono le identità **interne**, per preservare la continuità. Nei testi narrativi pubblici usare inizialmente soltanto i nomi mascherati: **il Gatto e la Volpe** (Dudi e Pacca come coppia, senza assegnare singolarmente chi sia l'uno e chi l'altra), **il Dottore** (Griso), **Pollicino** (Mister), **la Pecora** (Lovino). Il narratore deve custodire i collegamenti e svelarli soltanto dopo un'esplicita decisione canonica, con eventuali nuovi contributi; non scrivere in pubblico «X, detto Y».
+## Il Gatto e la Volpe
+Due figure centrali della dirigenza degli Auronerum. Formano una coppia di potere, usano convenevoli davanti ai subordinati e diffondono giudizi pungenti alle spalle, cercando di estromettere gli elementi sgraditi. Uno è direttore dell'ordine; l'altro è un veterano bionico che vorrebbe tornare in prima linea malgrado gli acciacchi. La corrispondenza individuale fra Gatto e Volpe non è ancora definita: NON inventarla. Nelle prime fasi usarli solo con i nomi mascherati.
 
-## Dudi — Direttore (identità interna; maschera pubblica: il Gatto e la Volpe)
-Capo formale dell'ordine Auronerum, politico e abile nel mantenere una facciata. Con Pacca forma la coppia chiamata **il Gatto e la Volpe**. Non è ancora deciso quale dei due porti individualmente l'una o l'altra maschera. Nella prospettiva dei Ciuati, condivide giudizi alle spalle e tenta di allontanare compagni sgraditi per motivi personali. Antagonismo di vertice; il suo vero grado di controllo può apparire diverso a seconda della scena.
+## Il Dottore
+Membro delle forze operative, entrato successivamente nei vertici. Continua a ottenere incarichi prestigiosi sul campo malgrado prove giudicate deludenti dai Ciuati. Viper decide di farsi da parte davanti a quello che percepisce come un favoritismo. Eventuali vantaggi dovuti a contributi economici sono **voci**, non fatti stabiliti. La sua vera identità non viene pronunciata prima di una rivelazione approvata.
 
-## Pacca — Il Bionico (identità interna; maschera pubblica: il Gatto e la Volpe)
-Membro della dirigenza e metà della coppia **il Gatto e la Volpe**. Porta i segni degli anni e degli acciacchi ma vuole recuperare onore e presenza in prima linea. Ambizione personale e autorità entrano in conflitto; talvolta il gruppo riconosce il suo lavoro, senza che ciò cancelli la sua partecipazione alle trame di corte.
+## Pollicino
+Comandante nominale degli schieramenti, delle tattiche e delle missioni, convinto di dominare la situazione mentre cede il controllo alla dirigenza e al Dottore. Si crede un filosofo motivazionale ma dispensa ovvietà. Il suo gesto ricorrente è un **pollice alzato senza aggiungere parole**, anche davanti a questioni che richiederebbero una risposta. Le sue promesse a Giogale sono una fonte di ambiguità.
 
-## Griso — Il Dottore (identità interna; nome pubblico provvisorio)
-Dapprima combattente, viene ammesso più tardi nella dirigenza. Ottiene spesso compiti prestigiosi a scapito di altri, specie Viper, malgrado prove giudicate inconsistenti dai Ciuati. **Diceria:** il suo avanzamento e i suoi incarichi sarebbero assicurati dai contributi offerti all'ordine. Non presentare la diceria come prova certa. Può essere opportunista e sincero nella propria autovalutazione, non necessariamente un burattinaio onnisciente.
+## La Pecora
+Antagonista principale dell'arco Auronerum, vicino ai vertici, con i quali intrattiene una deferenza opportunistica e reciproca. Usa provocazioni verbali contro i compagni, specialmente Le Fromage. **La ribellione di Le Fromage è ancora futura**, non un evento pregresso. Nei primi episodi il nome resta soltanto la maschera.
 
-## Il Mister — Pollicino (identità interna; nome pubblico provvisorio)
-Responsabile operativo di ordini, tattiche e schieramenti. Crede di guidare l'ordine, ma finisce subordinato ai desideri di Dudi, Pacca e Griso senza percepire la perdita d'autorità. Dispensa banalità spacciate per saggezza motivazionale; i Ciuati ne ridono. La risposta più caratteristica è un **pollice alzato senza parole**, anche in situazioni che richiederebbero una scelta. Promette opportunità che non sempre concretizza, compreso il reintegro di Giogale nelle forze operative.
+## Tolkien
+Il più anziano dei veterani delle forze operative. Racconta un passato glorioso con possibile esagerazione; il suo vigore diminuisce mentre si avvicina ufficiosamente alla corte come opinionista. Barretta considera la sua ridotta efficacia, insieme a quella del Dottore, una causa del declino dell'ordine: è il punto di vista di Barretta. **Tolkien è l'unica denominazione narrativa ammessa.**
 
-## Lovino — La Pecora (identità interna; nome pubblico provvisorio)
-**Antagonista confermato dal creatore per l'arco degli Auronerum.** Legato quasi esclusivamente ai vertici, li adula ma ottiene da loro altrettanta deferenza. Pratica provocazioni verbali sistematiche contro i compagni, in particolare Le Fromage; la reazione aperta di quest'ultimo è **futura**, non già avvenuta. Non trasformare una rivalità latente in una rivolta anticipata.
-
-## Tolkien / Gira — L'Anziano Cronista
-Nelle conversazioni compare anche come **Gira**: è un alias di Tolkien, non un personaggio aggiuntivo. Più anziano del gruppo operativo, possiede una storia di imprese antiche, forse ingigantite dal modo in cui le racconta. Con l'avanzare dell'età diminuiscono le sue prestazioni sul campo; si avvicina ufficiosamente alla dirigenza come commentatore di fiducia. Barretta lo considera corresponsabile, insieme a Griso, della recente stagione di sconfitte: è una lettura di Barretta, non un giudizio incontestato.
-
-## Rob — Mastro del White Pony
-Amico fidato di Le Fromage. Custode e promotore delle birre del White Pony. Desidera bere e non guida quando beve, così Le Fromage lo accompagna. A Brugge difende idee ispirate al comunismo sovietico e nordcoreano, innescando un acceso scambio con Hermano. Non attribuirgli altre idee o un ruolo di villain in assenza di nuove fonti.
+## Rob
+Mastro birraio del White Pony, fidato amico di Le Fromage, che lo accompagna negli spostamenti quando non può guidare dopo aver bevuto. A Brugge sostiene idee sul comunismo sovietico e nordcoreano; Hermano lo contraddice apertamente. Non è un antagonista canonico.
 
 ## Il Patataro di Brugge
-Lavoratore albanese, simpatizzante comunista vicino alle idee di Rob. Durante la discussione tra Rob e Hermano lavora e **non partecipa al dibattito**. Figura di contesto; non un antagonista approvato.
+Lavoratore albanese, simpatizzante delle idee di Rob. Non partecipa alla disputa: è occupato nel suo lavoro.
 
-## Figure ancora proposte, non introdurre d'ufficio
-**Comis**: ex compagno, ruolo narrativo da proporre soltanto; non approvato come villain.
-**Baber, Bobo, Panaite** e altri: menzioni di contesto, senza ruolo, identità, passato o conflitto canonizzati. Compariranno soltanto su richiesta o dopo approvazione.
+## Proposte, non personaggi canonizzati
+Comis è un ex compagno ancora in proposta. Anche Baber, Bobo, Panaite e altri restano proposte e non devono apparire automaticamente.
+
+## Regole
+I nomi e le origini mascherate si chiariranno soltanto in seguito tramite nuovi contributi e approvazione del canone. Non esporre la correlazione fra maschere e identità al lettore in questa fase. Non inventare informazioni biografiche mancanti; conservare le contraddizioni come possibili indizi narrativi.
