@@ -3,7 +3,27 @@ import {adminComicClient,comicCharacters,comicDialogue,comicHash,comicNames,isUu
 
 export const runtime='nodejs';
 export const maxDuration=120;
-const fail=(error:string,status=400)=>NextResponse.json({error},{status,headers:{'Cache-Control':'no-store'}});
+const fail=(error:string,status=400,more:Record<string,unknown>={})=>NextResponse.json({error,...more},{status,headers:{'Cache-Control':'no-store'}});
+function geminiQuotaError(httpStatus:number,raw:string,retryAfter:string|null){
+ let errorCode='';
+ let errorText='';
+ try{
+  const payload=JSON.parse(raw) as {error?:{status?:string;message?:string;details?:Array<{violations?:Array<{quotaMetric?:string;quotaId?:string}>}>}};
+  errorCode=payload.error?.status||'';
+  errorText=payload.error?.message||'';
+ }catch{}
+ if(httpStatus===429){
+  const message=(errorText+' '+raw).toLowerCase();
+  const unavailable=/free.?tier|billing|quota limit: 0|limit.?0|not available|paid tier/i.test(message);
+  const reason=unavailable?'quota_or_billing':'rate_limit';
+  const label=unavailable
+    ?'Gemini Image: quota immagini non disponibile per questo progetto. Controlla la fatturazione e i limiti del modello in Google AI Studio.'
+    :'Gemini Image: limite di richieste o immagini raggiunto. Controlla le quote in Google AI Studio e riprova quando si saranno ripristinate.';
+  const seconds=retryAfter&&/^\\d+$/.test(retryAfter)?Math.min(3600,Number(retryAfter)):null;
+  return {error:label,reason,upstreamStatus:429,retryAfterSeconds:seconds,providerCode:errorCode||'RESOURCE_EXHAUSTED'};
+ }
+ return {error:'Servizio Gemini Image non disponibile ('+httpStatus+'). '+errorText.slice(0,170),reason:'provider_error',upstreamStatus:httpStatus};
+}
 type ImageItem={type:'text';text:string}|{type:'image';mime_type:string;data:string};
 async function mainPortrait(url:string):Promise<ImageItem>{
  const origin=process.env.NEXT_PUBLIC_SUPABASE_URL||'';
@@ -49,6 +69,8 @@ export async function POST(request:NextRequest){
   const inputs:ImageItem[]=[{type:'text',text:[
    'Genera UNA SOLA ILLUSTRAZIONE per vignetta di fumetto fantasy satirico ambientato nel mondo degli Auronerum.',
    'Stile: comics europeo, inchiostro netto, colori caldi, contrasti drammatici, ombreggiature disegnate; scena leggibile sullo schermo di uno smartphone.',
+   'Gli Auronerum sono un ordine fantasy GIALLO E NERO: vessilli gialloneri, emblemi oro/nero, drappi e armature coerenti con questi colori. Non usarli come divisa di una squadra sportiva.',
+   'La dirigenza è chiamata segretamente dai Ciuati «La Casta». Non scrivere queste parole nell immagine: i testi vengono aggiunti separatamente.',
    'Questo è un pannello ILLUSTRATO, non una tavola con più riquadri. NIENTE balloon, lettere, didascalie, scritte, nomi o watermark aggiuntivi: testo e dialoghi saranno sovrapposti dall’app.',
    'Inserisci ESCLUSIVAMENTE i personaggi con reference fotografiche elencati qui. NON aggiungere persone, figuranti, silhouette o volti sullo sfondo.',
    'Preserva fedelmente forme del volto, capelli, barba, lineamenti e identità visiva delle immagini allegate. Non scambiare i volti.',
@@ -71,9 +93,9 @@ export async function POST(request:NextRequest){
    signal:AbortSignal.timeout(105000)
   });
   if(!ai.ok){
-   const message='Gemini Image non disponibile ('+ai.status+').';
-   await db.from('narrative_comic_panels').update({status:'error',error_message:message}).eq('id',panel.id);
-   return fail(message,502);
+   const diagnostic=geminiQuotaError(ai.status,(await ai.text()).slice(0,5000),ai.headers.get('retry-after'));
+   await db.from('narrative_comic_panels').update({status:'error',error_message:diagnostic.error,updated_at:new Date().toISOString()}).eq('id',panel.id);
+   return fail(diagnostic.error,ai.status===429?429:502,diagnostic);
   }
   const result=await ai.json() as {
    output_image?:{data?:string;mime_type?:string};
