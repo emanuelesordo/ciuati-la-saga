@@ -7,7 +7,7 @@ type Mention={type:'character'|'place'|'new_character';id?:string;name:string};
 type Entry={id:string;name:string;type:'character'|'place'};
 type Kind='ideology'|'perception'|'relationship'|'skill'|'weakness'|'story'|'character_proposal';
 const kinds:{value:Kind;label:string}[]=[
- {value:'ideology',label:'Ideologia personale'},{value:'perception',label:'Percezione di un personaggio'},
+ {value:'ideology',label:'Ideologia: dichiarazioni e punti di vista'},{value:'perception',label:'Percezione di un personaggio'},
  {value:'relationship',label:'Relazione'},{value:'skill',label:'Abilità / mossa segreta'},
  {value:'weakness',label:'Debolezza'},{value:'story',label:'Spunto per la trama'},
  {value:'character_proposal',label:'Proponi un nuovo personaggio'}
@@ -56,7 +56,7 @@ export default function NarrativeInput({targetId,targetName}:{targetId?:string;t
  async function submit(e:React.FormEvent){
   e.preventDefault();setNotice('');
   if(!supabase)return;
-  if(kind==='ideology'&&targetId!==ownId){setNotice('L’ideologia può essere aggiornata soltanto dal proprietario del personaggio.');return;}
+  if(kind==='ideology'&&!targetId){setNotice('Apri la scheda del personaggio per lasciare un contributo sulla sua ideologia.');return;}
   if(kind==='character_proposal'&&!name.trim()){setNotice('Inserisci il nome del nuovo personaggio.');return;}
   const content=kind==='character_proposal'?[name,origin,traits,role,text].filter(Boolean).join(' — '):text.trim();
   if(content.length<10||content.length>6000){setNotice('Il contributo deve contenere tra 10 e 6000 caratteri.');return;}
@@ -77,10 +77,10 @@ export default function NarrativeInput({targetId,targetName}:{targetId?:string;t
  }
  if(!authenticated)return <section className="panel narrative-panel"><h2>Alimenta la Saga</h2><p>Per aggiungere idee, percezioni e nuove figure devi accedere con il tuo personaggio.</p><Link href="/accedi">Accedi alla cerchia →</Link></section>;
  const suggestions=query===null?[]:entries.filter(e=>e.name.toLocaleLowerCase('it').includes(query.toLocaleLowerCase('it'))).slice(0,8);
- return <section className="panel narrative-panel"><div className="eyebrow">LE VOCI DELLA CERCHIA</div><h2>Alimenta il narratore</h2><p>{targetName?'Contributo dedicato a '+targetName+'. ':'Condividi un dettaglio, una voce o un possibile sviluppo della trama. '}Ogni testimonianza conserva il proprio autore.</p>
+ return <section className="panel narrative-panel"><div className="eyebrow">LE VOCI DELLA CERCHIA</div><h2>Alimenta il narratore</h2><p>{targetName?'Contributo dedicato a '+targetName+'. ':'Condividi un dettaglio, una voce o un possibile sviluppo della trama. '}Ogni testimonianza conserva il proprio autore. Le opinioni altrui sull’ideologia vengono considerate con un peso diverso dalle dichiarazioni del personaggio stesso.</p>
  <form onSubmit={submit} className="narrative-form">
  <label htmlFor="contribution-kind">Ambito</label>
- <select id="contribution-kind" value={kind} onChange={e=>setKind(e.target.value as Kind)}>{kinds.filter(k=>k.value!=='ideology'||!!targetId&&targetId===ownId).map(k=><option key={k.value} value={k.value}>{k.label}</option>)}</select>
+ <select id="contribution-kind" value={kind} onChange={e=>setKind(e.target.value as Kind)}>{kinds.filter(k=>k.value!=='ideology'||!!targetId).map(k=><option key={k.value} value={k.value}>{k.label}</option>)}</select>
  {kind==='character_proposal'&&<div className="narrative-proposal">
  <label>Nome del personaggio<input value={name} maxLength={120} onChange={e=>setName(e.target.value)} required/></label>
  <label>Origine<input value={origin} maxLength={250} onChange={e=>setOrigin(e.target.value)}/></label>
