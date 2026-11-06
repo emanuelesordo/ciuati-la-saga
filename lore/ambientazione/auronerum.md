@@ -21,5 +21,7 @@ Seguire la cronologia della fonte storica della chat dalla primavera 2026. Prima
 I nomi non mascherati degli antagonisti **non devono apparire** nelle prime narrazioni: possono emergere soltanto attraverso contributi successivi, in forma graduale, e con approvazione editoriale. Niente svelamenti accidentali.
 Le valutazioni su favoritismi e responsabilità sono spesso prospettive dei protagonisti, non asserzioni provate.
 
-## Divieti
-Niente calcio, partite, competizioni calcistiche, fantacalcio o loro equivalenti allegorici. Non far parlare i personaggi della creazione della Saga, dei suoi autori, di schermate o di materiali della chat. Non esporre tutti i dossier nei primi episodi. Tolkien deve essere chiamato soltanto Tolkien.
+## Sport nell'ambientazione
+Il calcio e gli sport possono esistere nella società della Saga, reinterpretati come passatempi, tornei e rivalità del mondo fantasy e dell'epoca narrativa. I riferimenti contemporanei vanno trasfigurati: niente cronache di squadre reali riportate tali e quali. Gli Auronerum rimangono un ordine politico-militare giallonero, mai una squadra calcistica. Le loro campagne e missioni non sono partite. Il gioco dei pronostici, se utile alla trama, resta distinto dalle attività dell'ordine.
+
+## Divieti Non far parlare i personaggi della creazione della Saga, dei suoi autori, di schermate o di materiali della chat. Non esporre tutti i dossier nei primi episodi. Tolkien deve essere chiamato soltanto Tolkien.
