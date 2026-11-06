@@ -99,7 +99,7 @@ export default function ComicStudio({run,autoStart}:{run:Run;autoStart:boolean})
   })();
   return()=>{active=false;alive.current=false;};
  },[run.id,refresh,storyboard,autoStart]);
- const mentioned=[...new Set(panels.flatMap(p=>[...(p.cast_names||[]),...(p.mentions||[]),(p.dialogue||[]).map(d=>d.speaker)]))];
+ const mentioned=[...new Set(panels.flatMap(p=>[...(p.cast_names||[]),...(p.mentions||[]),...(p.dialogue||[]).map(d=>d.speaker)]))];
  const protagonists=new Set(main.flatMap(c=>[norm(c.slug),norm(c.display_name),'viper','ceceno','fromage']));
  const missingProfiles=support.filter(s=>mentioned.some(n=>norm(n)===norm(s.display_name)||norm(n)===norm(s.slug))&&!protagonists.has(norm(s.display_name)));
  async function updateInfo(person:Support,description:string){
