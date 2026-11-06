@@ -7,6 +7,7 @@ type Dialogue={speaker:string;text:string};
 type Panel={id:string;run_id:string;panel_number:number;scene:string;caption:string;dialogue:Dialogue[];cast_names:string[];mentions:string[];image_path:string|null;status:string;error_message:string|null;source_hash:string};
 type Support={id:string;slug:string;display_name:string;description:string;portrait_path:string|null};
 type Main={slug:string;display_name:string;avatar_path:string|null};
+type PlaceReference={slug:string;name:string;image_url:string|null;real_world_reference:string|null};
 type Run={id:string;title:string;body:string;status:string};
 const norm=(name:string)=>name.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
 function missingFaces(panel:Panel,main:Main[],support:Support[]){
@@ -18,13 +19,15 @@ function missingFaces(panel:Panel,main:Main[],support:Support[]){
   return !side?.portrait_path||side.description.trim().length<15;
  });
 }
-function promptForChatGPT(run:Run,panels:Panel[],main:Main[],support:Support[],signedPortraits:Record<string,string>){
+function promptForChatGPT(run:Run,panels:Panel[],main:Main[],support:Support[],signedPortraits:Record<string,string>,placeReferences:PlaceReference[],siteOrigin:string){
  const ready=panels.filter(p=>missingFaces(p,main,support).length===0);
  const blocked=panels.filter(p=>missingFaces(p,main,support).length>0);
  const used=new Set(ready.flatMap(p=>p.cast_names.map(norm)));
  const reference=main.filter(c=>used.has(norm(c.display_name))||used.has(norm(c.slug))||(c.slug==='scema'&&used.has('viper')))
   .map(c=>'- '+c.display_name+': '+(c.avatar_path||'nessun ritratto'));
  const refsSupport=support.filter(s=>used.has(norm(s.display_name))||used.has(norm(s.slug))).map(s=>'- '+s.display_name+': '+(signedPortraits[s.id]||'immagine non accessibile: allegare il riferimento originale.'));
+ const locationsText=[run.body,...panels.map(p=>p.scene)].join(' ').toLocaleLowerCase('it');
+ const refsPlaces=placeReferences.filter(p=>p.image_url&&(locationsText.includes(p.name.toLocaleLowerCase('it'))||locationsText.includes(p.slug.replaceAll('-',' '))||(p.slug==='white-pony'&&(locationsText.includes('white pony')||locationsText.includes('cavallo bianco'))))).map(p=>'- '+p.name+' ('+(p.real_world_reference||'riferimento da definire')+'): '+new URL(p.image_url!,siteOrigin).href);
  return [
   'REALIZZA LE ILLUSTRAZIONI DEL FUMETTO «'+run.title+'» — CIUATI LA SAGA.',
   'Voglio immagini effettive, non descrizioni delle immagini. Genera i file e raccoglili in UN SOLO ZIP scaricabile.',
@@ -57,6 +60,8 @@ function promptForChatGPT(run:Run,panels:Panel[],main:Main[],support:Support[],s
   '',
   'RIFERIMENTI VISIVI DEI PERSONAGGI AUTORIZZATI (URL automatici dal progetto; non inventare sembianze):',
   ...reference,...refsSupport,
+  'RIFERIMENTI VISIVI DEI LUOGHI PRESENTI NELLA STORIA (illustrazioni canoniche del progetto):',
+  ...(refsPlaces.length?refsPlaces:['Nessun luogo dell’atlante riconosciuto nel testo; preservare le descrizioni delle scene.']),
   '',
   blocked.length?'VIGNETTE NON AUTORIZZATE IN QUESTO ZIP (mancano foto/schede): '+blocked.map(p=>'n. '+p.panel_number+' — '+missingFaces(p,main,support).join(', ')).join('; '):'Tutte le vignette dello storyboard possono essere illustrate.',
   'Non generare file per vignette escluse. Le immagini mancanti saranno aggiunte in seguito, una volta completate le relative schede.',
@@ -65,7 +70,7 @@ function promptForChatGPT(run:Run,panels:Panel[],main:Main[],support:Support[],s
  ].join('\n');
 }
 export default function ComicStudio({run,autoStart}:{run:Run;autoStart:boolean}){
- const [panels,setPanels]=useState<Panel[]>([]),[support,setSupport]=useState<Support[]>([]),[main,setMain]=useState<Main[]>([]);
+ const [panels,setPanels]=useState<Panel[]>([]),[support,setSupport]=useState<Support[]>([]),[main,setMain]=useState<Main[]>([]),[places,setPlaces]=useState<PlaceReference[]>([]);
  const [images,setImages]=useState<Record<string,string>>({}),[portraitImages,setPortraitImages]=useState<Record<string,string>>({});
  const [view,setView]=useState<'comic'|'storyboard'|'mentioned'>('comic');
  const [busy,setBusy]=useState(''),[notice,setNotice]=useState(''),[loading,setLoading]=useState(true);
@@ -73,14 +78,15 @@ export default function ComicStudio({run,autoStart}:{run:Run;autoStart:boolean})
  const refresh=useCallback(async()=>{
   if(!supabase)return [] as Panel[];
   const client=supabase;
-  const [a,b,c]=await Promise.all([
+  const [a,b,c,d]=await Promise.all([
    client.from('narrative_comic_panels').select('*').eq('run_id',run.id).order('panel_number'),
    client.from('comic_supporting_characters').select('*').order('display_name'),
-   client.from('characters').select('slug,display_name,avatar_path').eq('is_published',true)
+   client.from('characters').select('slug,display_name,avatar_path').eq('is_published',true),
+   client.from('saga_places').select('slug,name,image_url,real_world_reference').eq('is_published',true)
   ]);
-  if(a.error||b.error||c.error)throw new Error(a.error?.message||b.error?.message||c.error?.message||'Archivio non disponibile.');
+  if(a.error||b.error||c.error||d.error)throw new Error(a.error?.message||b.error?.message||c.error?.message||d.error?.message||'Archivio non disponibile.');
   const ps=(a.data||[]) as Panel[],s=(b.data||[]) as Support[];
-  if(alive.current){setPanels(ps);setSupport(s);setMain((c.data||[]) as Main[]);setLoading(false);}
+  if(alive.current){setPanels(ps);setSupport(s);setMain((c.data||[]) as Main[]);setPlaces((d.data||[]) as PlaceReference[]);setLoading(false);}
   const paths=[...ps.filter(p=>p.image_path).map(p=>p.image_path!),...s.filter(x=>x.portrait_path).map(x=>x.portrait_path!)];
   const unique=[...new Set(paths)];
   if(unique.length){
@@ -120,7 +126,7 @@ export default function ComicStudio({run,autoStart}:{run:Run;autoStart:boolean})
  },[run.id,autoStart,refresh,storyboard]);
  async function copyInstructions(){
   if(!panels.length){setNotice('Genera prima lo storyboard.');return;}
-  try{await refresh();const client=supabase;const used=new Set(panels.flatMap(p=>p.cast_names.map(norm)));const matching=support.filter(p=>p.portrait_path&&(used.has(norm(p.slug))||used.has(norm(p.display_name))));const signed=matching.length&&client?await client.storage.from('comic-drafts').createSignedUrls(matching.map(p=>p.portrait_path!),3600):null;if(signed?.error)throw signed.error;const urls=Object.fromEntries(matching.map((p,i)=>[p.id,signed?.data?.[i]?.signedUrl||'']));await navigator.clipboard.writeText(promptForChatGPT(run,panels,main,support,urls));setNotice('Istruzioni copiate con i riferimenti fotografici disponibili. I link privati scadono dopo un’ora.');}
+  try{await refresh();const client=supabase;const used=new Set(panels.flatMap(p=>p.cast_names.map(norm)));const matching=support.filter(p=>p.portrait_path&&(used.has(norm(p.slug))||used.has(norm(p.display_name))));const signed=matching.length&&client?await client.storage.from('comic-drafts').createSignedUrls(matching.map(p=>p.portrait_path!),3600):null;if(signed?.error)throw signed.error;const urls=Object.fromEntries(matching.map((p,i)=>[p.id,signed?.data?.[i]?.signedUrl||'']));await navigator.clipboard.writeText(promptForChatGPT(run,panels,main,support,urls,places,window.location.origin));setNotice('Istruzioni copiate con i riferimenti fotografici disponibili. I link privati scadono dopo un’ora.');}
   catch{setNotice('Accesso agli appunti non disponibile: prova da un browser aggiornato con HTTPS.');}
  }
  async function uploadZip(file:File){
