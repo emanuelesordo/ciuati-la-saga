@@ -128,7 +128,7 @@ export async function POST(request:NextRequest){
       return errorResponse('La bozza anticipa identità riservate. Rigenerala senza svelamenti.',422);
     }
     // Prevent premature identity disclosure in the episode visible to readers.
-    if(/\b(?:Gira|Dudi|Pacca|Griso|Lovino|Mister)\b/i.test(visibleStory)){
+    if(/\b(?:Dudi|Pacca|Griso|Lovino|Mister)\b/i.test(visibleStory)){
       return errorResponse('Bozza con identita non ancora rivelabili. Rigenerare.',422);
     }
     const notes=Array.isArray(episode.continuity_notes)?episode.continuity_notes.filter((n):n is string=>typeof n==='string').slice(0,30):[];
