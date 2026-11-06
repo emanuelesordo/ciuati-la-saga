@@ -1,7 +1,7 @@
 'use client';
 import { useMemo, useRef, useState } from 'react';
 
-export type AtlasPlace = { id:string; slug:string; name:string; description:string };
+export type AtlasPlace = { id:string; slug:string; name:string; description:string; image_url?:string|null; real_world_reference?:string|null; reference_status?:string|null };
 const landmarks:Record<string,{x:number;y:number;kind:string;parent?:string}>={
  paugania:{x:465,y:285,kind:'Regione'},antonova:{x:495,y:310,kind:'Città',parent:'Paugania'},
  'white-pony':{x:526,y:336,kind:'Santuario',parent:'Antonova'},
@@ -57,7 +57,7 @@ export default function AtlasMap({places}:{places:AtlasPlace[]}){
   <aside className="atlas-side">
    <label htmlFor="atlas-search">Cerca nell'Atlante</label><input id="atlas-search" value={search} onChange={e=>setSearch(e.target.value)} placeholder="Nome del luogo…"/>
    <div className="atlas-places">{visible.map(p=><button type="button" className={selected===p.slug?'active':''} key={p.id} onClick={()=>focus(p.slug)}><strong>{p.name}</strong><small>{landmarks[p.slug].kind}</small></button>)}{!visible.length&&<p>Nessun luogo trovato.</p>}</div>
-   {active&&<article className="atlas-detail"><div className="eyebrow">SCHEDA DEL LUOGO</div><h2>{active.name}</h2><small>{landmarks[active.slug].kind}{landmarks[active.slug].parent?' · '+landmarks[active.slug].parent:''}</small><p>{active.description}</p></article>}
+   {active&&<article className="atlas-detail"><div className="eyebrow">SCHEDA DEL LUOGO</div>{active.image_url&&<img src={active.image_url} alt={"Illustrazione fantasy di "+active.name} style={{width:"100%",height:"auto",aspectRatio:"3 / 2",objectFit:"cover",border:"2px solid #ba914e",borderRadius:8,margin:"12px 0"}}/>}<h2>{active.name}</h2><small>{landmarks[active.slug].kind}{landmarks[active.slug].parent?' · '+landmarks[active.slug].parent:''}</small><p>{active.description}</p>{active.reference_status==="confirmed"&&active.real_world_reference&&<small>Trasposizione reale: {active.real_world_reference}</small>}{active.reference_status==="unverified"&&<small>Origine reale non ancora definita nel canone.</small>}</article>}
   </aside>
  </div>;
 }
