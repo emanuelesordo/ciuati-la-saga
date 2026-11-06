@@ -116,3 +116,9 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
 .profile-mode-tabs button.active{background:#e5ae6b;color:#17151c}
 .profile-sections .narrative-panel{margin-top:18px}
 @media(max-width:520px){.saga-bottom-nav{gap:3px}.saga-bottom-nav a{min-width:0;padding:8px 3px}.profile-mode-tabs button{max-width:none}}
+
+/* Home e risalita gerarchica nella barra a sei voci */
+.saga-bottom-nav button{min-width:0;max-width:130px;flex:1;display:grid;gap:3px;place-items:center;padding:7px 9px;border:0;background:transparent;border-radius:10px;color:#c9c4bc;cursor:pointer}
+.saga-bottom-nav button span{font-size:21px;line-height:1.1}.saga-bottom-nav button small{font-size:11px}
+.saga-bottom-nav button:disabled{opacity:.35;cursor:default}
+@media(max-width:520px){.saga-bottom-nav{gap:2px;padding-left:5px;padding-right:5px}.saga-bottom-nav a,.saga-bottom-nav button{min-width:0;padding:7px 1px}.saga-bottom-nav a small,.saga-bottom-nav button small{font-size:10px}}
