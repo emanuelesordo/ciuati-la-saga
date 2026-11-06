@@ -55,7 +55,7 @@ export async function POST(request:NextRequest){
  if(!response||!response.ok)return reject('Servizio IA non disponibile'+(response?' ('+response.status+')':'' )+'. La bozza resta salvata.',502);
  let description='';
  try{
-  const result=await response.json() as {candidates?:Array<{content?:{parts?:Array<{text?:string}>}}>}>;
+  const result=await response.json() as {candidates?: {content?: {parts?: {text?:string}[]}}[]};
   const raw=result.candidates?.[0]?.content?.parts?.map(x=>x.text||'').join('')||'';
   const parsed=JSON.parse(raw) as {description?:unknown};
   if(typeof parsed.description==='string')description=parsed.description.trim();
