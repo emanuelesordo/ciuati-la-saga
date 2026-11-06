@@ -5,7 +5,7 @@ Stato: piano editoriale. Gli episodi non sono automaticamente pubblicati.
 Seguire l'ordine della chat, dalla primavera del 2026 verso l'autunno. Trasformare le vicende in fantasy senza citare conversazioni, supporti digitali, sport o giochi fantasy-sportivi. Non inventare una coincidenza di presenza per tutti i sei all'inizio.
 
 ### Arco I — Primavera: le forze degli Auronerum
-Aprire nell'ordine degli Auronerum, tra missioni, gerarchie e prime tensioni. Il nucleo più visibile è Viper, Barretta, Hermano e Cecè. Giogale emerge gradualmente e possiede già un rapporto con le strutture di comando. La comicità nasce dai loro modi incompatibili di discutere e collaborare.
+Aprire nell'ordine **giallonero** degli Auronerum, tra missioni, gerarchie e prime tensioni. I Ciuati possono soprannominare di nascosto i vertici **«La Casta»**, mai come denominazione pubblica ufficiale. Il nucleo più visibile è Viper, Barretta, Hermano e Cecè. Giogale emerge gradualmente e possiede già un rapporto con le strutture di comando. La comicità nasce dai loro modi incompatibili di discutere e collaborare.
 Le Fromage esiste già come veterano e amico di Rob, ma resta figura SECONDARIA: può essere visto o nominato, senza essere presentato come sesto membro del gruppo protagonista.
 
 ### Arco II — Tarda primavera / giugno: i dubbi
