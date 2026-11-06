@@ -79,8 +79,8 @@ export async function POST(request:NextRequest){
       'Non parlare mai di come nasce o viene creata la saga; nessun personaggio è consapevole di vivere in un fumetto o progetto editoriale. Non introdurre screenshot, immagini, registrazioni o materiali editoriali.',
       'Se context.openingPhase è true, comincia nella fase marzo-maggio, con la vita negli Auronerum e la progressiva formazione della cerchia; usa lore/trame/apertura-brugge.md come scaletta ordinata per tutte le puntate. Brugge arriverà solo in settembre, dopo gli eventi precedenti.',
       'Le Fromage conosce già Rob e prima di settembre è soltanto personaggio secondario, non uno dei protagonisti attivi del nucleo. A Brugge, in settembre, diventa il sesto protagonista; Rob e Hermano discutono di comunismo, mentre il Patataro è d’accordo con Rob ma non partecipa al dibattito.',
-      'In pubblico usa soltanto le maschere: il Gatto e la Volpe (coppia di vertice), il Dottore, Pollicino e la Pecora. Le corrispondenze con Dudi, Pacca, Griso, Mister e Lovino sono segrete nella memoria interna: mai rivelarle esplicitamente prima dell’approvazione. Non assegnare individualmente il Gatto o la Volpe a uno specifico dirigente. Tolkien e Gira sono la stessa figura.',
-      'L’ipotesi di favori a Griso in cambio di contributi è soltanto una diceria dei personaggi, non un fatto provato. Anche gli altri giudizi di corte sono prospettive narrative, non accuse fattuali a individui reali.',
+      'Nel racconto usa soltanto le maschere degli antagonisti: il Gatto e la Volpe (coppia di vertice), il Dottore, Pollicino e la Pecora. Non rivelare la loro identità, non assegnare individualmente il Gatto o la Volpe a uno specifico dirigente e non usare nomi diversi da Tolkien per il veterano.',
+      'L’ipotesi di favori al Dottore in cambio di contributi è soltanto una diceria dei personaggi, non un fatto provato. Anche gli altri giudizi di corte sono prospettive narrative, non accuse fattuali a individui reali.',
       'Comis, Baber, Bobo e Panaite non sono personaggi approvati: non introdurli negli episodi iniziali senza una decisione editoriale.',
       'Non rendere villain automatici le figure nominate da una chat: i giudizi sono prospettive soggettive. Non equiparare una vignetta sperimentale a un fatto approvato.',
       'Preserva la progressione temporale della cerchia e non anticipare nel passato sviluppi di luglio, settembre, ottobre o novembre.',
@@ -126,6 +126,10 @@ export async function POST(request:NextRequest){
     // Early identities are an internal secret: fail closed if Gemini exposes a source name.
     if(context.openingPhase && /\b(?:Dudi|Pacca|Griso|Lovino)\b/i.test(visibleStory)){
       return errorResponse('La bozza anticipa identità riservate. Rigenerala senza svelamenti.',422);
+    }
+    // Prevent premature identity disclosure in the episode visible to readers.
+    if(/\b(?:Gira|Dudi|Pacca|Griso|Lovino|Mister)\b/i.test(visibleStory)){
+      return errorResponse('Bozza con identita non ancora rivelabili. Rigenerare.',422);
     }
     const notes=Array.isArray(episode.continuity_notes)?episode.continuity_notes.filter((n):n is string=>typeof n==='string').slice(0,30):[];
     const {data,error}=await db.from('narrative_runs').insert({
