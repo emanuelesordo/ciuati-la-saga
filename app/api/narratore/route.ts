@@ -43,6 +43,7 @@ export async function POST(request:NextRequest){
     const worldCanon=await Promise.all([
       'ambientazione/auronerum.md',
       'ambientazione/brugge-white-pony.md',
+      'ambientazione/geografia-trasposizioni.md',
       'personaggi/secondari-auronerum.md',
       'trame/apertura-brugge.md'
     ].map(async source=>({
