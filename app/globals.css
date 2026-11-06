@@ -48,3 +48,60 @@ form{display:grid;gap:12px;max-width:420px;margin-top:24px}input{font:inherit;pa
 .narrative-proposal{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:14px}
 .narrative-proposal label{display:grid;gap:8px}
 .narrative-notice{font-size:15px!important;color:#e8c895!important}
+
+/* Sala del narratore — lettore fumetti comics, mobile first */
+.comic-studio{margin-top:28px;border-color:#a37a4c;background:linear-gradient(145deg,#261f25,#151820)}
+.comic-studio-head{display:flex;align-items:flex-start;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.comic-studio h2{font:normal clamp(29px,5vw,42px) Georgia,serif;margin:12px 0;color:#f5dbb5}
+.comic-studio>p{font-size:15px;line-height:1.65}
+.comic-counter{border:1px solid #997547;border-radius:30px;padding:8px 12px;font-size:12px;color:#f2d2a6}
+.comic-actions{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}
+.comic-actions button{font-size:14px;padding:11px 14px}
+.comic-actions button:not(:first-child){background:#3a3130;color:#f5dbb5;border:1px solid #80664b}
+.comic-tabs{display:flex;overflow-x:auto;gap:8px;padding:10px 0 16px;margin:22px 0;border-bottom:1px solid #5b4b3c;scrollbar-width:thin}
+.comic-tabs button{white-space:nowrap;padding:12px 14px;background:#24252d;color:#d2c9c0;border:1px solid #504b4a}
+.comic-tabs button.active{background:#e6b679;color:#19141a;border-color:#e6b679}
+.comic-pages{display:grid;grid-template-columns:1fr;gap:24px;max-width:780px;margin:22px auto}
+.comic-frame{background:#f6eedb;color:#231c19;padding:10px;border:5px solid #151515;box-shadow:7px 8px 0 #0008}
+.comic-image{border:3px solid #141414;background:#d1bea4;aspect-ratio:4/5;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.comic-image a,.comic-image img{display:block;width:100%;height:100%}
+.comic-image img{object-fit:cover;object-position:center}
+.comic-image-empty{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:25px;gap:18px;max-height:100%;overflow:auto}
+.comic-image-empty strong{font:700 30px Georgia,serif}
+.comic-image-empty span{font-weight:700}
+.comic-image-empty small{font-size:14px;line-height:1.45}
+.comic-caption{font:italic 16px/1.55 Georgia,serif!important;color:#362d25!important;background:#e8d7b7;padding:10px;margin:10px 0!important;max-width:none}
+.comic-dialogues{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:8px 3px}
+.comic-balloon{background:white;color:#171717;border:2px solid #191919;border-radius:18px;padding:11px 13px;box-shadow:2px 3px 0 #1d1b1a;line-height:1.45;font-size:15px;min-width:0;overflow-wrap:anywhere}
+.comic-balloon b{display:block;font-size:12px;text-transform:uppercase;margin-bottom:5px}
+.comic-balloon span{display:block}
+.comic-frame-footer{display:flex;justify-content:space-between;align-items:center;gap:15px;font-size:12px;margin:12px 0 3px}
+.comic-frame-footer button{padding:8px 12px;font-size:12px;background:#222;color:#f4d8b4}
+.comic-empty{padding:40px 20px;border:1px dashed #735d42;text-align:center;color:#c9baa7}
+.comic-storyboard{display:grid;gap:12px;margin:25px 0}
+.comic-story-card{background:#22242e;border:1px solid #49444a;border-radius:12px;padding:16px}
+.comic-story-card h3{margin:0 0 8px;color:#f2c78e}
+.comic-story-card p{font-size:15px}
+.comic-story-card small{display:block;color:#dbc6a9;margin-top:6px}
+.comic-support-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:15px;margin-top:23px}
+.comic-support-card{background:#24222b;padding:17px;border-radius:12px;border:1px solid #574b3e}
+.comic-support-card h3{font:normal 28px Georgia,serif;margin:14px 0}
+.comic-support-card small{color:#dec39b}
+.comic-support-card label{display:grid;gap:7px;margin:15px 0;color:#e6c58d;font-size:14px}
+.comic-support-card textarea{width:100%;border:1px solid #80654f;background:#15141c;color:#f7ebd8;border-radius:8px;padding:13px;font:inherit}
+.comic-support-card button{font-size:13px}
+.comic-support-portrait{aspect-ratio:1;background:#161720;display:grid;place-items:center;overflow:hidden;border:1px solid #514638}
+.comic-support-portrait img{width:100%;height:100%;object-fit:contain}
+.comic-upload input{max-width:100%;font-size:13px;padding:9px}
+.comic-status{font-size:14px!important;color:#efd3a4!important}
+@media(max-width:600px){
+ .comic-studio{padding:14px;margin-left:-12px;margin-right:-12px}
+ .comic-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+ .comic-actions button:first-child{grid-column:1/-1}
+ .comic-actions button{font-size:12px}
+ .comic-dialogues{grid-template-columns:1fr}
+ .comic-frame{padding:6px;border-width:3px;box-shadow:4px 5px 0 #0008}
+ .comic-image{border-width:2px}
+ .comic-balloon{font-size:14px}
+ .comic-counter{padding:6px 9px}
+}
