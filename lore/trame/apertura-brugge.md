@@ -1,27 +1,32 @@
-# Apertura consigliata: l'esame di Brugge e il patto del White Pony
-**Stato: proposta di struttura approvabile, non episodio già avvenuto nella Saga.**
-**Collocazione:** inizio del racconto in settembre, dopo che i protagonisti hanno già prestato servizio per gli Auronerum; retroscena anteriori da scoprire dopo. Non cominciare a marzo solo perché lì nasce la chat.
+# Scaletta cronologica della cerchia Ciuati
 
-## Scopo dei primi episodi
-Far emergere tutte e sei le personalità attraverso **azioni e botta e risposta**, senza un catalogo di informazioni. Mostrare presto il legame con gli Auronerum e accennare alle divergenze che hanno reso necessaria la loro alleanza. I conflitti più recenti saranno ripresi in seguito.
+**Stato:** guida editoriale in ordine cronologico, approvata dall'autore il 06/11/2026. Non equivale a episodi già pubblicati.
+**Principio:** seguire la successione degli eventi emersa dalla chat, reinterpretandoli nell'universo degli Auronerum. Non copiare dialoghi privati o eventi sportivi.
 
-## Episodio di apertura — Brugge
-- In Belgio Le Fromage e Rob espongono i tesori brassicoli del White Pony. I due sono già sodali, non si incontrano per la prima volta.
-- Viper, Cecè e Hermano arrivano a Brugge. La fiducia fra loro si costruisce tra scherzi, imprevisti e piccoli impegni.
-- Viper porta la commissione di Barretta: una **prova fasulla di calabrese** per ammettere Le Fromage alla cerchia. Barretta non è fisicamente a Brugge, salvo indicazione successiva; può partecipare per lettera, sigillo, messaggero o evocazione comica. Il test è parodia di una solennità, non un esame realmente difficile.
-- Rob prende posizione sui regimi comunisti sovietico e nordcoreano; Hermano ribatte energicamente, mentre Cecè rompe il ritmo con una battuta e Viper provoca. Il Patataro albanese, concorde con Rob, lavora e non interviene.
-- Le Fromage reagisce con poche frasi taglienti. Non trasformarlo in personaggio loquace solo per coprire più pagine.
-- Chiusura: un invito, una promessa o un oggetto da portare al WP apre il seguito, senza introdurre subito ogni antagonista.
+## Fase 1 — marzo–maggio: le origini
+I Ciuati servono negli Auronerum. I primi episodi mostrano le affinità, le provocazioni e la convivialità di Viper, Barretta, Hermano e Cecè. Giogale emerge gradualmente con la conoscenza dei vertici. Le Fromage esiste già, è veterano e amico di Rob, ma compare solo come figura secondaria: **non è ancora il sesto protagonista**. Non trasformare la nascita della conversazione in un evento della fiction.
 
-## Episodio successivo — Il White Pony
-- Riunione dei **sei**: Barretta e Giogale si ricongiungono a Viper, Cecè, Hermano e al nuovo Le Fromage.
-- Barretta commenta il risultato dell'esame e dà origine a una disamina sproporzionata; Giogale osserva e conosce i meccanismi degli Auronerum; Hermano ricorda la polemica belga; Viper inserisce una provocazione, Cecè spiazza, Fromage riduce tutto a un verdetto lapidario.
-- L'ordine Auronerum è l'ombra comune: citare il comando, i favori e il malcontento tramite piccoli indizi credibili, senza spiegare ogni scandalo.
-- Concludere con un patto di appartenenza, sottinteso più che recitato.
+## Fase 2 — giugno: i primi contrasti
+Il principio del merito viene messo alla prova dalla distribuzione delle missioni e dagli incarichi. Le scelte dei dirigenti suscitano dubbi; i membri della cerchia non hanno necessariamente opinioni identiche. I potenti compaiono inizialmente dietro maschere e appellativi.
 
-## Rinvii
-- L'avanzamento di Griso, le mezze verità dei dirigenti e le decisioni di Viper; il ritorno incerto di Giogale, le promesse del Mister; il ruolo di Lovino e la futura rivolta di Le Fromage; i racconti di Tolkien: fili di episodi futuri.
-- Comis, Baber, Bobo, Panaite: **non introdurre** in apertura.
-- Non raccontare mai la creazione di una «Saga» dentro la Saga. Nessuno menziona materiali editoriali, trascrizioni, schermate, fotografie, disegni o canali di chat come fondamento diegetico.
-- No calcio o suoi derivati, no Fantacalcio neppure sotto travestimento metaforico.
-- Non mostrare ai lettori i retroscena degli identikit o l'intero passato in una volta.
+## Fase 3 — luglio: la frattura
+Giogale si distacca dalla dirigenza marginale e torna sul campo con dubbi e acciacchi, anche per le promesse ricevute. Viper prende le distanze dalla prima linea di fronte ai favoritismi percepiti. Il Dottore, già uomo del campo, si avvicina al comando. Le dicerie sul suo avanzamento restano dicerie, non verità del narratore.
+
+## Fase 4 — agosto: i legami e le tensioni
+I Ciuati consolidano il loro rapporto, condividendo rituali e malumori. Le Fromage continua a essere una presenza secondaria. Rob e il White Pony preparano la successiva avventura brassicola.
+
+## Fase 5 — settembre: il viaggio a Brugge
+Le Fromage e Rob espongono le birre del White Pony in Belgio. Viper, Cecè e Hermano li raggiungono. Barretta, senza essere necessariamente presente, commissiona il finto esame di calabrese per Le Fromage. Rob discute di comunismo sovietico e nordcoreano con Hermano; il Patataro albanese concorda con Rob ma resta occupato al lavoro. **Da questa avventura Le Fromage entra stabilmente fra i sei protagonisti principali.** Non collocare Giogale o Barretta in Belgio senza una fonte ulteriore.
+
+## Fase 6 — settembre e oltre: il White Pony
+Tutti e sei si ritrovano al White Pony per l'accoglienza collettiva. Proseguire seguendo la cronologia dei contrasti successivi senza anticipare l'esito della rivalità fra la Pecora e Le Fromage.
+
+## Identità mascherate
+Per gli antagonisti usare inizialmente soltanto: **il Gatto e la Volpe** (coppia dirigente), **il Dottore** (favorito), **Pollicino** (comando operativo), **la Pecora** (antagonista di primo piano). Le vere identità sono conoscenza interna del narratore e vanno rivelate soltanto quando approvate, dopo nuovi contributi o svolte narrative. Non assegnare arbitrariamente il singolo titolo di Gatto o Volpe a uno dei due dirigenti. Tolkien compare anche con l'alias «Gira» nelle fonti, ma è lo stesso personaggio.
+
+## Vincoli
+- Non raccontare calcio, fantacalcio né loro allegorie.
+- Non citare chat, schermate, immagini o il fatto che questa Saga venga scritta.
+- Rivelare lentamente relazioni e retroscena; non presentare tutti i sei come protagonisti fin dal primo episodio.
+- Comis, Baber, Bobo, Panaite e gli altri sono soltanto proposte.
+- Gli eventi documentati nelle fonti e gli episodi approvati prevalgono sulle ipotesi narrative; i vocali non ancora esaminati non costituiscono conferme.
