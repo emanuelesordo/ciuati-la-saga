@@ -16,7 +16,7 @@ export default async function Personaggi(){
  return <main className="shell identikit-shell"><header className="archive-header"><div className="archive-heading"><h1>Personaggi</h1><p>Volti e leggende della Saga</p></div><ArchiveTabs active="ciuati"/></header>
  {characters.length?<div className="identikit-grid">{characters.map(c=><Link className="identikit-card" key={c.id} href={'/personaggi/'+encodeURIComponent(c.slug)}>
   <div className="identikit-card-art">{(c.avatar_path?.startsWith('https://')||c.avatar_path?.startsWith('/characters/'))?<img src={c.avatar_path} alt={'Ritratto di '+c.display_name}/>:<span aria-hidden="true">{c.display_name.slice(0,1)}</span>}</div>
-  <div className="identikit-card-content"><small>DOSSIER · CERCHIA DEI CIUATI</small><h2>{c.display_name}</h2><p>{characterTeasers[c.slug]||'Il suo passato deve ancora emergere dalle cronache.'}</p><strong>Consulta identikit →</strong></div>
+  <div className="identikit-card-content"><small className="character-label">CERCHIA DEI CIUATI</small><h2>{c.display_name}</h2><p>{characterTeasers[c.slug]||'Il suo passato deve ancora emergere dalle cronache.'}</p><span className="character-arrow" aria-hidden="true">→</span></div>
  </Link>)}</div>:<section className="panel"><h2>Nessun personaggio disponibile</h2><p>Non risultano schede pubblicate, oppure l'archivio è momentaneamente indisponibile.</p></section>}
  </main>;
 }
