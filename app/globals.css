@@ -148,3 +148,12 @@ button,a,input,select,textarea{touch-action:manipulation}button:focus-visible,a:
 
 /* Horizontal game HUD for archive navigation */
 .archive-header{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:0 0 12px;min-width:0}.archive-heading{min-width:0;flex:0 1 auto}.archive-heading h1{font-size:clamp(21px,3vw,32px);line-height:1.1;margin:0}.archive-heading p{font-size:12px;line-height:1.25;margin:3px 0 0;color:#c7c4c4}.archive-header .archive-tabs{display:flex;align-items:center;flex:0 1 auto;min-width:0;max-width:65%;overflow-x:auto;white-space:nowrap;gap:5px;margin:0;padding:0;scrollbar-width:thin}.archive-header .archive-tabs a{flex-shrink:0;padding:10px 11px;font-size:12px;min-height:44px;display:inline-flex;align-items:center;justify-content:center}.archive-header+.identikit-grid{margin-top:8px}@media(max-width:600px){.archive-header{gap:7px}.archive-heading h1{font-size:18px}.archive-heading p{display:none}.archive-header .archive-tabs{max-width:70%;gap:3px}.archive-header .archive-tabs a{font-size:11px;padding:9px 8px}}
+
+/* Archive: centered top title, tabs directly below */
+.archive-header{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:5px;margin:0 0 9px;text-align:center}
+.archive-heading{width:100%;flex:none}.archive-heading h1{font-size:clamp(22px,4vw,32px);margin:0;line-height:1.1}.archive-heading p{display:none}
+.archive-header .archive-tabs{width:100%;max-width:100%;justify-content:center;flex:0 1 auto;gap:6px;overflow-x:auto;margin:0;padding:0 0 3px;border-bottom:0}
+.archive-header .archive-tabs a{min-height:44px;padding:9px 12px;font-size:12px}
+.identikit-card-content{position:relative;padding-bottom:28px}.character-label{display:inline-block;border:1px solid #765c3d;border-radius:5px;background:#33291f;color:#f0ce9d;padding:4px 6px;font-size:10px;letter-spacing:.04em}
+.character-arrow{position:absolute;right:10px;bottom:5px;font-size:23px;line-height:1;color:#e5ae6b;font-weight:700}
+@media(max-width:600px){.archive-header{gap:4px}.archive-heading h1{font-size:22px}.archive-header .archive-tabs{justify-content:safe center;gap:4px}.archive-header .archive-tabs a{font-size:11px;padding:8px 10px}.identikit-card-content{padding-bottom:26px}.character-label{font-size:9px;padding:3px 4px}.character-arrow{right:7px;bottom:4px;font-size:20px}}
