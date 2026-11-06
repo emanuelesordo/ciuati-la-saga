@@ -64,14 +64,20 @@ export default function NarrativeInput({targetId,targetName,targetSecondaryId}:{
   try{
    const {data:{user},error:authError}=await supabase.auth.getUser();
    if(authError||!user||(!ownId&&user.app_metadata?.role!=='admin'))throw new Error('Solo i sei Ciuati autenticati possono contribuire.');
-   const {error}=await supabase.from('narrative_inputs').insert({
+   const {data:created,error}=await supabase.from('narrative_inputs').insert({
     author_id:user.id,character_id:ownId,target_character_id:targetId||null,
     kind,content,status:'pending',mentions:[...mentions.filter(m=>text.includes('@'+m.name)),...(targetSecondaryId?[{type:'secondary_character',id:targetSecondaryId,name:targetName||''}]:[])],
     proposal:kind==='character_proposal'?{name:name.trim(),origin:origin.trim(),traits:traits.trim(),role:role.trim()}:{}
-   });
+   }).select('id').single();
    if(error)throw new Error('Salvataggio non riuscito: '+error.message);
    setText('');setMentions([]);setName('');setOrigin('');setTraits('');setRole('');
-   setNotice('Contributo registrato. Il narratore potrà utilizzarlo come testimonianza, senza trasformarlo automaticamente in canone.');
+   if(kind==='character_proposal'&&created?.id){
+    setNotice('Proposta salvata. Generazione della descrizione in corso…');
+    const {data:{session}}=await supabase.auth.getSession();
+    const ai=await fetch('/api/personaggi-secondari/genera',{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+(session?.access_token||'')},body:JSON.stringify({proposalId:created.id})}).catch(()=>null);
+    const result=ai?await ai.json().catch(()=>null):null;
+    setNotice(ai?.ok&&result?.ok?'Scheda elaborata dall’IA e salvata come bozza privata. L’admin potrà revisionarla e pubblicarla.':'Proposta e bozza salvate. Generazione IA non riuscita: '+(result?.error||'servizio non raggiungibile')+' L’admin potrà riprovare.');
+   }else setNotice('Contributo registrato. Il narratore potrà utilizzarlo come testimonianza, senza trasformarlo automaticamente in canone.');
   }catch(error){setNotice(error instanceof Error?error.message:'Errore inatteso.');}
   finally{setBusy(false);}
  }
