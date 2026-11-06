@@ -18,13 +18,13 @@ function missingFaces(panel:Panel,main:Main[],support:Support[]){
   return !side?.portrait_path||side.description.trim().length<15;
  });
 }
-function promptForChatGPT(run:Run,panels:Panel[],main:Main[],support:Support[]){
+function promptForChatGPT(run:Run,panels:Panel[],main:Main[],support:Support[],signedPortraits:Record<string,string>){
  const ready=panels.filter(p=>missingFaces(p,main,support).length===0);
  const blocked=panels.filter(p=>missingFaces(p,main,support).length>0);
  const used=new Set(ready.flatMap(p=>p.cast_names.map(norm)));
  const reference=main.filter(c=>used.has(norm(c.display_name))||used.has(norm(c.slug))||(c.slug==='scema'&&used.has('viper')))
   .map(c=>'- '+c.display_name+': '+(c.avatar_path||'nessun ritratto'));
- const refsSupport=support.filter(s=>used.has(norm(s.display_name))||used.has(norm(s.slug))).map(s=>'- '+s.display_name+': ritratto privato; allegarlo manualmente.');
+ const refsSupport=support.filter(s=>used.has(norm(s.display_name))||used.has(norm(s.slug))).map(s=>'- '+s.display_name+': '+(signedPortraits[s.id]||'immagine non accessibile: allegare il riferimento originale.'));
  return [
   'REALIZZA LE ILLUSTRAZIONI DEL FUMETTO «'+run.title+'» — CIUATI LA SAGA.',
   'Voglio immagini effettive, non descrizioni delle immagini. Genera i file e raccoglili in UN SOLO ZIP scaricabile.',
@@ -51,7 +51,7 @@ function promptForChatGPT(run:Run,panels:Panel[],main:Main[],support:Support[]){
    'PERSONAGGI SOLO MENZIONATI, DA NON DISEGNARE: '+(p.mentions.join(', ')||'nessuno')
   ]),
   '',
-  'RIFERIMENTI VISIVI DEI PERSONAGGI AUTORIZZATI:',
+  'RIFERIMENTI VISIVI DEI PERSONAGGI AUTORIZZATI (URL automatici dal progetto; non inventare sembianze):',
   ...reference,...refsSupport,
   '',
   blocked.length?'VIGNETTE NON AUTORIZZATE IN QUESTO ZIP (mancano foto/schede): '+blocked.map(p=>'n. '+p.panel_number+' — '+missingFaces(p,main,support).join(', ')).join('; '):'Tutte le vignette dello storyboard possono essere illustrate.',
@@ -116,7 +116,7 @@ export default function ComicStudio({run,autoStart}:{run:Run;autoStart:boolean})
  },[run.id,autoStart,refresh,storyboard]);
  async function copyInstructions(){
   if(!panels.length){setNotice('Genera prima lo storyboard.');return;}
-  try{await navigator.clipboard.writeText(promptForChatGPT(run,panels,main,support));setNotice('Testo completo copiato. Incollalo in ChatGPT e chiedi lo ZIP.');}
+  try{await refresh();const client=supabase;const used=new Set(panels.flatMap(p=>p.cast_names.map(norm)));const matching=support.filter(p=>p.portrait_path&&(used.has(norm(p.slug))||used.has(norm(p.display_name))));const signed=matching.length&&client?await client.storage.from('comic-drafts').createSignedUrls(matching.map(p=>p.portrait_path!),3600):null;if(signed?.error)throw signed.error;const urls=Object.fromEntries(matching.map((p,i)=>[p.id,signed?.data?.[i]?.signedUrl||'']));await navigator.clipboard.writeText(promptForChatGPT(run,panels,main,support,urls));setNotice('Istruzioni copiate con i riferimenti fotografici disponibili. I link privati scadono dopo un’ora.');}
   catch{setNotice('Accesso agli appunti non disponibile: prova da un browser aggiornato con HTTPS.');}
  }
  async function uploadZip(file:File){
