@@ -105,3 +105,14 @@ form{display:grid;gap:12px;max-width:420px;margin-top:24px}input{font:inherit;pa
  .comic-balloon{font-size:14px}
  .comic-counter{padding:6px 9px}
 }
+
+/* Navigazione mobile persistente e modalità dossier */
+body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
+.saga-bottom-nav{position:fixed;z-index:900;bottom:0;left:0;right:0;display:flex;justify-content:center;gap:clamp(8px,3vw,28px);padding:8px max(12px,env(safe-area-inset-left)) calc(8px + env(safe-area-inset-bottom,0px));background:#171821f5;border-top:1px solid #78613f;backdrop-filter:blur(12px)}
+.saga-bottom-nav a{min-width:73px;max-width:130px;flex:1;text-align:center;display:grid;gap:3px;padding:7px 9px;border-radius:10px;text-decoration:none;color:#c9c4bc}
+.saga-bottom-nav a span{font-size:21px;line-height:1.1}.saga-bottom-nav a small{font-size:11px}.saga-bottom-nav a[aria-current=page]{background:#443627;color:#f5d198}
+.profile-mode-tabs{display:flex;gap:8px;margin-top:26px;border-bottom:1px solid #534537;padding-bottom:10px}
+.profile-mode-tabs button{flex:1;max-width:200px;background:#25232b;color:#e2d6c4;border:1px solid #65523e;padding:13px 16px}
+.profile-mode-tabs button.active{background:#e5ae6b;color:#17151c}
+.profile-sections .narrative-panel{margin-top:18px}
+@media(max-width:520px){.saga-bottom-nav{gap:3px}.saga-bottom-nav a{min-width:0;padding:8px 3px}.profile-mode-tabs button{max-width:none}}
