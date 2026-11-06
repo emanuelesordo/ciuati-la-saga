@@ -26,6 +26,7 @@ export async function POST(request:NextRequest){
    'Le battute devono essere tratte o adattate strettamente dal testo. Ogni vignetta contiene massimo 2 battute brevi.',
    'Nelle prime scene Le Fromage e un personaggio secondario; non trasformarlo in protagonista centrale.',
    'I personaggi mascherati (il Gatto e la Volpe, il Dottore, Pollicino, la Pecora) devono conservare i nomi mascherati. Tolkien resta Tolkien.',
+   'Gli Auronerum portano colori giallo e nero in abiti, drappi e stemmi. «La Casta» è il soprannome segreto usato dai Ciuati per i vertici e non va messo in bocca ai dirigenti come titolo ufficiale.',
    'I personaggi esterni citati sono elementi da registrare ma NON devono essere descritti con sembianze inventate.',
    'Preferisci vignette con 1-2 protagonisti visibili e alterna primi piani e panoramiche. Niente calcio, metanarrazione, fumetto nel fumetto.',
    'In cast_names usa i nomi esatti, preferibilmente quelli delle reference disponibili, e non aggiungere comparse non presenti nel testo.'
