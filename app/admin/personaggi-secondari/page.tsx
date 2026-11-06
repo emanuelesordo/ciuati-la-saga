@@ -32,6 +32,19 @@ export default function PersonaggiSecondariAdmin(){
   setItems(old=>old.map(item=>item.id===p.id?{...item,content:data.content}:item));
   setEditing(null);setAddition('');setNotice('Integrazione salvata nella scheda di '+(p.proposal?.name||'personaggio')+'.');setBusy(false);
  }
+ async function generateDossier(p:Proposal){
+  if(!supabase||busy)return;
+  setBusy(true);setError('');setNotice('');
+  try{
+   const {data:{session}}=await supabase.auth.getSession();
+   const response=await fetch('/api/personaggi-secondari/genera',{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+(session?.access_token||'')},body:JSON.stringify({proposalId:p.id})});
+   const result=await response.json().catch(()=>null);
+   if(!response.ok||!result?.ok)throw new Error(result?.error||'Errore IA.');
+   setNotice('Descrizione generata per '+(p.proposal?.name||'personaggio')+'. Verifica la bozza prima di pubblicare.');
+   await refresh();
+  }catch(e){setError(e instanceof Error?e.message:'Generazione non riuscita');}
+  finally{setBusy(false);}
+ }
  async function saveDossier(item:Dossier,description:string,published:boolean){
   if(!supabase||dossierBusy)return;
   setDossierBusy(item.id);setError('');setNotice('');
@@ -52,6 +65,7 @@ export default function PersonaggiSecondariAdmin(){
  {p.proposal?.traits&&<p><strong>Carattere:</strong> {p.proposal.traits}</p>}
  {p.proposal?.role&&<p><strong>Ruolo:</strong> {p.proposal.role}</p>}
  <details><summary>Mostra tutti i dati salvati e la cronologia delle integrazioni</summary><p style={{whiteSpace:'pre-wrap',overflowWrap:'anywhere'}}>{p.content}</p></details>
+ {p.status==='pending'&&<button type="button" disabled={busy} onClick={()=>void generateDossier(p)}>{busy?'Elaborazione…':'Genera descrizione con IA'}</button>}
  {editing===p.id?<div style={{display:'grid',gap:12,marginTop:18}}><label htmlFor={'note-'+p.id}>Nuove informazioni (senza cancellare le precedenti)</label><textarea id={'note-'+p.id} rows={5} value={addition} onChange={e=>setAddition(e.target.value)} maxLength={6000}/><button type="button" disabled={busy||!addition.trim()} onClick={()=>void addNote(p)}>{busy?'Salvataggio…':'Salva integrazione'}</button><button type="button" disabled={busy} onClick={()=>{setEditing(null);setAddition('')}}>Annulla</button></div>:<button type="button" onClick={()=>{setEditing(p.id);setAddition('');setNotice('')}}>Aggiungi informazioni</button>}
  </section>)}
  <p><Link href="/admin/conoscenza">Consulta anche l'Archivio della Conoscenza →</Link></p>
