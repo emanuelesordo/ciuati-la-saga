@@ -34,7 +34,7 @@ Nei primi episodi gli antagonisti sono indicati solo come il Gatto e la Volpe, i
 - Ottobre e novembre: le controversie e i contrasti più recenti saranno sfruttati in seguito. Non anticipare i loro sviluppi nelle prime puntate.
 
 ## Alias interni e nomi mascherati
-Gatto e Volpe = Dudi e Pacca come coppia (senza assegnazione individuale). Il Dottore = Griso; Pollicino = Mister; la Pecora = Lovino. Gira = Tolkien. Questi dati servono alla continuità interna e non giustificano rivelazioni anticipate.
+Gatto e Volpe = Dudi e Pacca come coppia (senza assegnazione individuale). Il Dottore = Griso; Pollicino = Mister; la Pecora = Lovino. Il veterano è indicato esclusivamente come Tolkien. Questi dati servono alla continuità interna e non giustificano rivelazioni anticipate.
 
 ## Usi consentiti e vincoli
 1. I discorsi politici dei personaggi, le reciproche accuse e le voci di corte restano **prospettive**, non fatti stabiliti dal narratore onnisciente.
