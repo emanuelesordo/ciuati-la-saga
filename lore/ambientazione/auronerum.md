@@ -1,7 +1,7 @@
 # Gli Auronerum — nucleo della saga
 Stato: canone di ambientazione. Tutti i sei Ciuati hanno prestato servizio nelle forze operative dell'ordine. La cerchia matura nel tempo e l'ultimo membro assume il ruolo di protagonista soltanto nel viaggio di settembre a Brugge.
 
-Gli Auronerum sono un ordine fantasy dotato di forze sul campo e vertici politici. L'appartenenza, i favori, le rivalità e le promesse tradite ne alimentano la storia. Non sono una squadra sportiva: «campo», «prima linea» e «schieramenti» corrispondono a missioni, prove e spedizioni.
+Gli Auronerum sono un ordine fantasy **giallonero**: oro/giallo (Auro) e nero (Nerum) sono i colori araldici delle insegne, dei vessilli e delle divise. Nessuna uniforme deve suggerire una squadra sportiva. I vertici dell'ordine sono chiamati **«La Casta»**, appellativo **segreto usato dai Ciuati** nelle loro conversazioni riservate, mai titolo ufficiale annunciato in pubblico. Il nome potrebbe essere pronunciato soltanto tra membri della cerchia o quando nessun estraneo ascolta.\n\nGli Auronerum sono un ordine fantasy dotato di forze sul campo e vertici politici. L'appartenenza, i favori, le rivalità e le promesse tradite ne alimentano la storia. Non sono una squadra sportiva: «campo», «prima linea» e «schieramenti» corrispondono a missioni, prove e spedizioni.
 
 ## Il potere dietro le maschere
 Nei primi episodi, i dirigenti antagonisti sono conosciuti soltanto come **il Gatto e la Volpe**; uno è il direttore, l'altro un veterano bionico che desidera combattere nonostante gli acciacchi. Non assegnare arbitrariamente Gatto e Volpe ai due individui.
