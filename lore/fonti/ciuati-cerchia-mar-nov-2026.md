@@ -4,7 +4,7 @@
 **Riservatezza:** non trasferire identità anagrafiche, recapiti, contenuti intimi o giudizi su persone reali nelle pubblicazioni.
 
 ## Cosa la fonte aggiunge al canone degli Auronerum
-Gli Auronerum costituiscono l'istituzione comune: tutti i sei protagonisti ne conoscono la vita operativa e le tensioni fra comando e prima linea. La conversazione dimostra soprattutto **come** i Ciuati si parlano: si provocano, contestano, solidarizzano, cambiano argomento, si danno ragione su un punto e litigano su quello successivo. Le divergenze non annullano l'appartenenza reciproca.
+Nei primi episodi gli antagonisti sono indicati solo come il Gatto e la Volpe, il Dottore, Pollicino e la Pecora. Tolkien è il solo nome narrativo del veterano. Gli Auronerum costituiscono l'istituzione comune: tutti i sei protagonisti ne conoscono la vita operativa e le tensioni fra comando e prima linea. La conversazione dimostra soprattutto **come** i Ciuati si parlano: si provocano, contestano, solidarizzano, cambiano argomento, si danno ragione su un punto e litigano su quello successivo. Le divergenze non annullano l'appartenenza reciproca.
 
 **L'interpretazione storica delle chat non prevale sulle precisazioni del creatore.** Le schede `lore/ambientazione/auronerum.md`, `lore/ambientazione/brugge-white-pony.md` e `lore/personaggi/secondari-auronerum.md` sono la fonte primaria per ruoli, alleanze, cronologia interna e antagonisti. Qui si conservano voci, ritmi e tracce delle frizioni.
 
