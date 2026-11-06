@@ -1,7 +1,7 @@
 # Personaggi secondari e antagonisti degli Auronerum
 Stato: canone narrativo interno. Non anticipare identità nascoste. Rivelare i dettagli gradualmente.
 
-## Il Gatto e la Volpe
+I membri della cerchia definiscono segretamente **«La Casta»** il gruppo dirigente degli Auronerum. Le due figure note come Gatto e Volpe ne sono il nucleo, ma il soprannome collettivo può comprendere altri vertici. Non è il nome ufficiale dell'ordine. I colori dell'ordine sono giallo e nero.\n\n## Il Gatto e la Volpe
 Due figure centrali della dirigenza degli Auronerum. Formano una coppia di potere, usano convenevoli davanti ai subordinati e diffondono giudizi pungenti alle spalle, cercando di estromettere gli elementi sgraditi. Uno è direttore dell'ordine; l'altro è un veterano bionico che vorrebbe tornare in prima linea malgrado gli acciacchi. La corrispondenza individuale fra Gatto e Volpe non è ancora definita: NON inventarla. Nelle prime fasi usarli solo con i nomi mascherati.
 
 ## Il Dottore
