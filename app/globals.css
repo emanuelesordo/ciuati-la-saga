@@ -122,3 +122,10 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
 .saga-bottom-nav button span{font-size:21px;line-height:1.1}.saga-bottom-nav button small{font-size:11px}
 .saga-bottom-nav button:disabled{opacity:.35;cursor:default}
 @media(max-width:520px){.saga-bottom-nav{gap:2px;padding-left:5px;padding-right:5px}.saga-bottom-nav a,.saga-bottom-nav button{min-width:0;padding:7px 1px}.saga-bottom-nav a small,.saga-bottom-nav button small{font-size:10px}}
+
+/* Archivio: categorie sempre accessibili, anche da smartphone */
+.archive-tabs{display:flex;gap:9px;overflow-x:auto;scrollbar-width:thin;margin:22px 0 26px;padding:2px 0 12px;border-bottom:1px solid #65513d}
+.archive-tabs a{display:inline-flex;flex:0 0 auto;align-items:center;justify-content:center;min-height:45px;padding:11px 16px;border:1px solid #6f583e;border-radius:10px;background:#24232c;color:#efddc4;text-decoration:none;font-weight:700;white-space:nowrap}
+.archive-tabs a[aria-current="page"]{background:#e5ae6b;color:#19151a;border-color:#e5ae6b}
+.archive-tabs a:focus-visible{outline:3px solid #f3d6a5;outline-offset:2px}
+@media(max-width:520px){.archive-tabs{gap:7px;margin-top:17px}.archive-tabs a{padding:11px 13px;font-size:14px}}
