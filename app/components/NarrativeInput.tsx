@@ -69,7 +69,7 @@ export default function NarrativeInput({targetId,targetName,targetSecondaryId}:{
    if(authError||!user||(!ownId&&user.app_metadata?.role!=='admin'))throw new Error('Solo i sei Ciuati autenticati possono contribuire.');
    const {data:created,error}=await supabase.from('narrative_inputs').insert({
     author_id:user.id,character_id:ownId,target_character_id:targetId||null,
-    kind,content,status:'pending',mentions:[...(scoped?[]:mentions.filter(m=>text.includes('@'+m.name))),...(targetSecondaryId?[{type:'secondary_character',id:targetSecondaryId,name:targetName||''}]:[])],
+    kind,content,status:'accepted',mentions:[...(scoped?[]:mentions.filter(m=>text.includes('@'+m.name))),...(targetSecondaryId?[{type:'secondary_character',id:targetSecondaryId,name:targetName||''}]:[])],
     proposal:kind==='character_proposal'?{name:name.trim(),origin:origin.trim(),traits:traits.trim(),role:role.trim()}:{}
    }).select('id').single();
    if(error)throw new Error('Salvataggio non riuscito: '+error.message);
@@ -86,7 +86,7 @@ export default function NarrativeInput({targetId,targetName,targetSecondaryId}:{
  }
  if(!authenticated)return <section className="panel narrative-panel"><h2>Alimenta la Saga</h2><p>Per aggiungere idee, percezioni e nuove figure devi accedere con uno dei sei Ciuati.</p><Link href="/accedi">Accedi alla cerchia →</Link></section>;
  const suggestions=query===null?[]:entries.filter(e=>e.name.toLocaleLowerCase('it').includes(query.toLocaleLowerCase('it'))).slice(0,8);
- return <section className="panel narrative-panel"><div className="eyebrow">LE VOCI DELLA CERCHIA</div><h2>{scoped?'Contribuisci alla scheda':'Alimenta il narratore'}</h2><p>{scoped?'Questa testimonianza riguarda esclusivamente '+(targetName||'il personaggio selezionato')+'. Puoi descriverne rapporti e opinioni sugli altri, ma il contributo sarà attribuito soltanto a questa scheda.':'Condividi liberamente idee per gli episodi, luoghi, personaggi e sviluppi della trama.'} Ogni testimonianza conserva il proprio autore.</p>{scoped&&<p><Link href="/contributi">Vuoi proporre un’idea generale per la Saga? Vai ai Contributi →</Link></p>}
+ return <section className="panel narrative-panel"><div className="eyebrow">LE VOCI DELLA CERCHIA</div><h2>{scoped?'Contribuisci alla scheda':'Alimenta il narratore'}</h2><p>{scoped?'Questa testimonianza riguarda esclusivamente '+(targetName||'il personaggio selezionato')+'. Puoi descriverne rapporti e opinioni sugli altri, ma il contributo sarà attribuito soltanto a questa scheda.':'Condividi liberamente idee per gli episodi, luoghi, personaggi e sviluppi della trama.'} Ogni testimonianza viene registrata subito nella memoria interna con autore e provenienza; l’IA ne valuterà l’attendibilità rispetto alle fonti esistenti.</p>{scoped&&<p><Link href="/contributi">Vuoi proporre un’idea generale per la Saga? Vai ai Contributi →</Link></p>}
  <form onSubmit={submit} className="narrative-form">
  <label htmlFor="contribution-kind">Ambito</label>
  <select id="contribution-kind" value={kind} onChange={e=>setKind(e.target.value as Kind)}>{kinds.filter(k=>scoped?scopedKinds.includes(k.value):k.value!=='ideology').map(k=><option key={k.value} value={k.value}>{k.label}</option>)}</select>
