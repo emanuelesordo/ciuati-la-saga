@@ -4,9 +4,9 @@
 **Riservatezza:** non trasferire identità anagrafiche, recapiti, contenuti intimi o giudizi su persone reali nelle pubblicazioni.
 
 ## Cosa la fonte aggiunge al canone degli Auronerum
-Nei primi episodi gli antagonisti sono indicati solo come il Gatto e la Volpe, il Dottore, Pollicino e la Pecora. Tolkien è il solo nome narrativo del veterano. Gli Auronerum costituiscono l'istituzione comune: tutti i sei protagonisti ne conoscono la vita operativa e le tensioni fra comando e prima linea. La conversazione dimostra soprattutto **come** i Ciuati si parlano: si provocano, contestano, solidarizzano, cambiano argomento, si danno ragione su un punto e litigano su quello successivo. Le divergenze non annullano l'appartenenza reciproca.
+Nei primi episodi gli antagonisti sono indicati solo come il Gatto e la Volpe, il Dottore, Pollicino e la Pecora. Talkien è il solo nome narrativo del veterano. Gli Auronerum costituiscono l'istituzione comune: tutti i sei protagonisti ne conoscono la vita operativa e le tensioni fra comando e prima linea. La conversazione dimostra soprattutto **come** i Ciuati si parlano: si provocano, contestano, solidarizzano, cambiano argomento, si danno ragione su un punto e litigano su quello successivo. Le divergenze non annullano l'appartenenza reciproca.
 
-**L'interpretazione storica delle chat non prevale sulle precisazioni del creatore.** Le schede `lore/ambientazione/auronerum.md`, `lore/ambientazione/brugge-white-pony.md` e `lore/personaggi/secondari-auronerum.md` sono la fonte primaria per ruoli, alleanze, cronologia interna e antagonisti. Qui si conservano voci, ritmi e tracce delle frizioni.
+**L'interpretazione storica delle chat non prevale sulle precisazioni del creatore.** Viper non è ostile personalmente al Dottore: prova orgoglio per la preferenza accordatagli dagli altri Ciuati rispetto al Dottore. Le schede `lore/ambientazione/auronerum.md`, `lore/ambientazione/brugge-white-pony.md` e `lore/personaggi/secondari-auronerum.md` sono la fonte primaria per ruoli, alleanze, cronologia interna e antagonisti. Qui si conservano voci, ritmi e tracce delle frizioni.
 
 ## Stili di interazione — evidenze convergenti dal testo
 - **Barretta**: conduce disamine estenuanti, con domande, dialettalismi e repliche improvvise. Quando un compagno è giudicato vittima di un torto, emerge la sua lealtà: può difenderlo anche con la stessa furia con cui lo prende in giro.
@@ -34,7 +34,7 @@ Nei primi episodi gli antagonisti sono indicati solo come il Gatto e la Volpe, i
 - Ottobre e novembre: le controversie e i contrasti più recenti saranno sfruttati in seguito. Non anticipare i loro sviluppi nelle prime puntate.
 
 ## Alias interni e nomi mascherati
-Gatto e Volpe = Dudi e Pacca come coppia (senza assegnazione individuale). Il Dottore = Griso; Pollicino = Mister; la Pecora = Lovino. Il veterano è indicato esclusivamente come Tolkien. Questi dati servono alla continuità interna e non giustificano rivelazioni anticipate.
+Gatto e Volpe = Dudi e Pacca come coppia (senza assegnazione individuale). Il Dottore = Griso; Pollicino = Mister; la Pecora = Lovino. Il veterano è indicato esclusivamente come Talkien. Questi dati servono alla continuità interna e non giustificano rivelazioni anticipate.
 
 ## Usi consentiti e vincoli
 1. I discorsi politici dei personaggi, le reciproche accuse e le voci di corte restano **prospettive**, non fatti stabiliti dal narratore onnisciente.
