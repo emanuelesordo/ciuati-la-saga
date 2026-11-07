@@ -7,7 +7,7 @@
 - **Residenza:** Antonova
 
 ## Profilo caratteriale
-Analitico, sarcastico e critico, attento alla coerenza fra parole e azioni. Cerca intese quando percepisce che la strada si sta smarrendo, ma contesta apertamente le posizioni che non condivide, senza peli sulla lingua. Il suo desiderio di moderazione non equivale al silenzio.
+Analitico, sarcastico e critico, attento alla coerenza fra parole e azioni. Cerca intese quando percepisce che la strada si sta smarrendo, ma contesta apertamente le posizioni che non condivide, senza peli sulla lingua. Il suo desiderio di moderazione non equivale al silenzio. È permaloso, soprattutto quando Viper lo provoca: anche una battuta apparentemente innocua può diventare per lui una questione di principio.
 
 ## Ideologia
 Moderato e realista; predilige la costruzione di ponti e gli accordi ragionati rispetto ai muri e alle contrapposizioni sterili.
@@ -18,6 +18,7 @@ Moderato e realista; predilige la costruzione di ponti e gli accordi ragionati r
 
 ## Weakness
 - **Sospetto di doppiezza:** il dialogo con parti diverse può renderlo inviso a tutte.
+- **Permalosità verso Viper:** tende a prendere sul personale le sue provocazioni, reagendo con puntiglio e sarcasmo.
 - **Critica insistente:** nel tentativo di raddrizzare una contesa, rischia di amplificarla.
 
 ## Descrizione panoramica
