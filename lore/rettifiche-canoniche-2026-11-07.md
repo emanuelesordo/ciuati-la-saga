@@ -14,7 +14,7 @@
 ## Luoghi
 - Le schede di origine e residenza descrivono esclusivamente territorio, architettura, clima, cultura, paesaggio e caratteristiche proprie del luogo. Non devono contenere eventi narrativi, rapporti con personaggi o riferimenti alla Saga.
 - Per i punti strategici (locande, sedi, roccaforti, luoghi d'incontro) è invece ammessa una sezione distinta sul loro significato e ruolo nella Saga.
-- Le immagini devono derivare da riferimenti reali, quando disponibili, trasposti nello stile comics fantasy grottesco già canonico, e associati alla scheda del luogo.
+- Le immagini dei luoghi devono ispirarsi ai riferimenti reali quando disponibili, ma adottare uno stile manga moderno, minimal, senza scritte, loghi, didascalie o nomi sovraimpressi. Il linguaggio figurativo delle illustrazioni geografiche può essere distinto dai ritratti dei personaggi.\n- Le immagini destinate ai luoghi vanno conservate come file individuali e associate alle schede corrispondenti.\n- Gli identificativi tecnici storici che ancora usano «tolkien» possono essere mantenuti soltanto per compatibilità con relazioni, archivi ed eventi già collegati: nomi, descrizioni e narrazione devono riportare esclusivamente Talkien.
 
 ## Piattaforma
 - Eliminare riferimenti e dipendenze da Vercel nella documentazione, nelle interfacce e nelle configurazioni del progetto. Conservare GitHub Pages e Supabase come riferimenti infrastrutturali. Non rimuovere configurazioni di produzione prima di avere verificato che non siano necessarie.
