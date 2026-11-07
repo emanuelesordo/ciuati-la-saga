@@ -5,17 +5,17 @@ import {supabase} from '../../lib/supabase';
 
 type Mention={type:'character'|'place'|'new_character';id?:string;name:string};
 type Entry={id:string;name:string;type:'character'|'place'};
-type Kind='ideology'|'perception'|'relationship'|'skill'|'weakness'|'story'|'character_proposal';
-const scopedKinds:Kind[]=['ideology','perception','relationship','skill','weakness'];
+type Kind='ideology'|'perception'|'relationship'|'skill'|'weakness'|'fact'|'story'|'character_proposal';
+const scopedKinds:Kind[]=['ideology','perception','relationship','skill','weakness','fact'];
 const kinds:{value:Kind;label:string}[]=[
  {value:'ideology',label:'Ideologia: dichiarazioni e punti di vista'},{value:'perception',label:'Percezione di un personaggio'},
  {value:'relationship',label:'Relazione'},{value:'skill',label:'Abilità / mossa segreta'},
- {value:'weakness',label:'Debolezza'},{value:'story',label:'Spunto per la trama'},
+ {value:'weakness',label:'Debolezza'},{value:'fact',label:'Ruolo / fatto concreto'},{value:'story',label:'Spunto per la trama'},
  {value:'character_proposal',label:'Proponi un nuovo personaggio'}
 ];
 export default function NarrativeInput({targetId,targetName,targetSecondaryId}:{targetId?:string;targetName?:string;targetSecondaryId?:string}){
  const scoped=Boolean(targetId||targetSecondaryId);
- const [kind,setKind]=useState<Kind>(scoped?'perception':'story');
+ const [kind,setKind]=useState<Kind>(scoped?'fact':'story');
  const [text,setText]=useState(''),[name,setName]=useState(''),[origin,setOrigin]=useState(''),[traits,setTraits]=useState(''),[role,setRole]=useState('');
  const [entries,setEntries]=useState<Entry[]>([]),[mentions,setMentions]=useState<Mention[]>([]);
  const [authenticated,setAuthenticated]=useState(false),[ownId,setOwnId]=useState<string|null>(null);
@@ -97,8 +97,9 @@ export default function NarrativeInput({targetId,targetName,targetSecondaryId}:{
  <label>Ruolo nella Saga<input value={role} maxLength={250} onChange={e=>setRole(e.target.value)}/></label>
  </div>}
  <label htmlFor="contribution-text">{kind==='character_proposal'?'Storia, relazioni e altri dettagli':'Racconta il tuo contributo'}</label>
- <div className="narrative-mention-wrap"><textarea ref={area} id="contribution-text" rows={5} maxLength={6000} value={text} onChange={e=>update(e.target.value,e.target.selectionStart)} onClick={e=>update(text,e.currentTarget.selectionStart)} placeholder={scoped?'Descrivi un aspetto di '+(targetName||'questo personaggio')+'…':'Scrivi @ per citare personaggi e luoghi…'} />
+ <div className="narrative-mention-wrap"><textarea ref={area} id="contribution-text" rows={5} maxLength={6000} value={text} onChange={e=>update(e.target.value,e.target.selectionStart)} onClick={e=>update(text,e.currentTarget.selectionStart)} placeholder={kind==='fact'?'Esempio: svolge il ruolo di riscossore delle tasse per gli Auronerum.':scoped?'Descrivi un aspetto di '+(targetName||'questo personaggio')+'…':'Scrivi @ per citare personaggi e luoghi…'} />
  {!scoped&&query!==null&&<div className="narrative-suggestions" role="listbox" aria-label="Suggerimenti per le menzioni">{suggestions.map(s=><button type="button" role="option" aria-selected={false} key={s.type+s.id} onClick={()=>insertMention(s)}>{s.type==='place'?'Luogo':'Personaggio'} · {s.name}</button>)}{query.trim()&&<button type="button" role="option" aria-selected={false} onClick={()=>insertMention({type:'new_character',name:query.trim()})}>Proponi nuovo personaggio: {query}</button>}</div>}</div>
+ {kind==='fact'&&<small>Registra un ruolo, mestiere, incarico, abitudine o evento concreto. Se il fatto è solo una voce, specifica chi lo sostiene: il narratore non lo considererà automaticamente confermato.</small>}
  <small>{scoped?'Il contributo viene associato soltanto al personaggio aperto; per idee trasversali usa la sezione Contributi.':'Usa @ per collegare riferimenti esistenti o proporne di nuovi. I nuovi personaggi restano proposte finché non vengono approvati.'}</small>
  <button type="submit" disabled={busy}>{busy?'Invio…':'Invia al narratore'}</button>
  {notice&&<p role="status" className="narrative-notice">{notice}</p>}
