@@ -25,11 +25,14 @@ Deno.serve(async(req:Request)=>{
    return {...p,status:runs.some(r=>r.status==="approved")?"approved":runs.some(r=>r.status==="draft")?"draft":"planned"};
   });
   if(body?.action==="plan")return reply({ok:true,plan:progress});
-  const episodeId=typeof body?.episodeId==="string"?body.episodeId:"";
+  const regenerateId=typeof body?.regenerateId==="string"?body.regenerateId:"";
+  const previousRun=regenerateId?(planRuns||[]).find(r=>r.id===regenerateId&&r.status==="draft"):null;
+  if(regenerateId&&!previousRun)return reply({error:"Rigenerazione consentita soltanto per una bozza esistente."},409);
+  const episodeId=previousRun?String(previousRun.context_snapshot?.episode_id||""):typeof body?.episodeId==="string"?body.episodeId:"";
   const selectedIndex=episodePlan.findIndex(p=>p.id===episodeId);
   if(selectedIndex<0)return reply({error:"Seleziona un episodio dal piano cronologico."},400);
   if(progress[selectedIndex].status==="approved")return reply({error:"Questo capitolo è già stato approvato."},409);
-  if(progress[selectedIndex].status==="draft")return reply({error:"Esiste già una bozza di questo capitolo: revisionarla o scartarla prima di rigenerarla."},409);
+  if(progress[selectedIndex].status==="draft"&&!previousRun)return reply({error:"Esiste già una bozza di questo capitolo: revisionarla o rigenerarla prima di crearne un’altra."},409);
   if(progress.slice(0,selectedIndex).some(p=>p.status!=="approved"))return reply({error:"Approva prima gli episodi cronologicamente precedenti."},409);
   const selected=episodePlan[selectedIndex];
   if(!gemini)return reply({error:"Configurare GEMINI_API_KEY nei segreti di Supabase"},503);
@@ -57,12 +60,13 @@ Deno.serve(async(req:Request)=>{
    "I contributi associati a una scheda riguardano solo il personaggio destinatario; le menzioni di altri sono contesto.",
    "CONTINUITA LINGUISTICA VINCOLANTE: Barretta e di origine calabrese (altopiano di Svilarna / Catanzaro) e puo usare intercalari calabresi; Talkien e veneto, parla con inflessione veneta e NON deve mai essere caratterizzato con parlata calabrese. Non trasferire dialetti o tic di un personaggio all altro. Evita stereotipi e dialetti caricaturali.",
    "Mantieni la coerenza di luoghi, cronologia e relazioni. Non parlare di un fumetto o di come nasce questa Saga.",
+   "NARRAZIONE FLUIDA: ogni scena ha un obiettivo, un ostacolo, reazioni comprensibili e conseguenze. Dialoghi che rispondono a battute precedenti e discutono fatti concreti, non aforismi criptici. Evita ripetizioni, passaggi a vuoto, entrate e uscite gratuite. Revisiona mentalmente prima di consegnare.",
    "Segui ESATTAMENTE il capitolo selezionato nel piano editoriale. Non saltare eventi o anticipare archi successivi. Le date 2026 indicano fonti storiche, non date obbligatorie per il fantasy.",
    "Restituisci solo JSON valido con title, summary, body, continuity_notes (array di stringhe), senza markdown."
   ].join(" ");
   const response=await fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent",{
    method:"POST",headers:{"Content-Type":"application/json","x-goog-api-key":gemini},
-   body:JSON.stringify({systemInstruction:{parts:[{text:rules}]},contents:[{role:"user",parts:[{text:JSON.stringify({context,selectedEpisode:selected,previousPlan:progress.slice(0,selectedIndex).map(p=>({id:p.id,title:p.title,status:p.status})),idea:idea||"Sviluppa questo episodio seguendo i riferimenti canonici."})}]}],generationConfig:{responseMimeType:"application/json",temperature:0.8,maxOutputTokens:8192}}),
+   body:JSON.stringify({systemInstruction:{parts:[{text:rules}]},contents:[{role:"user",parts:[{text:JSON.stringify({context,selectedEpisode:selected,previousPlan:progress.slice(0,selectedIndex).map(p=>({id:p.id,title:p.title,status:p.status})),idea:idea||(previousRun?"Riscrivi questo episodio rendendo più fluidi dialoghi e transizioni, senza alterare gli eventi principali.":"Sviluppa questo episodio seguendo i riferimenti canonici."),previousDraft:previousRun?await db.from("narrative_runs").select("title,summary,body").eq("id",regenerateId).single().then(x=>x.data):undefined})}]}],generationConfig:{responseMimeType:"application/json",temperature:0.65,maxOutputTokens:8192}}),
    signal:AbortSignal.timeout(90000)
   });
   if(!response.ok)return reply({error:"Gemini non disponibile ("+response.status+")"},502);
@@ -72,7 +76,9 @@ Deno.serve(async(req:Request)=>{
   let episode;try{episode=JSON.parse(raw)}catch{return reply({error:"Risposta AI non valida"},502)}
   if(typeof episode.title!=="string"||typeof episode.summary!=="string"||typeof episode.body!=="string"||episode.body.length<300)return reply({error:"Trama incompleta"},502);
   if(/\b(?:screenshot|screenshots|fumetto|fumetti)\b/i.test(episode.body))return reply({error:"Bozza incompatibile con il mondo narrativo"},422);
-  const {data:saved,error}=await db.from("narrative_runs").insert({requested_by:user.id,status:"draft",title:episode.title.slice(0,180),summary:episode.summary.slice(0,1800),body:episode.body,continuity_notes:Array.isArray(episode.continuity_notes)?episode.continuity_notes.filter((x:unknown)=>typeof x==="string").slice(0,20):[],context_snapshot:{source_counts:Object.fromEntries(Object.entries(context).map(([k,v])=>[k,(v as unknown[]).length])),idea,episode_id:selected.id,episode_number:selected.number,period:selected.period,plan_version:1},model_name:"gemini-3.1-flash-lite"}).select("id,title,summary,body,status").single();
+  const fields={title:episode.title.slice(0,180),summary:episode.summary.slice(0,1800),body:episode.body,continuity_notes:Array.isArray(episode.continuity_notes)?episode.continuity_notes.filter((x:unknown)=>typeof x==="string").slice(0,20):[]};
+  const query=previousRun?db.from("narrative_runs").update(fields).eq("id",regenerateId).eq("status","draft"):db.from("narrative_runs").insert({requested_by:user.id,status:"draft",...fields,context_snapshot:{source_counts:Object.fromEntries(Object.entries(context).map(([k,v])=>[k,(v as unknown[]).length])),idea,episode_id:selected.id,episode_number:selected.number,period:selected.period,plan_version:1},model_name:"gemini-3.1-flash-lite"});
+  const {data:saved,error}=await query.select("id,title,summary,body,status").single();
   if(error||!saved)return reply({error:"Bozza generata ma salvataggio non riuscito"},500);
   return reply({ok:true,draft:saved,episode:selected.id});
  }catch(e){return reply({error:e instanceof Error?e.message:"Errore narratore"},500)}
