@@ -53,8 +53,9 @@ Deno.serve(async(req:Request)=>{
    "Introduci i tratti dei personaggi gradualmente: il pubblico deve scoprirli attraverso gli eventi.",
    "Gli Auronerum sono una congregazione calcistica fantasy giallonera; le battaglie avvengono soprattutto sul campo di calcio, non sostituire le partite con scontri armati.",
    "I Ciuati chiamano segretamente La Casta i vertici degli Auronerum. Non usarlo come titolo ufficiale.",
-   "Non anticipare sviluppi futuri o segreti degli antagonisti. Gatto, Volpe, Dottore e Tolkien conservano nomi mascherati, tranne Tolkien.",
+   "Non anticipare sviluppi futuri o segreti degli antagonisti. Gatto, Volpe, Dottore e Talkien conservano nomi mascherati, tranne Talkien.",
    "I contributi associati a una scheda riguardano solo il personaggio destinatario; le menzioni di altri sono contesto.",
+   "CONTINUITA LINGUISTICA VINCOLANTE: Barretta e di origine calabrese (altopiano di Svilarna / Catanzaro) e puo usare intercalari calabresi; Talkien e veneto, parla con inflessione veneta e NON deve mai essere caratterizzato con parlata calabrese. Non trasferire dialetti o tic di un personaggio all altro. Evita stereotipi e dialetti caricaturali.",
    "Mantieni la coerenza di luoghi, cronologia e relazioni. Non parlare di un fumetto o di come nasce questa Saga.",
    "Segui ESATTAMENTE il capitolo selezionato nel piano editoriale. Non saltare eventi o anticipare archi successivi. Le date 2026 indicano fonti storiche, non date obbligatorie per il fantasy.",
    "Restituisci solo JSON valido con title, summary, body, continuity_notes (array di stringhe), senza markdown."

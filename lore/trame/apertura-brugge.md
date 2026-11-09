@@ -9,7 +9,7 @@ Aprire nell'ordine **giallonero** degli Auronerum, tra partite narrate come batt
 Le Fromage esiste già come veterano e amico di Rob, ma resta figura SECONDARIA: può essere visto o nominato, senza essere presentato come sesto membro del gruppo protagonista.
 
 ### Arco II — Tarda primavera / giugno: i dubbi
-Le decisioni su convocazioni, ruoli, formazione e incarichi calcistici smentiscono le parole dei vertici. Appaiono i primi indizi sul Gatto e la Volpe e sul Dottore, senza svelamenti di identità. Pollicino dirige apparentemente il campo con vaghi discorsi motivazionali e frequenti pollici alzati. La Pecora semina ostilità con battute feroci. Il veterano Tolkien può comparire senza svelare la sua storia intera.
+Le decisioni su convocazioni, ruoli, formazione e incarichi calcistici smentiscono le parole dei vertici. Appaiono i primi indizi sul Gatto e la Volpe e sul Dottore, senza svelamenti di identità. Pollicino dirige apparentemente il campo con vaghi discorsi motivazionali e frequenti pollici alzati. La Pecora semina ostilità con battute feroci. Il veterano Talkien può comparire senza svelare la sua storia intera.
 
 ### Arco III — Luglio: la frattura
 Giogale prende le distanze dai vertici marginali di cui faceva parte; torna a considerare la prima linea, malgrado acciacchi e promesse poco rassicuranti. Viper percepisce che il Dottore riceve privilegi ingiustificati e decide progressivamente di farsi da parte. L'alleanza fra i Ciuati si rafforza, senza eliminare i loro contrasti.
@@ -26,7 +26,7 @@ Dopo Brugge i sei si ritrovano al White Pony e riconoscono l'ingresso di Le From
 
 ## Continuità e segreti
 - Nomi pubblici delle figure mascherate: **il Gatto e la Volpe**, **il Dottore**, **Pollicino**, **la Pecora**. Le identità sottostanti NON si rivelano nei primi episodi; rivelazioni soltanto dopo nuovi contributi e approvazione.
-- **Tolkien** è l'unico nome del veterano utilizzabile nel canone e nel racconto. Nessun altro identificativo.
+- **Talkien** è l'unico nome del veterano utilizzabile nel canone e nel racconto. Nessun altro identificativo.
 - Non stabilire autonomamente quale dei due dirigenti corrisponda individualmente al Gatto o alla Volpe.
 - Gli antagonisti vanno rappresentati attraverso azioni e allusioni, senza schede biografiche introduttive.
 - I sospetti su favori e contributi sono dicerie narrative, non fatti accertati.

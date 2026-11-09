@@ -8,7 +8,7 @@ Nei primi episodi, i dirigenti antagonisti sono conosciuti soltanto come **il Ga
 **Il Dottore** passa dalle forze operative ai vertici e ottiene compiti di prestigio, a scapito di Viper secondo i Ciuati. Un possibile ruolo di contributi economici nell'avanzamento è solo una voce non provata.
 **Pollicino** organizza tattiche e incoraggiamenti, si crede un filosofo motivazionale, ma risponde a tutto con un pollice alzato ed è influenzato dalla corte senza rendersene conto.
 **La Pecora** è il villain principale della fase Auronerum e provoca sistematicamente i compagni, specialmente Le Fromage, la cui rivolta non è ancora avvenuta.
-**Tolkien** è il più anziano combattente, narratore di imprese forse ingigantite e consigliere ufficioso dei vertici, sebbene il fisico gli impedisca la forza di un tempo. Barretta ne contesta il rendimento.
+**Talkien** è il più anziano combattente, narratore di imprese forse ingigantite e consigliere ufficioso dei vertici, sebbene il fisico gli impedisca la forza di un tempo. Barretta ne contesta il rendimento.
 
 ## I sei Ciuati nel tempo
 - Viper reagisce a incarichi che ritiene ingiustamente concessi al Dottore e si ritrae dal campo, non dalla storia della cerchia.
@@ -24,4 +24,4 @@ Le valutazioni su favoritismi e responsabilità sono spesso prospettive dei prot
 ## Sport nell'ambientazione
 Il calcio e gli sport possono esistere nella società della Saga, reinterpretati come passatempi, tornei e rivalità del mondo fantasy e dell'epoca narrativa. I riferimenti contemporanei vanno trasfigurati: niente cronache di squadre reali riportate tali e quali. Gli Auronerum sono una squadra calcistica trasposta in una congregazione fantasy giallonera. Le loro battaglie avvengono soprattutto sul campo di calcio: gli scontri sono partite narrate in chiave epica, non necessariamente duelli con le spade. Le gerarchie e le rivalità mantengono anche un significato politico e sociale. Il gioco dei pronostici, se utile alla trama, resta distinto dalle attività dell'ordine.
 
-## Divieti Non far parlare i personaggi della creazione della Saga, dei suoi autori, di schermate o di materiali della chat. Non esporre tutti i dossier nei primi episodi. Tolkien deve essere chiamato soltanto Tolkien.
+## Divieti Non far parlare i personaggi della creazione della Saga, dei suoi autori, di schermate o di materiali della chat. Non esporre tutti i dossier nei primi episodi. Talkien deve essere chiamato soltanto Talkien.
