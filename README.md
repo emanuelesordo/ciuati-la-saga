@@ -3,7 +3,9 @@
 Piattaforma cloud per la saga a fumetti generata con AI.
 
 ## Infrastruttura
-- Frontend: Next.js su Vercel
+- Hosting pubblico: GitHub Pages (sito statico)
+- Funzioni server-side e AI: Supabase Edge Functions (migrazione da completare)
+- Codice applicativo Next.js: presente nel repository; le route API Next.js non sono eseguibili su GitHub Pages
 - Database, Auth e Storage: Supabase (eu-central-1)
 - Codice e versionamento: GitHub
 
