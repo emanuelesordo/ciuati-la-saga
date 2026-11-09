@@ -7,7 +7,7 @@
 - **Residenza:** Antonova
 
 ## Profilo caratteriale
-Combattivo nelle discussioni, spontaneo e ostinato. Alterna disamine estenuanti a risposte fulminee e colorite. Quando un suo beniamino viene criticato, scorge trame e complotti anche dove gli altri vedono soltanto una disputa. Dietro le barricate retoriche resta un uomo di buon cuore.
+Combattivo nelle discussioni, spontaneo e ostinato. La sua parlata mantiene inflessioni e modi di dire calabresi legati all'origine nell'altopiano di Svilarna. Alterna disamine estenuanti a risposte fulminee e colorite. Quando un suo beniamino viene criticato, scorge trame e complotti anche dove gli altri vedono soltanto una disputa. Dietro le barricate retoriche resta un uomo di buon cuore.
 
 ## Ideologia
 Di sinistra, con simpatie verso regimi autoritari che ritiene ingiustamente attaccati. La sua lettura del mondo è spesso filtrata dalla diffidenza verso poteri occulti e macchinazioni; queste convinzioni appartengono al personaggio fittizio, non sono verità del narratore.

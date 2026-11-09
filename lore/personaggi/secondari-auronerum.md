@@ -13,8 +13,9 @@ Comandante nominale degli schieramenti, delle tattiche e delle missioni, convint
 ## La Pecora
 Antagonista principale dell'arco Auronerum, vicino ai vertici, con i quali intrattiene una deferenza opportunistica e reciproca. Usa provocazioni verbali contro i compagni, specialmente Le Fromage. **La ribellione di Le Fromage è ancora futura**, non un evento pregresso. Nei primi episodi il nome resta soltanto la maschera.
 
-## Tolkien
-Il più anziano dei veterani delle forze operative. Racconta un passato glorioso con possibile esagerazione; il suo vigore diminuisce mentre si avvicina ufficiosamente alla corte come opinionista. Barretta considera la sua ridotta efficacia, insieme a quella del Dottore, una causa del declino dell'ordine: è il punto di vista di Barretta. **Tolkien è l'unica denominazione narrativa ammessa.**
+## Talkien
+**Origine e parlata:** veneto. Nei dialoghi può avere una cadenza veneta credibile, senza caricature forzate. Non usare termini, intercalari o cadenze calabresi, che appartengono a Barretta e alle sue radici.
+Il più anziano dei veterani delle forze operative. Racconta un passato glorioso con possibile esagerazione; il suo vigore diminuisce mentre si avvicina ufficiosamente alla corte come opinionista. Barretta considera la sua ridotta efficacia, insieme a quella del Dottore, una causa del declino dell'ordine: è il punto di vista di Barretta. **Talkien è l'unica denominazione narrativa ammessa.**
 
 ## Rob
 Mastro birraio del White Pony, fidato amico di Le Fromage, che lo accompagna negli spostamenti quando non può guidare dopo aver bevuto. A Brugge sostiene idee sul comunismo sovietico e nordcoreano; Hermano lo contraddice apertamente. Non è un antagonista canonico.
