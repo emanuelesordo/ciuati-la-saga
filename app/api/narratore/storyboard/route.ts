@@ -29,7 +29,10 @@ export async function POST(request:NextRequest){
    'Gli Auronerum portano colori giallo e nero in abiti, drappi e stemmi. «La Casta» è il soprannome segreto usato dai Ciuati per i vertici e non va messo in bocca ai dirigenti come titolo ufficiale.',
    'I LUOGHI sono trasposizioni fantasy di luoghi reali. Il Cavallo Bianco e il White Pony sono la stessa locanda ad Antonova, non due luoghi distinti. Svilarna è l’altopiano della Sila in chiave fantasy: pini larici silani, foreste, laghi, alture e nebbia appenninica, non paesaggi alpini. Mantieni i luoghi riconoscibili da una vignetta all’altra.',
    'I personaggi esterni citati sono elementi da registrare ma NON devono essere descritti con sembianze inventate.',
-   'Preferisci vignette con 1-2 protagonisti visibili e alterna primi piani e panoramiche. Niente calcio, metanarrazione, fumetto nel fumetto.',
+   'Preferisci vignette con 1-2 protagonisti visibili e alterna primi piani e panoramiche. Il calcio degli Auronerum è reale nell’universo fantasy: conserva allenamenti, campo, pallone, schemi e azioni sportive presenti nella storia. Evita metanarrazione e fumetto nel fumetto.',
+   'Ogni vignetta deve mostrare una causa, una reazione o una conseguenza riconoscibile. Mantieni continuità di luogo, posizioni, gesti, oggetti e direzione degli sguardi fra vignette consecutive.',
+   'Le battute devono essere chiaramente attribuite a chi parla e riferirsi a ciò che viene mostrato o detto subito prima. Se un passaggio è troppo lungo, riassumilo nella didascalia senza inventare dialoghi nuovi o rendere oscure le motivazioni.',
+   'Le comparse possono intervenire soltanto se già presenti nel testo; non spostare entrate, uscite e svolte per distribuire i personaggi artificialmente.'
    'In cast_names usa i nomi esatti, preferibilmente quelli delle reference disponibili, e non aggiungere comparse non presenti nel testo.'
   ].join(' ');
   const prompt=JSON.stringify({title:run.title,story:run.body,availableProtagonists:main.map(c=>c.display_name),supportingCharacters:support.map(c=>c.display_name)});
