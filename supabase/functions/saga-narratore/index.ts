@@ -20,11 +20,55 @@ Deno.serve(async(req:Request)=>{
    .select("id,status,context_snapshot").in("status",["draft","approved"])
    .order("created_at",{ascending:true}).limit(300);
   if(planRunsError)return reply({error:"Impossibile leggere lo stato del piano editoriale"},503);
+  const {data:overrides,error:overridesError}=await db.from("saga_editorial_plan").select("episode_id,title,focus");
+  if(overridesError)return reply({error:"Impossibile caricare il piano editoriale aggiornato"},503);
+  const edits=new Map((overrides||[]).map(p=>[p.episode_id,p]));
   const progress=episodePlan.map(p=>{
    const runs=(planRuns||[]).filter(r=>r.context_snapshot?.episode_id===p.id);
-   return {...p,status:runs.some(r=>r.status==="approved")?"approved":runs.some(r=>r.status==="draft")?"draft":"planned"};
+   const status=runs.some(r=>r.status==="approved")?"approved":runs.some(r=>r.status==="draft")?"draft":"planned";
+   const edit=status==="approved"?null:edits.get(p.id);
+   return {...p,title:edit?.title||p.title,focus:edit?.focus||p.focus,status};
   });
   if(body?.action==="plan")return reply({ok:true,plan:progress});
+  if(body?.action==="save-plan"){
+   const first=progress.findIndex(p=>p.status!=="approved");
+   const target=progress[first];
+   if(first<0||!target)return reply({error:"Non ci sono capitoli da modificare."},409);
+   if(body.episodeId!==target.id)return reply({error:"Si può modificare soltanto il primo capitolo non approvato."},409);
+   const title=typeof body.title==="string"?body.title.trim():"";
+   const focus=typeof body.focus==="string"?body.focus.trim():"";
+   if(title.length<3||title.length>180||focus.length<20||focus.length>3000)return reply({error:"Titolo (3–180 caratteri) e incipit (20–3000 caratteri) sono obbligatori."},400);
+   if(!gemini)return reply({error:"Gemini non configurato: nessuna modifica salvata."},503);
+   const future=progress.slice(first+1).filter(p=>p.status!=="approved");
+   let proposed:{id:string;title:string;focus:string}[]=[];
+   if(future.length){
+    const prompt=[
+     "Aggiorna la scaletta futura di Ciuati La Saga dopo la modifica del primo capitolo ancora non pubblicato.",
+     "Restituisci ESCLUSIVAMENTE un JSON valido: {episodes:[{id,title,focus}]} con esattamente gli ID dei capitoli futuri nell'ordine indicato.",
+     "Mantieni rigorosamente i vincoli anchors e reveal di ogni capitolo, ordine cronologico, luoghi, personaggi e fatti canonici.",
+     "Non modificare capitoli precedenti o pubblicati. Non anticipare rivelazioni o spostare eventi fondamentali.",
+     "Adatta titoli e focus alle conseguenze narrative del nuovo incipit, evitando ripetizioni.",
+     "Nuovo incipit: "+JSON.stringify({id:target.id,title,focus}),
+     "Piano futuro: "+JSON.stringify(future.map(p=>({id:p.id,title:p.title,focus:p.focus,anchors:p.anchors,reveal:p.reveal,period:p.period})))
+    ].join("\n");
+    const answer=await fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent",{
+     method:"POST",headers:{"Content-Type":"application/json","x-goog-api-key":gemini},
+     body:JSON.stringify({contents:[{role:"user",parts:[{text:prompt}]}],generationConfig:{responseMimeType:"application/json",temperature:0.35,maxOutputTokens:8192}}),
+     signal:AbortSignal.timeout(90000)
+    });
+    if(!answer.ok)return reply({error:"Rigenerazione del piano non disponibile ("+answer.status+"): nessuna modifica salvata."},502);
+    const generated=await answer.json(),candidate=generated.candidates?.[0];
+    if(candidate?.finishReason!=="STOP")return reply({error:"Piano futuro incompleto: nessuna modifica salvata."},502);
+    let parsed;try{parsed=JSON.parse(candidate.content?.parts?.map((p:{text?:string})=>p.text||"").join("")||"");}catch{return reply({error:"Risposta AI non valida: nessuna modifica salvata."},502)}
+    proposed=parsed?.episodes;
+    if(!Array.isArray(proposed)||proposed.length!==future.length||proposed.some((p,i)=>p.id!==future[i].id||typeof p.title!=="string"||p.title.trim().length<3||p.title.length>180||typeof p.focus!=="string"||p.focus.trim().length<20||p.focus.length>3000))
+     return reply({error:"La rigenerazione non rispetta i capitoli previsti: nessuna modifica salvata."},502);
+   }
+   const rows=[{episode_id:target.id,title,focus},...proposed.map(p=>({episode_id:p.id,title:p.title.trim(),focus:p.focus.trim()}))];
+   const {error:saveError}=await db.from("saga_editorial_plan").upsert(rows,{onConflict:"episode_id"});
+   if(saveError)return reply({error:"Salvataggio piano non riuscito: "+saveError.message},500);
+   return reply({ok:true,updated:rows.length,plan:progress.map(p=>rows.find(x=>x.episode_id===p.id)?{...p,...rows.find(x=>x.episode_id===p.id)}:p)});
+  }
   const regenerateId=typeof body?.regenerateId==="string"?body.regenerateId:"";
   const previousRun=regenerateId?(planRuns||[]).find(r=>r.id===regenerateId&&r.status==="draft"):null;
   if(regenerateId&&!previousRun)return reply({error:"Rigenerazione consentita soltanto per una bozza esistente."},409);
@@ -34,7 +78,7 @@ Deno.serve(async(req:Request)=>{
   if(progress[selectedIndex].status==="approved")return reply({error:"Questo capitolo è già stato approvato."},409);
   if(progress[selectedIndex].status==="draft"&&!previousRun)return reply({error:"Esiste già una bozza di questo capitolo: revisionarla o rigenerarla prima di crearne un’altra."},409);
   if(progress.slice(0,selectedIndex).some(p=>p.status!=="approved"))return reply({error:"Approva prima gli episodi cronologicamente precedenti."},409);
-  const selected=episodePlan[selectedIndex];
+  const selected=progress[selectedIndex];
   if(!gemini)return reply({error:"Configurare GEMINI_API_KEY nei segreti di Supabase"},503);
   const idea=typeof body?.idea==="string"?body.idea.trim():"";
   if(idea.length>2000)return reply({error:"Spunto troppo lungo"},400);
