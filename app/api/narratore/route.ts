@@ -99,6 +99,15 @@ export async function POST(request:NextRequest){
       'Le proposte di nuovi personaggi sono bozze: non presentarle come figure già canoniche.',
       'Non divulgare informazioni personali o segreti contenuti nei dati: usa le memorie storiche solo come riferimento interpretativo, non citarle e non pubblicare note private.',
       'Se manca un dettaglio, inventa con coerenza senza trasformarlo in fatto canonico.',
+      'PRIORITÀ ASSOLUTA ALLA COMPRENSIBILITÀ: un lettore che non conosce retroscena o chat deve capire cosa succede, che cosa vuole ogni personaggio e perché reagisce. Non dare per scontati avvenimenti, accordi, accuse o decisioni mai introdotti nella scena.',
+      'Prima di scrivere, progetta in silenzio una catena causale: situazione iniziale concreta, obiettivo dei protagonisti, ostacolo preciso, tentativi e reazioni, svolta osservabile, conseguenza finale. Ogni scena deve spostare in avanti almeno uno di questi elementi. Non mostrare la scaletta.',
+      'Per ogni conversazione rendi chiaro l’oggetto specifico del dissenso: quale scelta o evento lo ha causato, quali alternative propongono i personaggi e che cosa cambierebbe applicandole. Una replica deve rispondere a un’affermazione riconoscibile, non aprire un argomento arbitrario.',
+      'Se un personaggio pronuncia una massima, metafora, provocazione o domanda retorica, rendine subito comprensibile il riferimento attraverso il contesto o una reazione concreta. Evita frasi criptiche apparentemente profonde (gerarchie, inverno, destino, logica) se non incidono sull’azione.',
+      'I personaggi non devono ripetere lo stesso concetto in quattro modi. Quando il conflitto torna sullo stesso tema, aggiungi una nuova informazione, una proposta, un gesto o una conseguenza. Taglia i passaggi a vuoto.',
+      'Le entrate e le uscite dei personaggi devono essere motivate e avere effetto sulla scena. Non far apparire qualcuno solo per recitare il proprio tormentone e sparire; anche una breve comparsa deve lasciare un cambiamento osservabile.',
+      'Nei dialoghi mantieni l’inflessione calabrese di Barretta con moderazione e naturalezza, senza trasformarla in una sequenza di interiezioni. Tolkien usa eventualmente cadenze venete, mai quelle calabresi. Viper usa ironia controllata; Hermano media con argomenti concreti e compromessi praticabili.',
+      'Lo stile è scorrevole, narrativo e immediato: alterna periodi brevi e medi; preferisci verbi e azioni a immagini astratte. Non ripetere continuamente nebbia, silenzi, sguardi, destini e sentenze come sostituti della trama.',
+      'Autorevisione obbligatoria prima del JSON: rileggi ogni paragrafo chiedendoti «da cosa deriva? che cosa aggiunge? chi sta parlando e a chi?». Riscrivi i passaggi opachi, taglia le battute senza antecedente e ripara i collegamenti mancanti. Restituisci soltanto la versione rivista.',
       'STILE NARRATIVO PRIORITARIO: scrivi come un romanzo fantasy corale, non come una trascrizione di chat, una sceneggiatura o una sequenza di battute isolate. La prosa è il tessuto connettivo della scena.',
       'Ogni scena deve avere un luogo e un momento riconoscibili, una tensione o un obiettivo immediato, un cambiamento nel corso degli scambi e una conseguenza che conduce alla scena successiva. Evita salti bruschi di argomento, tempo o posizione senza transizione.',
       'Ogni dialogo deve essere una risposta comprensibile a parole, gesti, fatti o sottintesi che lo precedono. Mantieni chiaro chi parla, a chi si rivolge, cosa sa in quel momento e perché interviene. Non accostare battute intercambiabili solo per far parlare tutti.',
@@ -117,7 +126,7 @@ export async function POST(request:NextRequest){
       body:JSON.stringify({
         systemInstruction:{parts:[{text:system}]},
         contents:[{role:'user',parts:[{text:JSON.stringify({context,idea:idea||(context.openingPhase?'Apri la narrazione a marzo con la cerchia negli Auronerum: mostra relazioni e primi indizi del potere. Le Fromage è secondario. Non anticipare il viaggio a Brugge.':'Sviluppa liberamente il prossimo episodio in continuità con quelli approvati.'),instruction:'Non aggiornare mai direttamente il canone; considera piano di apertura e ruoli dei villain con la corretta gradualità.'})}]}],
-        generationConfig:{temperature:0.85,maxOutputTokens:8192,responseMimeType:'application/json'}
+        generationConfig:{temperature:0.65,maxOutputTokens:8192,responseMimeType:'application/json'}
       }),
       signal:AbortSignal.timeout(90000)
     });
