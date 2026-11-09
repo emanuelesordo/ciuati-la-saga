@@ -20,10 +20,13 @@ export async function POST(request:NextRequest){
   const {data:{user},error:authError}=await authClient.auth.getUser(token);
   if(authError||!user)return errorResponse('Sessione non valida.',401);
   if(user.app_metadata?.role!=='admin')return errorResponse('Permessi insufficienti.',403);
-  let payload:{idea?:unknown};
-  try{payload=await request.json() as {idea?:unknown};}catch{return errorResponse('JSON non valido.',400);}
+  let payload:{idea?:unknown;reference_body?:unknown;reference_title?:unknown};
+  try{payload=await request.json() as {idea?:unknown;reference_body?:unknown;reference_title?:unknown};}catch{return errorResponse('JSON non valido.',400);}
   const idea=typeof payload.idea==='string'?payload.idea.trim():'';
   if(idea.length>2000)return errorResponse('Spunto troppo lungo (massimo 2000 caratteri).',400);
+  const referenceBody=typeof payload.reference_body==='string'?payload.reference_body.trim():'';
+  const referenceTitle=typeof payload.reference_title==='string'?payload.reference_title.trim():'';
+  if(referenceBody.length>16000||referenceTitle.length>180)return errorResponse('Riferimento di rigenerazione troppo lungo.',400);
   const db=createClient(url,publishable,{global:{headers:{Authorization:'Bearer '+token}},auth:{persistSession:false,autoRefreshToken:false}});
   try{
     const [characters,places,lore,facts,events,relations,previous,contributions]=await Promise.all([
@@ -125,7 +128,7 @@ export async function POST(request:NextRequest){
       headers:{'x-goog-api-key':apiKey,'Content-Type':'application/json'},
       body:JSON.stringify({
         systemInstruction:{parts:[{text:system}]},
-        contents:[{role:'user',parts:[{text:JSON.stringify({context,idea:idea||(context.openingPhase?'Apri la narrazione a marzo con la cerchia negli Auronerum: mostra relazioni e primi indizi del potere. Le Fromage è secondario. Non anticipare il viaggio a Brugge.':'Sviluppa liberamente il prossimo episodio in continuità con quelli approvati.'),instruction:'Non aggiornare mai direttamente il canone; considera piano di apertura e ruoli dei villain con la corretta gradualità.'})}]}],
+        contents:[{role:'user',parts:[{text:JSON.stringify({context,idea:idea||(referenceBody?'Rigenera la proposta mantenendo gli eventi e i protagonisti del testo di riferimento.':context.openingPhase?'Apri la narrazione a marzo con la cerchia negli Auronerum: mostra relazioni e primi indizi del potere. Le Fromage è secondario. Non anticipare il viaggio a Brugge.':'Sviluppa liberamente il prossimo episodio in continuità con quelli approvati.'),referenceDraft:referenceBody?{title:referenceTitle,body:referenceBody}:undefined,instruction:referenceBody?'RISCRITTURA DELLA STESSA PROPOSTA: conserva cronologia, luoghi, personaggi, fatti e conflitto principale del testo di riferimento. Riscrivi liberamente dialoghi e transizioni per migliorarne fluidità, causalità e chiarezza. Non trattare la vecchia bozza come episodio pubblicato o fatto canonico. Crea una NUOVA bozza senza modificare la precedente.':'Non aggiornare mai direttamente il canone; considera piano di apertura e ruoli dei villain con la corretta gradualità.'})}]}],
         generationConfig:{temperature:0.65,maxOutputTokens:8192,responseMimeType:'application/json'}
       }),
       signal:AbortSignal.timeout(90000)
