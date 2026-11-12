@@ -95,7 +95,7 @@ export function selectNarrativeReferences(archive,number,query,reference=''){
  const cutoff=episodeCutoff(number),since=episodeStart(number),cues=episodeSearchCues[number]||[];
  const chronological=selectDialogueWindows(archive,query+' '+cues.join(' '),reference,cutoff,4,since);
  const styleOnly=[],seen=new Set(chronological.flatMap(w=>w.lines.map(l=>w.date+'|'+l.speaker+'|'+l.text)));
- for(const cue of (cues.length?cues:[query])){
+ for(const cue of [...cues,query]){
   const windows=selectDialogueWindows(archive,cue,'','9999-12-31',number===1?3:8);
   let count=0;
   for(const w of windows){
