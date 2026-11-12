@@ -44,7 +44,7 @@ export async function POST(request:NextRequest){
       db.from('saga_character_relations').select('source_character_id,target_character_id,target_secondary_id,relationship,classification').limit(100),
       db.from('episodes').select('title,summary').eq('is_published',true).order('created_at',{ascending:false}).limit(20),
       db.from('narrative_inputs').select('author_id,kind,content,target_character_id,character_id,mentions,proposal,created_at').in('status',['pending','accepted']).order('created_at',{ascending:false}).limit(100),
-      db.from('narrative_runs').select('title,summary').in('status',['draft','review','approved','rejected']).order('created_at',{ascending:false}).limit(8),
+      db.from('narrative_runs').select('title,summary,body').in('status',['draft','review','approved','rejected']).order('created_at',{ascending:false}).limit(8),
       db.storage.from(dialogueBucket).list('',{search:dialogueObject,limit:10})
     ]);
     const datasets=[characters,places,lore,facts,events,relations,previous,contributions,recentDrafts];
@@ -145,7 +145,7 @@ export async function POST(request:NextRequest){
       :mode==='reinterpret'
       ?'REINTERPRETAZIONE: mantieni soltanto i fatti canonici e il nucleo dello spunto, non la struttura della vecchia bozza. Cambia concretamente punto di vista, apertura, concatenazione delle scene, azioni, battute e chiusa. Evita il semplice scambio di sinonimi. Le invenzioni della bozza precedente non sono vincolanti.'
       :'ALTERNATIVA: sviluppa una storia nuova e autonoma dal medesimo spunto e dal canone. Scegli un conflitto, una progressione e scene differenti dalla bozza precedente; non alterare gli eventi canonici o anticipare la cronologia.';
-    const input={context,idea:narrativeIdea,editorialNotes,previousDrafts:mode==='rewrite'&&referenceBody?[]:recentDrafts.data||[],
+    const input={context,idea:narrativeIdea,editorialNotes,previousDrafts:mode==='rewrite'&&referenceBody?[]:(recentDrafts.data||[]).map(d=>({title:d.title,summary:d.summary})),
       referenceDraft:referenceBody?{title:referenceTitle,summary:referenceSummary,body:mode==='alternative'?undefined:referenceBody}:undefined,
       instruction:referenceBody?regenerationInstruction:'Crea una proposta originale, non replicare le bozze esistenti. Non aggiornare direttamente il canone.'};
     type Episode={title:string;summary:string;body:string;continuity_notes?:unknown};
@@ -168,7 +168,9 @@ export async function POST(request:NextRequest){
       if(!raw)return errorResponse('Risposta AI vuota.',502);
       let parsed:Partial<Episode>;try{parsed=JSON.parse(raw) as Partial<Episode>;}catch{return errorResponse('JSON narrativo non valido.',502);}
       if(typeof parsed.title!=='string'||typeof parsed.summary!=='string'||typeof parsed.body!=='string'||parsed.body.length<300)return errorResponse('Formato narrativo non valido.',502);
-      if(referenceBody&&storySimilarity(referenceBody,parsed.body)>=threshold){if(attempt===0)continue;return errorResponse('Gemini ha restituito due bozze troppo simili. Cambia modalità o indicazioni editoriali e riprova.',422);}
+      const referenceTooSimilar=!!referenceBody&&storySimilarity(referenceBody,parsed.body)>=threshold;
+      const recentTooSimilar=(!referenceBody||mode!=='rewrite')&&(recentDrafts.data||[]).some(d=>typeof d.body==='string'&&storySimilarity(d.body,parsed.body!)>=threshold);
+      if(referenceTooSimilar||recentTooSimilar){if(attempt===0)continue;return errorResponse('Gemini ha restituito due bozze troppo simili. Cambia modalità o indicazioni editoriali e riprova.',422);}
       episode=parsed as Episode;break;
     }
     if(!episode)return errorResponse('Nessuna proposta distinta generata.',502);
