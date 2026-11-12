@@ -31,6 +31,12 @@ jobs:
           test -s static-site/index.html
           grep -q '<html' static-site/index.html
           grep -q 'ENTRA NELLA SAGA' static-site/index.html
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - name: Verify narrator dialogue import and static site
+        run: node scripts/verify-narrative-dialogues.mjs
       - name: Configure Pages
         uses: actions/configure-pages@v6
       - name: Upload Pages artifact
