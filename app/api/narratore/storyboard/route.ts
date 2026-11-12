@@ -32,7 +32,7 @@ export async function POST(request:NextRequest){
    'Preferisci vignette con 1-2 protagonisti visibili e alterna primi piani e panoramiche. Il calcio degli Auronerum è reale nell’universo fantasy: conserva allenamenti, campo, pallone, schemi e azioni sportive presenti nella storia. Evita metanarrazione e fumetto nel fumetto.',
    'Ogni vignetta deve mostrare una causa, una reazione o una conseguenza riconoscibile. Mantieni continuità di luogo, posizioni, gesti, oggetti e direzione degli sguardi fra vignette consecutive.',
    'Le battute devono essere chiaramente attribuite a chi parla e riferirsi a ciò che viene mostrato o detto subito prima. Se un passaggio è troppo lungo, riassumilo nella didascalia senza inventare dialoghi nuovi o rendere oscure le motivazioni.',
-   'Le comparse possono intervenire soltanto se già presenti nel testo; non spostare entrate, uscite e svolte per distribuire i personaggi artificialmente.'
+   'Le comparse possono intervenire soltanto se già presenti nel testo; non spostare entrate, uscite e svolte per distribuire i personaggi artificialmente.',
    'In cast_names usa i nomi esatti, preferibilmente quelli delle reference disponibili, e non aggiungere comparse non presenti nel testo.'
   ].join(' ');
   const prompt=JSON.stringify({title:run.title,story:run.body,availableProtagonists:main.map(c=>c.display_name),supportingCharacters:support.map(c=>c.display_name)});
