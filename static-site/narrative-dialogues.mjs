@@ -5,7 +5,7 @@ export const characterAliases=['Barretta','Viper','Hermano','Cecè','Giogale','L
 export const normalize=s=>String(s??'').normalize('NFD').replace(/\p{M}/gu,'').toLowerCase();
 const stop=new Set('a ad al alla alle allo ai agli anche che chi ci da dal dalla dalle dei del della delle degli di e ed era essere fa fare gli ha hai hanno ho i il in io l la le lo lui ma mi ne nei nel nella nelle no non o per poi piu quale quando qui se sei si sia sono sta sto su sul sua sue suo ti tra tu un una uno va vi voi con come cosa dove quello questa questo quelli quelle tutti tutto tanto gia ancora sempre solo molto poco bene male ogni altro altra altri altre stesso stessa stessi mentre prima dopo senza pero perche quindi allora cosi qualche alcuni proprio deve devono puo possono avrebbe avrebbe nostro loro vostre vostro'.split(' '));
 const tokens=s=>normalize(s).match(/[\p{L}\p{N}]{3,}/gu)?.filter(w=>!stop.has(w)&&!/^\d+$/.test(w))||[];
-const media=/^(?:[<\u200e\u200f\s]*)(?:media omessi|media omitted|immagine omessa|image omitted|video omesso|audio omesso|sticker omesso|gif omessa|documento omesso|messaggio eliminato|this message was deleted|hai eliminato questo messaggio|messaggi e chiamate|i messaggi e le chiamate|le chiamate e i messaggi|<allegato:|attachment:|file allegato|audio non incluso)/i;
+const media=/^(?:[<\u200e\u200f\s]*)(?:media omessi|media omitted|immagine omessa|image omitted|video omesso|audio omesso|sticker omesso|sticker non incluso|gif omessa|gif esclusa|documento omesso|messaggio eliminato|this message was deleted|hai eliminato questo messaggio|messaggi e chiamate|i messaggi e le chiamate|le chiamate e i messaggi|<allegato:|attachment:|file allegato|audio non incluso)/i;
 export function parseWhatsApp(text){
  const result=[];let current;
  const header=/^\s*\[?(\d{1,2})[\/.\-](\d{1,2})[\/.\-](\d{2,4}),?\s+\d{1,2}:\d{2}(?::\d{2})?(?:\s*[AP]M)?(?:\]|\s*[-–])\s*(.*)$/i;
@@ -54,24 +54,64 @@ const themes=[
 export function episodeCutoff(number){
  return ['2026-04-30','2026-04-30','2026-05-31','2026-06-30','2026-07-31','2026-07-31','2026-08-31','2026-08-31','2026-09-30','2026-09-30','2026-09-30','2026-11-30'][Number(number)-1]||'2026-11-30';
 }
-export function selectDialogueWindows(archive,query,reference='',cutoff='9999-12-31'){
- const all=archive.messages.filter(m=>m.date<=cutoff);if(!all.length)return [];
+export function selectDialogueWindows(archive,query,reference='',cutoff='9999-12-31',limit=8,since='0000-01-01'){
+ const all=archive.messages.filter(m=>m.date<=cutoff&&m.date>=since&&!media.test(m.text.trim()));if(!all.length)return [];
  const words=new Map();for(const w of tokens(query).slice(0,220))words.set(w,Math.min(5,(words.get(w)||0)+2));
  for(const w of tokens(reference).slice(0,450))if(!words.has(w))words.set(w,0.45);
  for(const group of themes)if(group.some(w=>words.has(w)))for(const w of group)if(!words.has(w))words.set(w,0.7);
  const names=normalize(query+' '+reference.slice(0,1800)),wanted=new Set(characterAliases.filter(a=>names.includes(normalize(a))));
  const mainWords=[...words.entries()].sort((a,b)=>b[1]-a[1]).slice(0,110),df=new Map(),sets=all.map(m=>new Set(tokens(m.text)));
  for(const set of sets)for(const [w] of mainWords)if(set.has(w))df.set(w,(df.get(w)||0)+1);
- const scores=all.map((m,i)=>{let score=0;for(const [w,weight] of mainWords)if(sets[i].has(w))score+=weight*Math.log(1+all.length/(1+(df.get(w)||0)));if(wanted.has(m.speaker))score+=2;return score;});
+ const scores=all.map((m,i)=>{let score=0;for(const [w,weight] of mainWords)if(sets[i].has(w))score+=weight*Math.log(1+all.length/(1+(df.get(w)||0)));if(score>0&&wanted.has(m.speaker))score+=2;return score;});
  const ranked=all.map((_,i)=>({i,score:scores[i]+(scores[i-1]||0)*0.35+(scores[i+1]||0)*0.35})).sort((a,b)=>b.score-a.score||a.i-b.i),picked=[],used=new Set();
  for(const {i,score} of ranked){
-  if(score<=0||picked.length>=8)break;if(used.has(i))continue;
+  if(score<=0||picked.length>=limit)break;if(used.has(i))continue;
   const anchor=all[i],indices=[];for(let j=Math.max(0,i-2);j<=Math.min(all.length-1,i+2);j++)if(all[j].date===anchor.date&&Math.abs(all[j].index-anchor.index)<=8&&!used.has(j))indices.push(j);
   if(indices.length<2)continue;const lines=indices.map(j=>({speaker:all[j].speaker,text:all[j].text.slice(0,420)}));if(new Set(lines.map(l=>l.speaker)).size<2)continue;
   indices.forEach(j=>used.add(j));picked.push({i,window:{date:anchor.date,lines}});
  }
  return picked.sort((a,b)=>a.i-b.i).map(x=>x.window);
 }
+
+export function episodeStart(number){
+ return ['2026-03-28','2026-04-01','2026-05-01','2026-06-01','2026-07-01','2026-07-01','2026-08-01','2026-08-01','2026-09-01','2026-09-01','2026-09-01','2026-10-01'][Number(number)-1]||'2026-03-28';
+}
+// Search cues are not facts or quotes.
+const episodeSearchCues={
+ 1:['Barretta Viper Dottore panchina giocare titolare convocati minutaggio far fuori esclusione Casta vertici','Cecè Giogale Hermano Barretta pizza pizzata cena casa Guglielmo famigghia organizziamo','Barretta Viper Hermano Cecè esame test calabrese Calabria nduja Guglielmo','Barretta Giogale Talkien vertici far fuori anni allenamenti squadra'],
+ 2:['Giogale Barretta comando riunione assemblea direttivo dirigenza promesse convocazioni tesseramenti'],
+ 3:['Pollicino allenamenti convocati titolari formazione campo partita schemi cambi motivazione'],
+ 4:['Casta Dottore Viper Barretta panchina convocazioni minutaggio favori vertici'],
+ 5:['Giogale Barretta riunione direttivo lasciare dirigenza ruolo incarico acciacchi'],
+ 6:['Viper Dottore panchina minutaggio convocazioni giocare ritiro allenamenti'],
+ 7:['Hermano Barretta Viper Cecè Giogale pizza White Pony birra discussione patti disamina'],
+ 8:['Barretta Le Fromage formaggio Pecora veterani far fuori allenamenti squadra'],
+ 9:['Brugge Belgio viaggio birra White Pony formaggio Cecè Hermano calabrese esame'],
+ 10:['Brugge birra Rob Hermano comunismo politica patataro formaggio esame calabrese'],
+ 11:['White Pony birre pizza cena tutti Giogale Barretta formaggio'],
+ 12:['Pecora Le Fromage formaggio convocazioni provocazione allenamenti squadra']
+};
+export function selectNarrativeReferences(archive,number,query,reference=''){
+ const cutoff=episodeCutoff(number),since=episodeStart(number),cues=episodeSearchCues[number]||[];
+ const chronological=selectDialogueWindows(archive,query+' '+cues.join(' '),reference,cutoff,4,since);
+ const styleOnly=[],seen=new Set(chronological.flatMap(w=>w.lines.map(l=>w.date+'|'+l.speaker+'|'+l.text)));
+ for(const cue of (cues.length?cues:[query])){
+  const windows=selectDialogueWindows(archive,cue,'','9999-12-31',number===1?3:8);
+  let count=0;
+  for(const w of windows){
+   const keys=w.lines.map(l=>w.date+'|'+l.speaker+'|'+l.text);
+   if(keys.some(k=>seen.has(k)))continue;
+   keys.forEach(k=>seen.add(k));styleOnly.push(w);count++;
+   if(styleOnly.length>=8||number===1&&count>=2)break;
+  }
+  if(styleOnly.length>=8)break;
+ }
+ return {chronological,styleOnly};
+}
+export function selectPlanDialogueWindows(archive,number,query){
+ return selectDialogueWindows(archive,query+' '+(episodeSearchCues[number]||[]).join(' '),'',episodeCutoff(number),2,episodeStart(number)).map(w=>({date:w.date,lines:w.lines.slice(0,4).map(l=>({speaker:l.speaker,text:l.text.slice(0,250)}))}));
+}
+
 export function storySimilarity(a,b){
  const grams=s=>{const w=normalize(s).match(/[\p{L}\p{N}]+/gu)||[],set=new Set();for(let i=0;i+3<w.length;i++)set.add(w.slice(i,i+4).join(' '));return set;};
  const x=grams(a),y=grams(b);if(!x.size||!y.size)return 0;let common=0;for(const g of x)if(y.has(g))common++;return common/Math.min(x.size,y.size);

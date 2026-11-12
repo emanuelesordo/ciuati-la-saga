@@ -4,6 +4,8 @@ on:
     branches: [migrazione/github-hosting]
     paths:
       - 'static-site/**'
+      - 'supabase/functions/saga-narratore/**'
+      - 'scripts/verify-narrative-dialogues.mjs'
       - '.github/workflows/deploy-pages.yml'
   workflow_dispatch:
 permissions:

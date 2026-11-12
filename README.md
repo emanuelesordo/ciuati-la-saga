@@ -14,3 +14,6 @@ Il narratore legge un archivio privato `narrator-dialogues/dialogues.json` solo 
 
 ## Sicurezza
 Non committare chiavi di servizio, credenziali, chat private o contenuti identificativi. I testi narrativi non sono pubblicati senza approvazione.
+
+### Ricerca cronologica e voce dei personaggi
+La generazione separa gli scambi del periodo del capitolo dai campioni linguistici pertinenti di altri periodi. Questi ultimi non possono introdurre avvenimenti futuri. Il ricalcolo della scaletta usa riferimenti dialogici del periodo di ciascun capitolo e la bozza iniziale esistente. La chat completa resta nello Storage privato, mai nel repository.
